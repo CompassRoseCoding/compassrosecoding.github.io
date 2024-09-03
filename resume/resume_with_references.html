@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Resume</title>
+    <link rel="icon" href="../resources/images/compass_icon.png">
+
+    <link href="../resources/header_style.css" rel="stylesheet" type="text/css" />
+    <script src="../resources/header_script.js"></script>
+
+    <link href="downloadable_style.css" rel="stylesheet" type="text/css" />
+
+    <script src="downloadOps.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+        integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="tabs_div">
+            <a class="current page_btn" href="../">Home</a>
+            <a class="current page_btn" href="../resume">Resume</a>
+            <a class="current page_btn" href="../design">Design</a>
+        </div>
+        <div class="header_underlay">
+            <img class="header_bg" src="../resources/images/canyon_contour.svg">
+        </div>
+        <div class="header_overlay">
+            <div class="compass_div">
+                <h1 class="header_text">Compass Rose Coding</h1>
+                <canvas class="header_canvas" id="canvas" height="500" width="500"></canvas>
+                <h1 class="page_header">Resume</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="about_div">
+        <div>
+            <h1 class="resume_header">About Me</h1>
+            <text>Hello! I'm Hannah Robertson, a software engineer in the Phoenix Metroplex looking for freelance work
+                until I find full time employment. I specialize in custom made-from-scratch websites, both front and
+                back end. I can create databases, APIs, blog interfaces, and document repositories on request. I also
+                have experience in Java and Python applications, as well as several other programming languages. Check
+                out my resume if you want to learn more!</text>
+        </div>
+        <img class="resume_img" src="../resources/images/Circle Headshot.png">
+    </div>
+
+    <div class="download_div">
+        <button class="download_button" onclick="downloadResume()">Download Resume</button>
+    </div>
+
+    <div class="download_area" id="download_area">
+        <div class="padding_area">                    
+            <div class="resume" id="resume">
+                <h1 class="resume_header">Hannah Robertson</h1>
+                <div class="compass_div">
+                    <h1 class="compass_header">Compass</h1>
+                    <img class="compass_icon" src="../resources/images/compass_icon.png">
+                    <h1 class="compass_header">Rose Coding</h1>
+                </div>
+
+                <div class="right_column">
+                    <div class="contact_class">
+                        <div class="contact_line pad_1">
+                            <img class="contact_icon" src="../resources/images/cursor.svg">
+                            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
+                                href="https:compassrosecoding.com">compassrosecoding.com</a>
+                        </div>
+                        <div class="contact_line">
+                            <img class="contact_icon" src="../resources/images/email.svg">
+                            <a class="portfolio_link" href="mailto:hannah@i40it.com">hannah@i40it.com</a>
+                        </div>
+                        <div class="contact_line">
+                            <img class="contact_icon" src="../resources/images/phone.svg">
+                            <a class="portfolio_link" href="tel:619-733-9095">(619)733-9095</a>
+                        </div>
+                        <div class="contact_line">
+                            <img class="contact_icon" src="../resources/images/github.svg">
+                            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
+                                href="https://github.com/CompassRoseCoding">github.com/CompassRoseCoding</a>
+                        </div>
+                        <div class="contact_line">
+                            <img class="contact_icon" src="../resources/images/linkedin.svg">
+                            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
+                                href="https://linkedin.com/in/hmrobertson">linkedin.com/in/hmrobertson</a>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="resume_section_header">Portfolio</h2>
+                <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
+                    href="https://dirtroadrealestate.com">dirtroadrealestate.com</a>
+                <br>
+                <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
+                    href="https://compassrosecoding.com">compassrosecoding.com</a>
+
+                <h2 class="resume_section_header">Education</h2>
+                <p class="bio">
+                    Arizona State University
+                    <br>
+                    Bachelor's of Science, Software Engineering, May 2023
+                </p>
+
+                <h2 class="resume_section_header">Career Goal</h2>
+                <p class="bio">
+                    My goal is to work as a full time software engineer specializing in web development or app
+                    development,
+                    perhaps with Amazon Web Services or another customizable interface, perhaps with Java or C suite.
+                </p>
+
+
+                <h2 class="resume_section_header">Work Experience</h2>
+
+                <h3 class="sub_header">
+                    Freelance Web Developer
+                    <br>August 2024
+                </h3>
+                <p class="bio">
+                    This is a freelance job I took on behalf of Dirt Road Real Estate to modernize and simplify their
+                    website. I
+                    had several goals for this project: transfer the site to a different hosting service, clean up the
+                    site
+                    interface and make it less 'cluttered', implement a blog page, and create a database interface for
+                    the
+                    user
+                    in order to comply with new Real Estate law.
+                    The website can be found at:
+                    <a class="contact_link" target="_blank" rel="noopener noreferrer"
+                        href="https://dirtroadrealestate.com">dirtroadrealestate.com</a>
+                </p>
+
+                <h3 class="sub_header">
+                    Coding Tutor - theCoderSchool Tutoring Center
+                    <br>May 2022 - Present
+                </h3>
+                <p class="bio">
+                    This is a part time job teaching children from the ages of 7 to 18 basic computer programming,
+                    tailoring lessons involving more advanced concepts using Scratch or Python to groups of one or two
+                    children. And teaching basic Java, basic C++, and advanced Python to individual children. The skills
+                    that
+                    this job reinforces are customer service, creating algorithms on the fly, and debugging code.
+                </p>
+
+                <h3 class="sub_header">
+                    PC Apps Summer Intern - Pyramid Technologies
+                    <br>May 2023 - August 2023
+                </h3>
+                <p class="bio">
+                    This was a job focused on JS/CSS/HTML application development, transferring a legacy application
+                    from a
+                    flask implementation to a
+                    streamlined and more UI-friendly version that relied on AWS API Gateway, Lambda, S3, Cognito,
+                    Cloudfront,
+                    and
+                    RDS instead. This proprietary project was a way to view and edit a database stored on RDS in a
+                    user-friendly
+                    way. At this job, I used Git and Github for version control.
+                </p>
+
+                <h3 class="sub_header">
+                    Capstone Project Developer - ASU Polytechnic University
+                    <br>August 2022 - May 2023
+                </h3>
+                <p class="bio">
+                    This was a long-term school project focused on web development, focusing on basic JS/CSS/HTML and
+                    efficiency
+                    without sacrificing performance. Agile
+                    methods,
+                    interfacing with the requirements of our sponsor in order to create an educational and engaging
+                    website
+                    about the NASA Psyche mission.
+                </p>
+
+                <h3 class="sub_header">
+                    Student Worker - ASU Polytechnic University Technology Office
+                    <br>August 2021 - May 2023
+                </h3>
+                <p class="bio">
+                    An IT job focused on customer service, basic troubleshooting, routine updates, and other
+                    maintenance.
+                    This
+                    really sharpened my customer service skills and gave me a lot of insight into how your average user
+                    interacts with computers.
+                </p>
+
+                <h2 class="resume_section_header">Reference</h2>
+                <div class="reference_div">
+                    <div class="ref_entry">
+                        <h4 class="ref_text">Emily Thornock, Owner<br>theCoderSchool<br>1435 E Warner Rd, Ste 104
+                            <br>Gilbert,
+                            AZ
+                            85296
+                        </h4>
+                        <a class="ref_link" href="tel:480-410-7669">(480)410-7669</a>
+                        <a class="ref_link" href="mailto:gilbert@thecoderschool.com">gilbert@thecoderschool.com</a>
+                    </div>
+
+                    <div class="ref_entry">
+                        <h4 class="ref_text">Kerrie Nollette, Supervisor<br>Pyramid Technologies<br>718 N Quail Dr
+                            <br>Mesa,
+                            AZ
+                            85205
+                        </h4>
+                        <a class="ref_link" href="tel:480-507-0088">(480)507-0088</a>
+                        <a class="ref_link"
+                            href="mailto:kanollette@pyramidacceptors.com">kanollette@pyramidacceptors.com</a>
+                    </div>
+
+                    <div class="ref_entry">
+                        <h4 class="ref_text">Daniel Camargo, Supervisor<br>ASU ET Deskside Polytechnic Office<br>7107 E.
+                            Tiburon
+                            Ave <br>Mesa, AZ 85212</h4>
+                        <a class="ref_link" href="tel:480-727-1502">(480)727-1502</a>
+                        <a class="ref_link" href="mailto:daniel.camargo@asu.edu">daniel.camargo@asu.edu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

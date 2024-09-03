@@ -1,0 +1,21 @@
+﻿Prida Fonts, Resamitz:
+
+license: SIL Open Font License (OFL)
+links: 
+https://www.fontspace.com/resamitz-font-f19169
+https://www.fontspace.com/prida01-font-f22184
+https://www.fontspace.com/prida02calt-font-f22936
+https://www.fontspace.com/prida36-font-f21839
+https://www.fontspace.com/prida61-font-f17109
+https://www.fontspace.com/prida65-font-f17747
+
+...
+
+Southwest Motif 1, 2
+
+license: Freeware
+links: 
+https://www.fontspace.com/southwest-motif-1-font-f2724
+https://www.fontspace.com/southwest-motif-2-font-f2725
+
+

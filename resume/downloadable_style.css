@@ -1,0 +1,276 @@
+h2, h3 {
+    font-size: 15px;
+}
+
+h4, a {
+    font-size: 15px;
+}
+
+ul {
+    margin-top: 5px;
+}
+
+p, li, .contact_link {
+    font-family: 'Resamitz';
+    font-size: 12.5px;
+    margin-top: 0;
+}
+
+li::marker {
+    content: '⫸ ';
+}
+
+text {
+    font-family: 'Resamitz';
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+.download_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 10%;
+}
+
+.compass_icon {
+    width: 60px;
+    height: 60px;
+}
+
+.header_text {
+    margin: 0;
+}
+
+.resume_header {
+    font-family: 'Prida01';
+    font-weight: 100;
+
+    margin: auto;
+    text-align: center;
+}
+
+.compass_header {
+    font-family: 'Prida65';
+
+    align-self: center;
+
+    width: max-content;
+
+    margin: 0
+}
+
+.right_column {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    padding-left: 15px;
+
+    max-width: max-content;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio_link {
+    color: var(--turq);
+
+    padding-left: 5px;
+
+    font-family: 'Resamitz';
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.resume_section_header {
+    font-family: 'Prida65';
+    font-weight: 100;
+    font-size: 20px;
+
+    margin-bottom: 0;
+    margin-top: 10px;
+
+    color: var(--maroon)
+}
+
+.sub_header {
+    font-family: 'Prida01';
+    font-weight: 100;
+
+    color: var(--dusk);
+
+    margin-bottom: 0;
+}
+
+.side_by_side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contact_class {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact_line {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+
+.contact_icon {
+    width: 15px;
+}
+
+.contact_link {
+    color: var(--turq);
+
+    padding-left: 5px;
+
+    font-family: 'Resamitz';
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .about_div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    
+        margin: 5%;
+    }
+
+    .resume_img {
+        width: 50vw;
+        margin: auto;
+    }
+
+    .reference_div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .download_area {
+        background: url(../resources/images/resume_bg.svg);
+    
+        margin-left: auto;
+        margin-right: auto;
+    
+        width: 8.5in;
+        height: 11in;
+    
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .resume {
+        width: 7in;
+        height: 10in;
+    
+        padding-left: 25px;
+        padding-right: 25px;
+    
+        background-color: white;
+    }
+
+    .download_button {
+        background: white;
+        color: var(--tcotta);
+        width: max-content;
+        height: 35px;
+    
+        border: solid 1px black;
+        border-radius: 10px;
+    
+        font-family: 'Prida36';
+        font-size: 5vw;
+    
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    .about_div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    
+        margin: 5%;
+    }
+
+    .resume_img {
+        width: 30vw;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    .reference_div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 30px;
+    }
+
+    .download_area {
+        background: url(../resources/images/resume_bg.svg);
+    
+        margin-left: auto;
+        margin-right: auto;
+    
+        width: 8.5in;
+        height: 11in;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .resume {
+        width: 7in;
+        height: 10in;
+    
+        padding-left: 25px;
+        padding-right: 25px;
+    
+        background-color: white;
+    }
+
+    .download_button {
+        background: white;
+        color: var(--tcotta);
+        width: max-content;
+        height: 35px;
+    
+        border: solid 1px black;
+        border-radius: 10px;
+    
+        font-family: 'Prida36';
+        font-size: 30px;
+    
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+}

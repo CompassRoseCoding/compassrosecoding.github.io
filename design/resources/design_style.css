@@ -1,0 +1,39 @@
+p, label, h3 {
+    font-family: 'Resamitz';
+}
+
+select {
+    background: white;
+    width: 200px;
+    height: 40px;
+
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.content {
+    width: 90%;
+    margin: auto;
+}
+
+.section_header {
+    font-family: 'Prida01';
+}
+
+.style_button {
+    background: white;
+    color: var(--tcotta);
+    width: 200px;
+    height: 35px;
+
+    border: solid 1px black;
+    border-radius: 10px;
+
+    font-family: 'Prida36';
+    font-size: 30px;
+}
+
+.image_only_div {
+    display: none;
+}
+

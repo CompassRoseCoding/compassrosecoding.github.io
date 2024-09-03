@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Resume</title>
+    <link rel="icon" href="../resources/images/compass_icon.png">
+
+    <link id="header_css" href="../resources/header_style.css" rel="stylesheet" type="text/css" />
+    <script src="../resources/header_script.js"></script>
+
+    <link id="design_css" href="resources/design_style.css" rel="stylesheet" type="text/css" />
+    <link href="resources/base_style.css" rel="stylesheet" type="text/css" />
+
+    <script src="resources/designOps.js"></script>
+    <script src="resources/colorOps.js"></script>
+
+    <script src="modern/modernCompassOps.js"></script>
+    <script src="retro/retroCompassOps.js"></script>
+</head>
+
+<body onload="designInit()">
+    <div class="header">
+        <div class="tabs_div">
+            <a class="current page_btn" href="../">Home</a>
+            <a class="current page_btn" href="../resume">Resume</a>
+            <a class="current page_btn" href="">Design</a>
+        </div>
+        <div class="header_underlay">
+            <img class="header_bg" src="../resources/images/canyon_contour.svg">
+        </div>
+        <div class="header_overlay">
+            <div class="compass_div">
+                <h1 class="header_text">Compass Rose Coding</h1>
+                <canvas class="header_canvas" id="canvas" height="500" width="500"></canvas>
+                <h1 class="page_header">Design</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="flex_section">
+            <div>
+                <h1 class="section_header">Where Do I Start?</h1>
+                <p>
+                    Website design is an art form, just like any other. However, unlike many art forms, it's a step by
+                    step
+                    process that's fairly simple to go through if you dedicate time and effort. The following are some
+                    things to
+                    think about when you first consider comissioning a website. If you have trouble, don't worry! These
+                    are
+                    merely ideas to help you along- if you don't have a preference I can definitely help you workshop.
+                    These are
+                    simply meant to help you gather your thoughts.
+                </p>
+            </div>
+            <div class="image_only_div">
+                <img src="https://images.pexels.com/photos/5060982/pexels-photo-5060982.jpeg" class="landscape right">
+            </div>
+        </div>
+
+        <div class="flex_section_reverse">
+            <div>
+                <h1 class="section_header">Website Styling</h1>
+                <p>
+                    What do you want your website's general design to be? A website's style can speak to your customer.
+                    Do you
+                    want homey, or modern? Elegant, or fun? A website's design is a combination of its layout, colors,
+                    pictures,
+                    and fonts. Think of websites you see around the web that you like the appearance of; what do you
+                    like about
+                    them?
+                    <br><br>
+                    Below is a bar of buttons that change the style of the website so you can get some ideas.
+                </p>
+            </div>
+            <div class="image_only_div">
+                <img src="https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg" class="landscape left">
+            </div>
+        </div>
+
+        <div class="style_button_bar">
+            <button class="style_button" onclick="switchOriginal()">Original</button>
+            <button class="style_button" onclick="switchModern()">Modern</button>
+            <button class="style_button" onclick="switchRetro()">Retro</button>
+            <button class="style_button" onclick="switchImage()">Pictures</button>
+        </div>
+
+        <div class="flex_section">
+            <div>
+                <h1 class="section_header">The Written Word</h1>
+                <p>
+                    Fonts hugely impact your user's impression of a site. Do you have a specific font you
+                    would like? If you don't have a specific one in mind, you can think about more general outlines- do
+                    you want
+                    a serif or sans serif font? Legibility is important, so make sure your font of choice is easy to
+                    read even
+                    on a small screen.
+                    <br><br>
+                    CSS has some fonts included, but not all of them are supported on all browsers. In addition, you can
+                    add
+                    your own fonts to a given website, a service I offer. The drop down below lists many of the included
+                    fonts
+                    in order to give you a starting point.
+                </p>
+                <div class="font_div">
+                    <select class="font_select" onchange="changeFontDemo(this)">
+                        <option style="font-family:Arial, sans-serif" class="font_option" value="Arial, sans-serif">
+                            Arial,
+                            sans-serif</option>
+                        <option style="font-family:Helvetica, sans-serif" class="font_option"
+                            value="Helvetica, sans-serif">
+                            Helvetica, sans-serif</option>
+                        <option style="font-family:Verdana, sans-serif" class="font_option" value="Verdana, sans-serif">
+                            Verdana,
+                            sans-serif</option>
+                        <option style="font-family:Trebuchet MS, sans-serif" class="font_option"
+                            value="Trebuchet MS, sans-serif">
+                            Trebuchet MS, sans-serif</option>
+                        <option style="font-family:Gill Sans, sans-serif" class="font_option"
+                            value="Gill Sans, sans-serif">Gill
+                            Sans, sans-serif</option>
+                        <option style="font-family:Noto Sans, sans-serif" class="font_option"
+                            value="Noto Sans, sans-serif">Noto
+                            Sans, sans-serif</option>
+                        <option style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif"
+                            class="font_option" value="Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif">
+                            Avantgarde, TeX Gyre Adventor, URW
+                            Gothic L, sans-serif</option>
+                        <option style="font-family:Optima, sans-serif" class="font_option" value="Optima, sans-serif">
+                            Optima,
+                            sans-serif</option>
+                        <option style="font-family:Arial Narrow, sans-serif" class="font_option"
+                            value="Arial Narrow, sans-serif">
+                            Arial Narrow, sans-serif</option>
+                        <option style="font-family:sans-serif" class="font_option" value="sans-serif">sans-serif
+                        </option>
+                        <option style="font-family:Times, Times New Roman, serif" class="font_option"
+                            value="Times, Times New Roman, serif">Times, Times New Roman, serif</option>
+                        <option style="font-family:Didot, serif" class="font_option" value="Didot, serif">Didot, serif
+                        </option>
+                        <option style="font-family:Georgia, serif" class="font_option" value="Georgia, serif">Georgia,
+                            serif
+                        </option>
+                        <option style="font-family:Palatino, URW Palladio L, serif" class="font_option"
+                            value="Palatino, URW Palladio L, serif">Palatino, URW Palladio L, serif</option>
+                        <option style="font-family:Bookman, URW Bookman L, serif" class="font_option"
+                            value="Bookman, URW Bookman L, serif">Bookman, URW Bookman L, serif</option>
+                        <option style="font-family:New Century Schoolbook, TeX Gyre Schola, serif" class="font_option"
+                            value="New Century Schoolbook, TeX Gyre Schola, serif">New Century Schoolbook, TeX Gyre
+                            Schola,
+                            serif
+                        </option>
+                        <option style="font-family:American Typewriter, serif" class="font_option"
+                            value="American Typewriter, serif">American Typewriter, serif</option>
+                        <option style="font-family:serif" class="font_option" value="serif">serif</option>
+                        <option style="font-family:Andale Mono, monospace" class="font_option"
+                            value="Andale Mono, monospace">
+                            Andale
+                            Mono, monospace</option>
+                        <option style="font-family:Courier New, monospace" class="font_option"
+                            value="Courier New, monospace">
+                            Courier New, monospace</option>
+                        <option style="font-family:Courier, monospace" class="font_option" value="Courier, monospace">
+                            Courier,
+                            monospace</option>
+                        <option style="font-family:FreeMono, monospace" class="font_option" value="FreeMono, monospace">
+                            FreeMono,
+                            monospace</option>
+                        <option style="font-family:OCR A Std, monospace" class="font_option"
+                            value="OCR A Std, monospace">OCR A
+                            Std,
+                            monospace</option>
+                        <option style="font-family:DejaVu Sans Mono, monospace" class="font_option"
+                            value="DejaVu Sans Mono, monospace">DejaVu Sans Mono, monospace</option>
+                        <option style="font-family:monospace" class="font_option" value="monospace">monospace</option>
+                        <option style="font-family:Comic Sans MS, Comic Sans, cursive" class="font_option"
+                            value="Comic Sans MS, Comic Sans, cursive">Comic Sans MS, Comic Sans, cursive</option>
+                        <option style="font-family:Apple Chancery, cursive" class="font_option"
+                            value="Apple Chancery, cursive">
+                            Apple Chancery, cursive</option>
+                        <option style="font-family:Bradley Hand, cursive" class="font_option"
+                            value="Bradley Hand, cursive">
+                            Bradley
+                            Hand, cursive</option>
+                        <option style="font-family:Brush Script MT, Brush Script Std, cursive" class="font_option"
+                            value="Brush Script MT, Brush Script Std, cursive">Brush Script MT, Brush Script Std,
+                            cursive
+                        </option>
+                        <option style="font-family:Snell Roundhand, cursive" class="font_option"
+                            value="Snell Roundhand, cursive">
+                            Snell Roundhand, cursive</option>
+                        <option style="font-family:URW Chancery L, cursive" class="font_option"
+                            value="URW Chancery L, cursive">
+                            URW
+                            Chancery L, cursive</option>
+                        <option style="font-family:cursive" class="font_option" value="cursive">cursive</option>
+                        <option style="font-family:Impact, fantasy" class="font_option" value="Impact, fantasy">Impact,
+                            fantasy
+                        </option>
+                        <option style="font-family:Luminari, fantasy" class="font_option" value="Luminari, fantasy">
+                            Luminari,
+                            fantasy</option>
+                        <option style="font-family:Chalkduster, fantasy" class="font_option"
+                            value="Chalkduster, fantasy">
+                            Chalkduster, fantasy</option>
+                        <option style="font-family:Jazz LET, fantasy" class="font_option" value="Jazz LET, fantasy">Jazz
+                            LET,
+                            fantasy</option>
+                        <option style="font-family:Blippo, fantasy" class="font_option" value="Blippo, fantasy">Blippo,
+                            fantasy
+                        </option>
+                        <option style="font-family:Stencil Std, fantasy" class="font_option"
+                            value="Stencil Std, fantasy">
+                            Stencil
+                            Std, fantasy</option>
+                        <option style="font-family:Marker Felt, fantasy" class="font_option"
+                            value="Marker Felt, fantasy">Marker
+                            Felt, fantasy</option>
+                        <option style="font-family:Trattatello, fantasy" class="font_option"
+                            value="Trattatello, fantasy">
+                            Trattatello, fantasy</option>
+                        <option style="font-family:fantasy" class="font_option" value="fantasy">fantasy</option>
+                        <option style="font-family:system-ui" class="font_option" value="system-ui">system-ui</option>
+                        <option style="font-family:ui-serif" class="font_option" value="ui-serif">ui-serif</option>
+                        <option style="font-family:ui-sans-serif" class="font_option" value="ui-sans-serif">
+                            ui-sans-serif
+                        </option>
+                        <option style="font-family:ui-monospace" class="font_option" value="ui-monospace">ui-monospace
+                        </option>
+                        <option style="font-family:ui-rounded" class="font_option" value="ui-rounded">ui-rounded
+                        </option>
+                        <option style="font-family:emoji" class="font_option" value="emoji">emoji</option>
+                        <option style="font-family:math" class="font_option" value="math">math</option>
+                        <option style="font-family:fangsong" class="font_option" value="fangsong">fangsong</option>
+                    </select>
+                    <h2 id="font_example" class="font_example">The Quick Brown Fox Jumps Over The Lazy Dog.</h2>
+                </div>
+            </div>
+            <div class="image_only_div">
+                <img src="https://images.pexels.com/photos/234133/pexels-photo-234133.jpeg" class="portrait right">
+            </div>
+        </div>
+
+        <div class="flex_section_reverse">
+            <div>
+                <h1 class="section_header">The Wonderful World of Color</h1>
+                <p>
+                    Colors also communicate a great deal about your website to your end user. I reccomend you pick one
+                    to two
+                    main colors, and
+                    up to three
+                    accent colors, depending on the style you want your website to be. Minimalist style sites, for
+                    example,
+                    generally only have one or two colors (other than black and white). Often, picking colors off of
+                    your logo
+                    works very well. If you don't have a logo yet, or you want different colors than exist in your logo,
+                    check
+                    out the color picker below!
+                </p>
+            </div>
+            <div class="image_only_div">
+                <img src="https://images.pexels.com/photos/1279813/pexels-photo-1279813.jpeg" class="portrait left">
+            </div>
+        </div>
+
+        <div class="color_div">
+            <div class="canvas_div">
+                <canvas class="gradient_canvas" id="gradient_canvas" height="200" width="600"
+                    onload="fillGradientCanvas()"></canvas>
+                <canvas class="shade_canvas" id="shade_canvas" height="200" width="200"
+                    onload="fillGradientCanvas()"></canvas>
+            </div>
+
+            <div class="results_div">
+                <div class="color_rgb_hex">
+                    <div>
+                        <h3>Color Result:</h3>
+                        <div class="color_output_div" id="color_output_div"></div>
+                    </div>
+
+                    <div class="rgb_hex_out">
+                        <h3 for="rgb_out" class="color_out_label">RGB: </h3>
+                        <input id="rgb_out" class="color_out">
+                        <h3 for="hex_out" class="color_out_label">Hex: </h3>
+                        <input id="hex_out" class="color_out">
+                    </div>
+                </div>
+                <div>
+                    <h3>Complementary Colors:</h3>
+                    <div class="complementaries_panel">
+                        <div class="complementary_div" id="comp_color1"></div>
+                        <div class="complementary_div" id="comp_color2"></div>
+                        <div class="complementary_div" id="comp_color3"></div>
+                        <div class="complementary_div" id="comp_color4"></div>
+                        <div class="complementary_div" id="comp_color5"></div>
+                        <div class="complementary_div" id="comp_color6"></div>
+                        <div class="complementary_div" id="comp_color7"></div>
+                        <div class="complementary_div" id="comp_color8"></div>
+                        <div class="complementary_div" id="comp_color9"></div>
+                        <div class="complementary_div" id="comp_color10"></div>
+                        <div class="complementary_div" id="comp_color11"></div>
+                        <div class="complementary_div" id="comp_color12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex_section">
+            <div>
+                <h1 class="section_header">Logos and Images</h1>
+                <p>
+                    Do you have a logo that you want to use on your site? What photos would you like to add, if any? Are
+                    there
+                    any other promotional materials you would want to include? Having all these documents in one place
+                    can
+                    greatly help with comissioning a website. Please note that it's very important that you have
+                    permission to use the materials for your website: if you are using stock photos, you need to make
+                    sure they're open source or commerically licensed.
+                </p>
+            </div>
+            <div class="image_only_div">
+                <img src="https://images.pexels.com/photos/1226721/pexels-photo-1226721.jpeg" class="portrait left">
+            </div>
+        </div>
+
+        <div class="flex_section_reverse">
+            <div>
+                <h1 class="section_header">Hosting and Domain Name</h1>
+                <p>
+                    Once your website is created, where do you want to host it? There are many different hosting
+                    companies, such
+                    as GoDaddy and Squarespace, with many smaller competitors. When researching hosting costs, you
+                    should look
+                    into both the cost for hosting an HTML website and the cost to obtain an SSL. While there are many
+                    hosting
+                    providers who do offer discounted services, you do get what you pay for.
+
+                    <br><br>
+
+                    In addition, you should think about what URL you want. If you already have one, great! If not, here
+                    are some
+                    tips to help your choice. You want your URL to be related to your business, ideally very close to or
+                    the
+                    same as your business name, and memorable.
+                </p>
+            </div>
+            <div class="image_only_div">
+                <img src="https://images.pexels.com/photos/109371/pexels-photo-109371.jpeg" class="landscape left">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

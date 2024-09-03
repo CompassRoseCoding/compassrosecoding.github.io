@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Home</title>
+    <link rel="icon" href="resources/images/compass_icon.png">
+
+    <link href="resources/header_style.css" rel="stylesheet" type="text/css" />
+    <script src="resources/header_script.js"></script>
+
+    <link href="home/home_style.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+
+<body onload="init()">
+    <div class="header">
+        <div class="tabs_div">
+            <a class="current page_btn" href="">Home</a>
+            <a class="current page_btn" href="resume">Resume</a>
+            <a class="current page_btn" href="design">Design</a>
+        </div>
+        <div class="header_underlay">
+            <img class="header_bg" src="resources/images/canyon_contour.svg">
+        </div>
+        <div class="header_overlay">
+            <div class="compass_div">
+                <h1 class="header_text">Compass Rose Coding</h1>
+                <canvas class="header_canvas" id="canvas" height="500" width="500"></canvas>
+                <h1 class="page_header">Home</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="body_content">
+        <h1 class="section_header">Custom Websites for Unique Organizations</h1>
+        <p>
+            Creating a website for your small business, club, or organization can be a daunting task. Each organization
+            has different needs, and
+            not everyone can simply use a filled-in template to represent their organization to the world. Compass
+            Rose Coding provides fully custom websites and hosting assistance and turns making your own website into an
+            adventure.
+        </p>
+
+        <br>
+
+        <h1 class="section_header">What Does Your Organization Need?</h1>
+        <p>
+            Does your business need an engaging spash page, or an informational website detailing your products and
+            services? Perhaps your organization needs a fun, engaging website to educate the public about your cause.
+            Maybe you want a place for your club to communicate about sponsored events, or your church needs to let your
+            congregation know about the need for volunteers in your ministry. Compass Rose Coding can help with all
+            those cases!
+        </p>
+
+        <br>
+
+        <h1 class="section_header">Designing A Website</h1>
+        <p>
+            Website design can be daunting. Do you want a clean, modern site, with only the information you need and
+            your logo? Would you like a punchy, dynamic site to catch your customer's attention? What colors or fonts
+            would you like to use, or would you like to aim for a specific style? The Design page has a list of
+            questions you can ask yourself and several tools to help you pick styles and color schemes.
+        </p>
+        <div class="button_bar">
+            <button class="swap_page" id="goto_design" onclick="window.location.href='/design'">Open Design Page</button>
+        </div>
+
+        <div class="email_div">
+            <h1 class="section_header center_header">Have a question? Send an email today!</h1>
+            <form id="contact_form" class="content">
+                <div class="email_form">
+                    <label class="input_label">Name:</label>
+                    <input type="text" name="user_name" id="user_name" class="input_text">
+                    <label class="input_label">Email:</label>
+                    <input type="email" name="user_email" id="user_email" class="input_text">
+                    <label class="input_label">Message:</label>
+                    <textarea name="message" class="input_area" id="input_area"></textarea>
+                    <div class="g-recaptcha pad_email_form" data-sitekey="6LdtETAqAAAAACdALJBPsGRLFbrBNoxUojXQK6AH">
+                    </div>
+                    <div class="button_bar">
+                        <input type="submit" value="Send" class="submit_email">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+
+        <div class="footer">
+
+        </div>
+
+    </div>
+</body>
+
+</html>
