@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Home</title>
+    <link rel="icon" href="resources/images/compass_icon.png">
+
+    <link href="resources/header_style.css" rel="stylesheet" type="text/css" />
+    <script src="resources/header_script.js"></script>
+
+    <link href="home/home_style.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+
+<body onload="init()">
+    <div class="header">
+        <div class="tabs_div">
+            <a class="current page_btn" href="">Home</a>
+            <a class="current page_btn" href="resume">Resume</a>
+            <a class="current page_btn" href="design">Design</a>
+            <a class="current page_btn" href="games">Games</a>
+        </div>
+        <div class="header_underlay">
+            <img class="header_bg" src="resources/images/canyon_contour.svg">
+        </div>
+        <div class="header_overlay">
+            <div class="compass_div">
+                <h1 class="header_text">Compass Rose Coding</h1>
+                <canvas class="header_canvas" id="canvas" height="500" width="500"></canvas>
+                <h1 class="page_header">Home</h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
