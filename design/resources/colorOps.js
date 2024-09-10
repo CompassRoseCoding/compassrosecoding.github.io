@@ -6,7 +6,7 @@ function initGradient() {
     const ctx = canvas.getContext("2d");
 
     fillGradientCanvas(canvas, ctx)
-    circle(ctx, 5, 5)
+    circle(ctx, canvas, 5, 5)
     let data = ctx.getImageData(5, 5, 1, 1).data;
     initShade(data)
 
@@ -17,7 +17,7 @@ function initGradient() {
         y = Math.floor(coords[1])
 
         fillGradientCanvas(canvas, ctx);
-        circle(ctx, x, y)
+        circle(ctx, canvas, x, y)
         data = ctx.getImageData(x, y, 1, 1).data;
         initShade(data)
     }
@@ -31,10 +31,10 @@ function initShade(data) {
 
     fillShadeCanvas(canvas, ctx, color);
     if (shadeX === -1) {
-        circle(ctx, 5, 5)
+        circle(ctx, canvas, 5, 5)
     }
     else {
-        circle(ctx, shadeX, shadeY)
+        circle(ctx, canvas, shadeX, shadeY)
     }
 
     data = ctx.getImageData(5, 5, 1, 1).data;
@@ -51,7 +51,7 @@ function initShade(data) {
         shadeY = y;
 
         fillShadeCanvas(canvas, ctx, color);
-        circle(ctx, x, y)
+        circle(ctx, canvas, x, y)
         data = ctx.getImageData(x, y, 1, 1).data;
 
         setOutputColor(data)
@@ -66,12 +66,16 @@ function fillGradientCanvas(canvas, ctx, data) {
 
     //create a gradient for the colors- cycle through RBG rainbow
     const grad0 = ctx.createLinearGradient(0, 0, wth, 0);
-    grad0.addColorStop(0, 'rgb(255, 0, 0, 1)');
-    grad0.addColorStop(.1667, 'rgb(255, 255, 0, 1)');
-    grad0.addColorStop(.3333, 'rgb(0, 255, 0, 1)');
+    grad0.addColorStop(.02, 'rgb(255, 0, 0, 1)');
+    grad0.addColorStop(.17, 'rgb(255, 255, 0, 1)');
+    grad0.addColorStop(.18, 'rgb(255, 255, 0, 1)');
+    grad0.addColorStop(.34, 'rgb(0, 255, 0, 1)');
+    grad0.addColorStop(.49, 'rgb(0, 255, 255, 1)');
     grad0.addColorStop(.5, 'rgb(0, 255, 255, 1)');
-    grad0.addColorStop(.6667, 'rgb(0, 0, 255 , 1)');
-    grad0.addColorStop(.8333, 'rgb(255, 0, 255 , 1)');
+    grad0.addColorStop(.66, 'rgb(0, 0, 255 , 1)');
+    grad0.addColorStop(.81, 'rgb(255, 0, 255 , 1)');
+    grad0.addColorStop(.82, 'rgb(255, 0, 255 , 1)');
+    grad0.addColorStop(.98, 'rgb(255, 0, 0, 1)');
     grad0.addColorStop(1, 'rgb(255, 0, 0, 1)');
 
     ctx.fillStyle = grad0;
@@ -101,18 +105,20 @@ function fillShadeCanvas(canvas, ctx, color) {
     ctx.fillRect(0, 0, wth, hgt);
 }
 
-function circle(ctx, centerX, centerY) {
-    ctx.lineWidth = 2;
+function circle(ctx, canvas, centerX, centerY) {
+    let hgt = canvas.getBoundingClientRect().height
+
+    ctx.lineWidth = .02 * hgt;
     ctx.strokeStyle = black;
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 5, 0, 2 * Math.PI);
+    ctx.arc(centerX, centerY, .05 * hgt, 0, 2 * Math.PI);
     ctx.stroke();
 
     ctx.strokeStyle = white;
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 7, 0, 2 * Math.PI);
+    ctx.arc(centerX, centerY, .07 * hgt, 0, 2 * Math.PI);
     ctx.stroke();
 }
 
@@ -201,10 +207,13 @@ function getCoords(canvas, event) {
     let wth = canvas.getBoundingClientRect().width
     let hgt = canvas.getBoundingClientRect().height
 
-    var htmlx = (parseInt(event.clientX) - parseInt(canvas.getBoundingClientRect().left)) * (canvas.width / wth);
-    var htmly = (parseInt(event.clientY) - parseInt(canvas.getBoundingClientRect().top)) * (canvas.height / hgt);
+    let left = parseInt(canvas.getBoundingClientRect().left);
+    let top = parseInt(canvas.getBoundingClientRect().top);
+
+    var canvasX = (parseInt(event.clientX) - left) * (canvas.width / wth);
+    var canvasY = (parseInt(event.clientY) - top) * (canvas.height / hgt);
 
     console.log(canvas.height, hgt, canvas.height / hgt)
 
-    return [htmlx, htmly]
+    return [canvasX, canvasY]
 }

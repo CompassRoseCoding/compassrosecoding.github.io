@@ -32,6 +32,8 @@
 .complementaries_panel {
     display: flex;
     flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
     gap: 1vw;
 
     margin-left: auto;
@@ -117,21 +119,32 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        align-items: center;
         gap: 20px;
     }
 
     .results_div {
+        margin: auto;
+        width: 100%;
+    
         display: flex;
-        flex-direction: row;
-        gap: 50px;
+        justify-content: space-evenly;
+    }
+
+    .comp_colors {
+        max-width: 25vw;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .canvas_div {
         margin: auto;
+        width: 100%;
     
         display: flex;
-        gap: 20px;
+        justify-content: space-between;
     }
 
     .gradient_canvas {

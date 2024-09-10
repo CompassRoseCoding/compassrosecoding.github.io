@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Fredericka';
+  src: url('fredericka-the-great/FrederickatheGreat-Regular.ttf');
+}
+
+.flannel_text {
+  font-family: 'Fredericka';
+  font-size: 20pt;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+#bingotable {
+  margin: 0 auto;
+  text-align: center;
+  width: 90vh;
+  max-width: 90vw; 
+  padding-top: 100%;
+  border-collapse: collapse;
+  background: black;
+}
+
+th,
+td {
+  font-family: Helvetica;
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid black;
+  width: 20%;
+}
+
+.bingoHeader {
+  background: var(--dusk);
+  font-size: 30px;
+  height: 60px;
+}
+
+/* For mobile phones: */
+button {
+  border-radius: 10px;
+  /* 1:1 Aspect Ratio */
+  position: relative;
+  /* If you want text inside of it */
+
+  width: 100%;
+  aspect-ratio: 1;
+
+  font-size: 30px;
+
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+
+.regBtn {
+  background: white;
+}
+
+.freeBtn {
+  background: var(--turq);
+  color: white;
+}
+
+.selBtn {
+  background: var(--maroon);
+  color: white;
+}
+
+.winBtn {
+  background: gold;
+  color: white;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Blog</title>
+    <link rel="icon" href="../resources/images/compass_icon.png">
+
+    <link href="../resources/header_style.css" rel="stylesheet" type="text/css" />
+    <script src="../resources/header_script.js"></script>
+
+    <link href="blog_style.css" rel="stylesheet" type="text/css" />
+
+    <script src="loadBlog.js"></script>
+    <script src="changeBlog.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body onload="blogInit()">
+    <div class="header" id="header">
+        <div class="tabs_div">
+            <a class="current page_btn" href="../home">Home</a>
+            <a class="current page_btn" href="../resume">Resume</a>
+            <a class="current page_btn" href="../design">Design</a>
+            <a class="current page_btn" href="../games">Games</a>
+            <a class="current page_btn" href="../blog">Blog</a>
+        </div>
+        <div class="header_underlay">
+            <img class="header_bg" src="../resources/images/canyon_contour.svg">
+        </div>
+        <div class="header_overlay">
+            <div class="compass_div">
+                <h1 class="header_text">Compass Rose Coding</h1>
+                <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
+                <h1 class="page_header">Home</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="body_content flex_column_center">
+        <div class="search_and_tag_div">
+            <div class="tag_div" id="tag_div"></div>
+            <div class="search_div flex_column_center">
+                <input class="search_bar"  id="search_bar" type="text" placeholder="Search..">
+                <button class="search_button">🔎</button>
+            </div>
+        </div>
+        <div class="blog_content" id="blog_content">
+
+        </div>
+        <div class="pagination_div">
+            <span id="pagination"></span>
+
+        </div>
+        
+        <div class="page_select_div">
+            <button onclick="prevPage()" class="search_button">⫷</button>
+            <select id="pageSelect" onchange="changePage()" class="bottom_drop_down">
+            </select>
+            <button onclick="nextPage()" class="search_button">⫸</button>
+        </div>
+        
+        <select id="postPerPage" onchange="loadPosts()" class="bottom_drop_down">
+            <option value="10" id="opt1"> 10 Posts Per Page</option>
+            <option value="25" id="opt1"> 25 Posts Per Page</option>
+            <option value="50" id="opt1"> 50 Posts Per Page</option>
+        </select>
+    </div>
+</body>
+
+</html>

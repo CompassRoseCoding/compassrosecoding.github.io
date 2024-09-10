@@ -1,0 +1,137 @@
+h2 {
+    font-family: 'Prida65';
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Prida01';
+    color: var(--turq);
+    margin: 0;
+}
+
+select,
+p {
+    font-family: 'Resamitz';
+}
+
+.flex_column_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_and_tag_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+
+    min-width: 90vw;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tag_div {
+    min-width: 100px;
+    min-height: 20px;
+}
+
+.search_div {
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.search_bar {
+    flex-grow: 2;
+    border: none;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+
+.search_button {
+    /* Just a little styling to make it pretty */
+    background: white;
+    color: white;
+
+    padding: 3px;
+
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+.body_content {
+    max-width: 90vw;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 90vw;
+}
+
+.entry_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 100%;
+}
+
+.tags_div {
+    flex-wrap: wrap;
+
+    width: max-content;
+    margin: auto;
+}
+
+.tag_button, .active_tag_button {
+    min-width: max-content;
+    min-height: max-content;
+
+    background-color: white;
+
+    padding: 3px;
+
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.line_break {
+    width: 90vw;
+    text-align: center;
+    display: block;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+
+.page_select_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+
+    margin-top: 30px;
+}
+
+.bottom_drop_down {
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px;
+
+    background-color: white;
+}

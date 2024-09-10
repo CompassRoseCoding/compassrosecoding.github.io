@@ -5,34 +5,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Compass Rose Coding | Home</title>
-    <link rel="icon" href="resources/images/compass_icon.png">
+    <link rel="icon" href="../resources/images/compass_icon.png">
 
-    <link href="resources/header_style.css" rel="stylesheet" type="text/css" />
-    <script src="resources/header_script.js"></script>
+    <link href="../resources/header_style.css" rel="stylesheet" type="text/css" />
+    <script src="../resources/header_script.js"></script>
 
-    <link href="home/home_style.css" rel="stylesheet" type="text/css" />
-
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link href="games_style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="init()">
-    <div class="header">
+    <div class="header" id="header">
         <div class="tabs_div">
-            <a class="current page_btn" href="">Home</a>
-            <a class="current page_btn" href="resume">Resume</a>
-            <a class="current page_btn" href="design">Design</a>
-            <a class="current page_btn" href="games">Games</a>
+            <a class="current page_btn" href="../home">Home</a>
+            <a class="current page_btn" href="../resume">Resume</a>
+            <a class="current page_btn" href="../design">Design</a>
+            <a class="current page_btn" href="../games">Games</a>
+            <a class="current page_btn" href="../blog">Blog</a>
         </div>
         <div class="header_underlay">
-            <img class="header_bg" src="resources/images/canyon_contour.svg">
+            <img class="header_bg" src="../resources/images/canyon_contour.svg">
         </div>
         <div class="header_overlay">
             <div class="compass_div">
                 <h1 class="header_text">Compass Rose Coding</h1>
-                <canvas class="header_canvas" id="canvas" height="500" width="500"></canvas>
-                <h1 class="page_header">Home</h1>
+                <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
+                <h1 class="page_header">Games</h1>
             </div>
         </div>
+    </div>
+
+    <div class="links_div">
+        <a class="game_link" id="flannel_link" href="Flannel_Bingo/">➳ Flannel Bingo</a>
+        <a class="game_link" id="orbit_link" href="Orbit_Sim/">Orbital Simulation 🪐</a>
+        <!--
+        <a class="game_link" id="recipe_link" href="Recipe_Database/">Recipe Database App</a>
+        <a class="game_link" id="slither_link" href="Slither/">Slither Clone</a>
+        -->
     </div>
 </body>
 
