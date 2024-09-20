@@ -1,17 +1,34 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 h2 {
     font-family: 'Prida65';
     margin: 0;
+
+    max-width: 90vw;
 }
 
 h3 {
     font-family: 'Prida01';
     color: var(--turq);
     margin: 0;
+
+    max-width: 90vw;
 }
 
 select,
 p {
     font-family: 'Resamitz';
+    
+    max-width: 90vw;
+}
+
+img {
+    max-width: 70vw;
 }
 
 .flex_column_center {
@@ -23,7 +40,6 @@ p {
 
 .search_and_tag_div {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: space-between;
 
@@ -31,6 +47,18 @@ p {
 
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .search_and_tag_div {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 600px) {
+    .search_and_tag_div {
+        flex-direction: row;
+    }
 }
 
 .tag_div {
@@ -54,7 +82,6 @@ p {
 }
 
 .search_button {
-    /* Just a little styling to make it pretty */
     background: white;
     color: white;
 
@@ -87,6 +114,10 @@ p {
     max-width: 100%;
 }
 
+.coding_div span {
+    max-width: 90vw;
+}
+
 .tags_div {
     flex-wrap: wrap;
 
@@ -94,7 +125,8 @@ p {
     margin: auto;
 }
 
-.tag_button, .active_tag_button {
+.tag_button,
+.active_tag_button {
     min-width: max-content;
     min-height: max-content;
 
