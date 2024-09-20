@@ -66,7 +66,6 @@ function displaySelectedTags() {
         tagDiv.innerHTML = ''
         if (tags == '') {
             tagDiv.style.visibility = "hidden"
-            tagDiv.style.display = "none"
             localStorage.setItem("tags", "");
             return;
         }
@@ -110,7 +109,7 @@ function newBlogPost(entry) {
     
         body = document.createElement("div");
         body.classList.add("entry_body")
-        body.innerHTML = entry['content'].replaceAll('<span class="blog_post_text">', '').replaceAll('</span>', '').replaceAll('&nbsp;', '')
+        body.innerHTML = entry['content'].replaceAll('<div><span', '<div class="coding_div"><span').replaceAll('<span class="blog_post_text">', '').replaceAll('<span class="blog_post_text">', '').replaceAll('</span>', '').replaceAll('&nbsp;', '')
         newDiv.appendChild(body)
     
         return newDiv;

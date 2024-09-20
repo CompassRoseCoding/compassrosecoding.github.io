@@ -1,5 +1,5 @@
 h2, h3 {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 h4, a {
@@ -8,6 +8,7 @@ h4, a {
 
 ul {
     margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 p, li, .contact_link {
@@ -110,6 +111,7 @@ text {
     color: var(--dusk);
 
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .side_by_side {
