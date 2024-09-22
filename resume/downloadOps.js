@@ -22,8 +22,8 @@ async function downloadResume() {
         filename: 'Hannah_Robertson_Resume.pdf',
         image:        { type: 'png', quality: 1 },
         html2canvas: {
-            scale: 3,
-			dpi: 600,
+            scale: 1.5,
+			dpi: 100,
             letterRendering: true,
             scrollY: 0,
             scrollX: 0,
