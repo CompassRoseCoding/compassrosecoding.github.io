@@ -17,14 +17,18 @@ async function downloadResume() {
     download.style.display = 'flex';
 
     var opt = {
+        margin: 0,
+        scale: 2, 
         filename: 'Hannah_Robertson_Resume.pdf',
+        image:        { type: 'png', quality: 1 },
         html2canvas: {
-            dpi: 192,
+            scale: 3,
+			dpi: 600,
             letterRendering: true,
             scrollY: 0,
-            scrollX: -10,
+            scrollX: 0,
         },
-        jsPDF: { unit: 'in', format: [8.45, 10.99], orientation: 'portrait' }
+        jsPDF: { unit: 'in', format: [8.45, 11], orientation: 'portrait' }
     };
 
     html2pdf().set(opt).from(download).save();

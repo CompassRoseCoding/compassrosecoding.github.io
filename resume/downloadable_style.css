@@ -25,6 +25,7 @@ text {
     font-family: 'Resamitz';
 }
 
+
 .center {
     margin-left: auto;
     margin-right: auto;
@@ -167,7 +168,7 @@ text {
     }
 
     .download_area {
-        background: url(../resources/images/resume_bg.svg);
+        background: url(../resources/images/resume_bg.png);
     
         margin-left: auto;
         margin-right: auto;
@@ -236,12 +237,12 @@ text {
     }
 
     .download_area {
-        background: url(../resources/images/resume_bg.svg);
+        background: url(../resources/images/resume_bg.png);
     
         margin-left: auto;
         margin-right: auto;
     
-        width: 8.5in;
+        width: 100%;
         height: 11in;
     
         display: flex;
