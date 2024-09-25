@@ -11,12 +11,6 @@
     <script src="../resources/header_script.js"></script>
 
     <link href="downloadable_style.css" rel="stylesheet" type="text/css" />
-
-    <script src="downloadOps.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
-        integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -58,136 +52,9 @@
         <img class="resume_img" src="../resources/images/Circle Headshot.png">
     </div>
 
-    <div class="download_div">
-        <button class="download_button" onclick="downloadResume()">Download Resume</button>
-    </div>
 
-    <div class="download_area" id="download_area">
-        <div class="padding_area">
-            <div class="resume" id="resume">
-                <h1 class="resume_header">Hannah Robertson</h1>
-                <div class="compass_div">
-                    <h1 class="compass_header">Compass</h1>
-                    <img class="compass_icon" src="../resources/images/compass_icon.png">
-                    <h1 class="compass_header">Rose Coding</h1>
-                </div>
-
-                <div class="right_column">
-                    <div class="contact_class">
-                        <div class="contact_line pad_1">
-                            <img class="contact_icon" src="../resources/images/cursor.svg">
-                            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
-                                href="https:compassrosecoding.com">compassrosecoding.com</a>
-                        </div>
-                        <div class="contact_line">
-                            <img class="contact_icon" src="../resources/images/email.svg">
-                            <a class="portfolio_link" href="mailto:hannah@i40it.com">hannah@i40it.com</a>
-                        </div>
-                        <div class="contact_line">
-                            <img class="contact_icon" src="../resources/images/phone.svg">
-                            <a class="portfolio_link" href="tel:619-733-9095">(619)733-9095</a>
-                        </div>
-                        <div class="contact_line">
-                            <img class="contact_icon" src="../resources/images/github.svg">
-                            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
-                                href="https://github.com/CompassRoseCoding">github.com/CompassRoseCoding</a>
-                        </div>
-                        <div class="contact_line">
-                            <img class="contact_icon" src="../resources/images/linkedin.svg">
-                            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
-                                href="https://linkedin.com/in/hmrobertson">linkedin.com/in/hmrobertson</a>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 class="resume_section_header">Education</h2>
-                <p class="bio">
-                    Arizona State University
-                    <br>
-                    Bachelor's of Science, Software Engineering, May 2023
-                </p>
-
-                <h2 class="resume_section_header">Career Goal</h2>
-                <p class="bio">
-                    I would love to work in web or app development, especially with full stack JS/CSS/HTML, Java, or Python. 
-                </p>
-
-
-                <h2 class="resume_section_header">Work Experience</h2>
-
-                <h3 class="sub_header">
-                    Freelance Web Developer
-                    <br>August 2024
-                </h3>
-                <ul>
-                    <li>Updating legacy website</li>
-                    <li>Adding AWS backend with API and RDS database</li>
-                    <li>Adding blog function</li>
-                    <li>Importing data from external sites in style consistent with site</li>
-                    <li>Graphic design and research</li>
-                </ul>
-
-                <h3 class="sub_header">
-                    Coding Tutor - theCoderSchool Tutoring Center
-                    <br>May 2022 - Present
-                </h3>
-                <ul>
-                    <li>Teaching students from 6 to 18 basic programming</li>
-                    <li>Scratch, Javascript, and Python</li>
-                    <li>Customer Service</li>
-                    <li>Algorithm calculation and debugging</li>
-                </ul>
-
-                <h3 class="sub_header">
-                    PC Apps Summer Intern - Pyramid Technologies
-                    <br>May 2023 - August 2023
-                </h3>
-                <ul>
-                    <li>JS/CSS/HTML application development</li>
-                    <li>Transfer legacy Flask implementation to AWS backend and hosting</li>
-                    <li>Application to edit a database through a website</li>
-                    <li>API Gateway, Lambda, S3, Cognito, Cloudfront, RDS SQL</li>
-                    <li>Some C#, Appscript, Google Suite</li>
-                    <li>Use Git and Github for version control</li>
-                </ul>
-
-                <h3 class="sub_header">
-                    Capstone Project Developer - ASU Polytechnic University
-                    <br>August 2022 - May 2023
-                </h3>
-                <ul>
-                    <li>ASU Capstone Project</li>
-                    <li>Create educational website for NASA sponsor about Psyche Mission</li>
-                    <li>JS/CSS/HTML application development</li>
-                    <li>Agile Sprint workflow</li>
-                    <li>Git and Github, to version control and merge different team member's work</li>
-                    <li>Jira for ticket management</li>
-                </ul>
-
-                <h3 class="sub_header">
-                    Transcriptionist - Contracted by Manpower to JP Morgan Chase
-                    <br>March 2024 - Current
-                </h3>
-                <ul>
-                    <li>Type 70 wpm</li>
-                    <li>Retain discretion about sensitive information</li>
-                </ul>
-
-                <h3 class="sub_header">
-                    Student Worker - ASU Polytechnic University Technology Office
-                    <br>August 2021 - May 2023
-                </h3>
-                <ul>
-                    <li>Basic IT</li>
-                    <li>Customer Service</li>
-                    <li>Routine updates, installs, maintenance</li>
-                </ul>
-
-                <h2 class="resume_section_header center">Reference Availiable Upon Request</h2>
-            </div>
-        </div>
-    </div>
-
+    <object class="resume_display" data="../resources/Hannah_Robertson_Resume_Download.pdf" type="application/pdf" width="100%"
+        height="100%"></object>
 </body>
 
 </html>
