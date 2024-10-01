@@ -2,17 +2,6 @@ p {
     font-family: 'Resamitz';
 }
 
-button {
-    background: white;
-    color: var(--tcotta);
-    width: 400px;
-    height: max-content;
-    border: solid 1px black;
-    border-radius: 10px;
-    font-family: 'Prida36';
-    font-size: 30px;
-}
-
 .body_content {
     width: 85%;
 
@@ -58,7 +47,8 @@ button {
 }
 
 .pad_email_form {
-    margin-top: -20px;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 .submit_email {
@@ -71,3 +61,4 @@ button {
     font-family: 'Prida36';
     font-size: 30px;
 }
+

@@ -1,3 +1,4 @@
+/* universal colors */
 :root {
     --white: #ffffff;
     --gold: hsl(30, 50%, 35%);
@@ -11,6 +12,7 @@
     --bg_gray: #8c8c8c;
 }
 
+/* universal fonts */
 @font-face {
     font-family: 'Resamitz';
     src: url('fonts/Resamitz.otf');
@@ -41,14 +43,6 @@
     src: url('fonts/Prida65.otf');
 }
 
-.header_canvas {
-    width: 15vw;
-    height: 15vw;
-
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 body {
     margin-left: 0;
     margin-right: 0;
@@ -59,47 +53,68 @@ body {
     overflow-y: scroll;
 }
 
-.tabs_div {
-    width: 100%;
-    height: 4vw;
+.header_height {
+    height: 15vw;
+    max-height: 150px;
+}
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.header_text_size {
+    font-size: min(10vw, 5vh);
 }
 
 .page_btn {
+    background: white;
     font-family: "Prida36";
-    font-size: 4vw;
     color: var(--tcotta);
     text-decoration: none;
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.header_top {
+    width: 100%;
+
+    position: relative;
 }
 
 .header_underlay {
-    margin-top: 0;
-    max-width: 100%;
+    position: absolute;
+    top: 0;
+
+    width: 100%;
     overflow: hidden;
+
+    background-image: url(./images/canyon_contour.svg);
+    mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
 }
 
 .header_overlay {
     position: absolute;
-    top: calc(5vw + 5px);
+    top: 0;
 
-    width: 98%;
+    width: 100%;
 }
 
 .compass_div {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
 
     max-width: max-content;
-    height: max-content;
 
     margin-left: auto;
     margin-right: auto;
+}
+
+.header_canvas {
+    width: auto;
+    height: 100%;
+
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .page_header {
@@ -111,17 +126,14 @@ body {
 
     width: max-content;
     max-width: 60vw;
-}
 
-.body_bg_img {
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 5%);
-    filter: invert(71%) sepia(1%) saturate(0%) hue-rotate(159deg) brightness(97%) contrast(91%);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 @media (max-width: 600px) {
     .header {
         width: 100%;
-        height: 30vw;
         overflow: hidden;
 
         margin-left: 0;
@@ -129,26 +141,49 @@ body {
         margin-top: 0;
     }
 
-    .header_canvas {
-        width: 20vw;
-        height: 20vw;
+    .mobile_menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu_span {
+        color: var(--tcotta);
+        text-decoration: none;
+    }
+
+    .menu_btn {
+        background: white;
+        font-family: "Prida36";
+        color: var(--tcotta);
+        text-decoration: none;
+
+        max-width: max-content;
+
+        border: none;
+    }
+
+    .tabs_div {
+        display: none;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .header_text {
         display: none;
     }
 
-    .page_header {
-        font-size: 9vw;
-    }
-
     .header_bg {
         width: 100vw;
         max-width: 100%;
         overflow: hidden;
-    
+
         margin-top: 0;
-    
+
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 28%);
     }
 }
@@ -156,7 +191,6 @@ body {
 @media (min-width: 600px) {
     .header {
         width: 100%;
-        height: 20vw;
         overflow: hidden;
 
         margin-left: 0;
@@ -164,8 +198,19 @@ body {
         margin-top: 0;
     }
 
+    .mobile_menu {
+        display: none;
+    }
+
+    .tabs_div {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
     .header_text {
-        font-size: 4vw;
         font-family: 'Prida65';
 
         align-self: center;
@@ -174,19 +219,15 @@ body {
         max-width: 60vw;
     }
 
-    .page_header {
-        font-size: 4vw;
-    }
-
     .header_bg {
         width: 100vw;
         max-width: 100%;
         overflow: hidden;
-    
+
         margin-top: 0;
-    
+
         filter: invert(71%) sepia(1%) saturate(0%) hue-rotate(159deg) brightness(97%) contrast(91%);
-    
+
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 28%);
     }
 }

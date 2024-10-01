@@ -22,7 +22,7 @@ li,
 }
 
 li::marker {
-    content: '⫸ ';
+    content: '? ';
 }
 
 text {
@@ -201,8 +201,13 @@ body {
     gap: 30px;
 }
 
+/* create a download area with the correct image that's immediately printable */
 .download_area {
     background: url(../resources/images/resume_bg.png);
+    
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 - 15.3, Edge */
+    color-adjust: exact !important;                 /* Firefox 48 - 96 */
+    print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
 
     margin-left: auto;
     margin-right: auto;
@@ -232,7 +237,7 @@ body {
     height: 130vw;
 
     max-width: 11.5in;
-    max-height: 9in;
+    max-height: 9.5in;
 
     background-color: white;
 }
