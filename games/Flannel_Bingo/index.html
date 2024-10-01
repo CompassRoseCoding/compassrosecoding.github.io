@@ -17,22 +17,28 @@
 
 
 <body onload="loadCard()">
+  <!-- general header for all pages with animated compass -->
   <div class="header" id="header">
-    <div class="tabs_div">
-      <a class="current page_btn" href="../../home">Home</a>
-      <a class="current page_btn" href="../../resume">Resume</a>
-      <a class="current page_btn" href="../../design">Design</a>
-      <a class="current page_btn" href="../../games">Games</a>
-      <a class="current page_btn" href="../../blog">Blog</a>
+    <div class="mobile_menu">
+      <button class="menu_btn header_text_size" onclick="dropDown()">Menu </button>
+      <button class="menu_span menu_btn header_text_size" id="menu_span" onclick="dropDown()">⫸</button>
     </div>
-    <div class="header_underlay">
-      <img class="header_bg" src="../../resources/images/canyon_contour.svg">
+    <div class="tabs_div" id="tabs_div">
+      <a class="current page_btn header_text_size" href="../../home">Home</a>
+      <a class="current page_btn header_text_size" href="../../resume">Resume</a>
+      <a class="current page_btn header_text_size" href="../../design">Design</a>
+      <a class="current page_btn header_text_size" href="../../games">Games</a>
+      <a class="current page_btn header_text_size" href="../../blog">Blog</a>
     </div>
-    <div class="header_overlay">
-      <div class="compass_div">
-        <h1 class="header_text">Compass Rose Coding</h1>
-        <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
-        <h1 class="page_header">Games</h1>
+    <div class="header_top header_height">
+      <div class="header_underlay header_height">
+      </div>
+      <div class="header_overlay header_height">
+        <div class="compass_div header_height">
+          <h1 class="header_text">Compass Rose Coding</h1>
+          <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
+          <h1 class="page_header header_text_size">Games</h1>
+        </div>
       </div>
     </div>
   </div>

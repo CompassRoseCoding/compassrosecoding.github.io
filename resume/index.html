@@ -10,30 +10,40 @@
     <link href="../resources/header_style.css" rel="stylesheet" type="text/css" />
     <script src="../resources/header_script.js"></script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKT25Q38Q1"></script>
+
     <link href="downloadable_style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body onload="init()">
+    <!-- general header for all pages with animated compass -->
     <div class="header" id="header">
-        <div class="tabs_div">
-            <a class="current page_btn" href="../home">Home</a>
-            <a class="current page_btn" href="../resume">Resume</a>
-            <a class="current page_btn" href="../design">Design</a>
-            <a class="current page_btn" href="../games">Games</a>
-            <a class="current page_btn" href="../blog">Blog</a>
+        <div class="mobile_menu">
+                <button class="menu_btn header_text_size" onclick="dropDown()">Menu </button>
+                <button class="menu_span menu_btn header_text_size" id="menu_span" onclick="dropDown()">⫸</button>
         </div>
-        <div class="header_underlay">
-            <img class="header_bg" src="../resources/images/canyon_contour.svg">
+        <div class="tabs_div" id="tabs_div">
+            <a class="current page_btn header_text_size" href="../home">Home</a>
+            <a class="current page_btn header_text_size" href="../resume">Resume</a>
+            <a class="current page_btn header_text_size" href="../design">Design</a>
+            <a class="current page_btn header_text_size" href="../games">Games</a>
+            <a class="current page_btn header_text_size" href="../blog">Blog</a>
         </div>
-        <div class="header_overlay">
-            <div class="compass_div">
-                <h1 class="header_text">Compass Rose Coding</h1>
-                <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
-                <h1 class="page_header">Resume</h1>
+        <div class="header_top header_height">
+            <div class="header_underlay header_height">
+            </div>
+            <div class="header_overlay header_height">
+                <div class="compass_div header_height">
+                    <h1 class="header_text">Compass Rose Coding</h1>
+                    <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
+                    <h1 class="page_header header_text_size">Resume</h1>
+                </div>
             </div>
         </div>
     </div>
 
+
+    <!-- small div with bio, portfolio, picture -->
     <div class="about_div">
         <div>
             <h1 class="resume_header">About Me</h1>
@@ -52,9 +62,9 @@
         <img class="resume_img" src="../resources/images/Circle Headshot.png">
     </div>
 
-
-    <object class="resume_display" data="../resources/Hannah_Robertson_Resume_Download.pdf" type="application/pdf" width="100%"
-        height="100%"></object>
+    <!-- display the resume pdf in downloadable format -->
+    <object class="resume_display" data="../resources/Hannah_Robertson_Resume_Download.pdf" type="application/pdf"
+        width="100%" height="100%"></object>
 </body>
 
 </html>
