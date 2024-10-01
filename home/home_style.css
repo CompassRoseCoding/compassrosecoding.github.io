@@ -54,7 +54,7 @@ p {
 .submit_email {
     background: white;
     color: var(--tcotta);
-    width: 200px;
+    width: max-content;
     height: 35px;
     border: solid 1px black;
     border-radius: 10px;
