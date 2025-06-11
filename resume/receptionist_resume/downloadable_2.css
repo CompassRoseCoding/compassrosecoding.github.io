@@ -16,17 +16,23 @@ ul {
 p,
 li,
 .contact_link {
-    font-family: 'Resamitz';
+    font-family: 'EB Geramondr';
     font-size: 12.5px;
     margin-top: 0;
 }
 
 li::marker {
-    content: '? ';
+    content: '✵ ';
+    font-size: 10px;
+    color: #13a0ec;
+}
+
+.star_span {
+    color: #00a6ff;
 }
 
 text {
-    font-family: 'Resamitz';
+    font-family: 'EB Geramond';
 }
 
 body {
@@ -53,17 +59,12 @@ body {
     margin-bottom: 10%;
 }
 
-.compass_icon {
-    width: 60px;
-    height: 60px;
-}
-
 .header_text {
     margin: 0;
 }
 
 .resume_header {
-    font-family: 'Prida01';
+    font-family: 'EB Geramond';
     font-weight: 100;
 
     margin: auto;
@@ -71,7 +72,7 @@ body {
 }
 
 .compass_header {
-    font-family: 'Prida65';
+    font-family: 'EB Geramond';
 
     align-self: center;
 
@@ -80,36 +81,19 @@ body {
     margin: 0
 }
 
-.right_column {
-    float: right;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    padding-left: 15px;
-
-    max-width: max-content;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-}
-
 .portfolio_link {
     color: var(--turq);
 
     padding-left: 5px;
 
-    font-family: 'Resamitz';
+    font-family: 'EB Geramond';
     font-size: 13px;
     text-decoration: none;
 }
 
 .resume_section_header {
-    font-family: 'Prida65';
+    font-family: 'EB Geramond';
     font-weight: 100;
-    font-size: 20px;
 
     margin-bottom: 0;
     margin-top: 10px;
@@ -118,7 +102,7 @@ body {
 }
 
 .sub_header {
-    font-family: 'Prida01';
+    font-family: 'EB Geramond';
     font-weight: 100;
 
     color: var(--dusk);
@@ -132,16 +116,35 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
+.contacts_list {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: left;
+
+    float: right;
+}
+
 .contact_class {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: left;
+    gap: 15px;
 }
 
 .contact_line {
     display: flex;
     justify-content: left;
     align-items: center;
+    
+    min-width: max-content;
 }
 
 
@@ -154,7 +157,7 @@ body {
 
     padding-left: 5px;
 
-    font-family: 'Resamitz';
+    font-family: 'EB Geramond';
     text-decoration: none;
 }
 
@@ -203,12 +206,6 @@ body {
 
 /* create a download area with the correct image that's immediately printable */
 .download_area {
-    background: url(../resources/images/resume_bg.png);
-    
-    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 - 15.3, Edge */
-    color-adjust: exact !important;                 /* Firefox 48 - 96 */
-    print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
-
     margin-left: auto;
     margin-right: auto;
 
@@ -240,4 +237,16 @@ body {
     max-height: 9.5in;
 
     background-color: white;
+}
+
+.print_button {
+    background: white;
+    color: var(--tcotta);
+    width: max-content;
+    height: 35px;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-family: 'EB Geramond';
+    font-size: 30px;
+    margin-bottom: 20px;
 }

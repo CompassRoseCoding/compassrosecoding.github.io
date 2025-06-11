@@ -10,9 +10,11 @@
     <link href="../resources/header_style.css" rel="stylesheet" type="text/css" />
     <script src="../resources/header_script.js"></script>
 
+    <script src="downloadOps.js"></script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKT25Q38Q1"></script>
 
-    <link href="downloadable_style.css" rel="stylesheet" type="text/css" />
+    <link href="resume_style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="init()">
@@ -47,7 +49,7 @@
     <div class="about_div">
         <div>
             <h1 class="resume_header">About Me</h1>
-            <text>Hello! I'm Hannah Robertson, a software engineer in the Phoenix Metroplex looking for freelance work
+            <text>Hello! I'm Hannah Robertson, a software engineer in Kingman looking for freelance work
                 until I find full time employment. I specialize in custom made-from-scratch websites, both front and
                 back end. I can create databases, APIs, blog interfaces, and document repositories on request. I also
                 have experience in Java and Python applications, as well as several other programming languages. Check
@@ -58,12 +60,17 @@
             <br>
             <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
                 href="https://compassrosecoding.com">compassrosecoding.com</a>
+            <br>
+            <a class="portfolio_link" target="_blank" rel="noopener noreferrer"
+                href="https://azruralhomes.com">azruralhomes.com</a>
         </div>
         <img class="resume_img" src="../resources/images/Circle Headshot.png">
     </div>
 
+    <a class="print_button" href="../resources/Hannah_Robertson_Resume_Download.pdf">Save Resume</a>
+
     <!-- display the resume pdf in downloadable format -->
-    <object class="resume_display" data="../resources/Hannah_Robertson_Resume_Download.pdf" type="application/pdf"
+    <object id="resume_display_ver" class="resume_display" data="../resources/Hannah_Robertson_Resume_Download.pdf" type="application/pdf"
         width="100%" height="100%"></object>
 </body>
 
