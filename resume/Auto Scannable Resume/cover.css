@@ -1,0 +1,62 @@
+@page {
+    margin: 1in;
+}
+
+.cover {
+    font-size: 11pt;
+    font-family: 'Calibri';
+}
+
+.resume_header {
+    font-family: 'Calibri';
+    font-weight: 500;
+
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.contact_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: left;
+    column-gap: 10px;
+}
+
+.contact_line {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    min-width: max-content;
+}
+
+.contact_icon {
+    width: 20px;
+    /* #13a0ec filter */
+    /*
+    filter: invert(56%) sepia(40%) saturate(6865%) hue-rotate(175deg) brightness(104%) contrast(85%);
+    */
+}
+
+.contact_link {
+    font-family: 'Calibri';
+    font-size: 16px;
+    text-decoration: none;
+
+    padding-left: 5px;
+
+    color: black;
+}
+
+.break {
+    width: 100%;
+    height: 0;
+
+    border-top: 2px solid black;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

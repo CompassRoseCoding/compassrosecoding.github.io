@@ -1,195 +1,94 @@
-var shadeX = -1;
-var shadeY = -1;
+//https://www.rapidtables.com/convert/color/rgb-to-hsv.html
+function rgb_HSV(rgb) {
+    let r = rgb[0] / 255;
+    let g = rgb[1] / 255;
+    let b = rgb[2] / 255;
 
-function initGradient() {
-    const canvas = document.getElementById("gradient_canvas");
-    const ctx = canvas.getContext("2d");
+    let cMax = Math.max(r, g, b);
+    let cMin = Math.min(r, g, b);
+    let delta = cMax - cMin;
 
-    fillGradientCanvas(canvas, ctx)
-    circle(ctx, canvas, 5, 5)
-    let data = ctx.getImageData(5, 5, 1, 1).data;
-    initShade(data)
+    let hue = 0;
 
-    canvas.onclick = function (event) {
-        coords = getCoords(canvas, event)
-
-        x = Math.floor(coords[0])
-        y = Math.floor(coords[1])
-
-        fillGradientCanvas(canvas, ctx);
-        circle(ctx, canvas, x, y)
-        data = ctx.getImageData(x, y, 1, 1).data;
-        initShade(data)
+    if (cMax == cMin) {
+        hue = 0;
     }
-}
-
-function initShade(data) {
-    const canvas = document.getElementById("shade_canvas");
-    const ctx = canvas.getContext("2d");
-
-    color = getRGB(data)
-
-    fillShadeCanvas(canvas, ctx, color);
-    if (shadeX === -1) {
-        circle(ctx, canvas, 5, 5)
+    else if (cMax == r) {
+        hue = 60 * (((g - b) / delta) % 6);
     }
-    else {
-        circle(ctx, canvas, shadeX, shadeY)
+    else if (cMax == g) {
+        hue = 60 * (((b - r) / delta) + 2);
+    }
+    else if (cMax == b) {
+        hue = 60 * (((r - g) / delta) + 4);
     }
 
-    data = ctx.getImageData(5, 5, 1, 1).data;
-
-    setOutputColor(data)
-
-    canvas.onclick = function (event) {
-        coords = getCoords(canvas, event)
-
-        x = coords[0]
-        y = coords[1]
-
-        shadeX = x;
-        shadeY = y;
-
-        fillShadeCanvas(canvas, ctx, color);
-        circle(ctx, canvas, x, y)
-        data = ctx.getImageData(x, y, 1, 1).data;
-
-        setOutputColor(data)
+    if (hue < 0) {
+        hue = hue + 360;
     }
+
+    let sat = 0;
+
+    if (cMax != 0) {
+        sat = delta / cMax * 100;
+    }
+
+    let val = cMax * 100;
+
+    return [hue, sat, val];
 }
 
-function fillGradientCanvas(canvas, ctx, data) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const wth = canvas.width;
-    const hgt = canvas.height;
+//https://www.rapidtables.com/convert/color/rgb-to-hsv.html
+function hsv_RGB(hsv) {
+    //s and v are multiplied by 100
+    hsv[1] = hsv[1] / 100;
+    hsv[2] = hsv[2] / 100;
 
-    //create a gradient for the colors- cycle through RBG rainbow
-    const grad0 = ctx.createLinearGradient(0, 0, wth, 0);
-    grad0.addColorStop(.02, 'rgb(255, 0, 0, 1)');
-    grad0.addColorStop(.17, 'rgb(255, 255, 0, 1)');
-    grad0.addColorStop(.18, 'rgb(255, 255, 0, 1)');
-    grad0.addColorStop(.34, 'rgb(0, 255, 0, 1)');
-    grad0.addColorStop(.49, 'rgb(0, 255, 255, 1)');
-    grad0.addColorStop(.5, 'rgb(0, 255, 255, 1)');
-    grad0.addColorStop(.66, 'rgb(0, 0, 255 , 1)');
-    grad0.addColorStop(.81, 'rgb(255, 0, 255 , 1)');
-    grad0.addColorStop(.82, 'rgb(255, 0, 255 , 1)');
-    grad0.addColorStop(.98, 'rgb(255, 0, 0, 1)');
-    grad0.addColorStop(1, 'rgb(255, 0, 0, 1)');
+    let c = hsv[1] * hsv[2];
 
-    ctx.fillStyle = grad0;
-    ctx.fillRect(0, 0, wth, hgt);
-}
+    let x = c * (1 - Math.abs((hsv[0] / 60) % 2 - 1));
 
-function fillShadeCanvas(canvas, ctx, color) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let m = hsv[2] - c;
 
-    const wth = canvas.width;
-    const hgt = canvas.height;
+    let rgb_prime = [0,0,0]
 
-    //gradient for saturation
-    const grad1 = ctx.createLinearGradient(10, 0, wth, 0)
-    grad1.addColorStop(0, color);
-    grad1.addColorStop(1, '#ffffff');
+    if (hsv[0] < 60) {
+        rgb_prime = [c, x, 0];
+    }
+    else if (hsv[0] < 120) {
+        rgb_prime = [x, c, 0];
+    }
+    else if (hsv[0] < 180) {
+        rgb_prime = [0, c, x];
+    }
+    else if (hsv[0] < 240) {
+        rgb_prime = [0, x, c];
+    }
+    else if (hsv[0] < 300) {
+        rgb_prime = [x, 0, c];
+    }
+    else if (hsv[0] < 360) {
+        rgb_prime = [c, 0, x];
+    }
 
-    ctx.fillStyle = grad1;
-    ctx.fillRect(0, 0, wth, hgt);
+    let r = Math.round((rgb_prime[0] + m) * 255);
+    let g = Math.round((rgb_prime[1] + m) * 255);
+    let b = Math.round((rgb_prime[2] + m) * 255);
 
-    //gradient for brightness
-    const grad2 = ctx.createLinearGradient(0, 10, 0, hgt - 5);
-    grad2.addColorStop(0, 'rgb(0,0,0,0)');
-    grad2.addColorStop(1, 'rgb(0,0,0,1)');
-
-    ctx.fillStyle = grad2;
-    ctx.fillRect(0, 0, wth, hgt);
-}
-
-function circle(ctx, canvas, centerX, centerY) {
-    let hgt = canvas.getBoundingClientRect().height
-
-    ctx.lineWidth = .02 * hgt;
-    ctx.strokeStyle = black;
-
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, .05 * hgt, 0, 2 * Math.PI);
-    ctx.stroke();
-
-    ctx.strokeStyle = white;
-
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, .07 * hgt, 0, 2 * Math.PI);
-    ctx.stroke();
-}
-
-function setShadeColor(ctx, x, y) {
-    var colors = ctx.getImageData(x, y, 1, 1).data;
-
-    colString = 'rgb(' + colors[0] + ',' + colors[1] + ',' + colors[2] + ',' + colors[3] + ')'
-    console.log(colString)
-
-    output = document.getElementById('color_output_div');
-    output.style.backgroundColor = colString
-
-    output = document.getElementById('rgb_out');
-    output.value = colors[0] + ',' + colors[1] + ',' + colors[2]
-}
-
-function setOutputColor(data) {
-    output = document.getElementById('color_output_div');
-    output.style.backgroundColor = getRGB(data)
-
-    output = document.getElementById('rgb_out');
-    output.value = data[0] + ', ' + data[1] + ', ' + data[2]
-
-    output = document.getElementById('hex_out');
-    output.value = "#" + getHex(data[0]) + getHex(data[1]) + getHex(data[2])
-
-    output = document.getElementById('comp_color1');
-    output.style.backgroundColor = getComplementaryRGB(255 - data[0], 255 - data[1], 255 - data[2])
-
-    output = document.getElementById('comp_color2');
-    output.style.backgroundColor = getComplementaryRGB(data[0], 255 - data[1], 255 - data[2])
-
-    output = document.getElementById('comp_color3');
-    output.style.backgroundColor = getComplementaryRGB(255 - data[0], data[1], 255 - data[2])
-
-    output = document.getElementById('comp_color4');
-    output.style.backgroundColor = getComplementaryRGB(255 - data[0], 255 - data[1], data[2])
-
-    output = document.getElementById('comp_color5');
-    output.style.backgroundColor = getComplementaryRGB(255 - data[0], data[1], data[2])
-
-    output = document.getElementById('comp_color6');
-    output.style.backgroundColor = getComplementaryRGB(data[0], 255 - data[1], data[2])
-
-    output = document.getElementById('comp_color7');
-    output.style.backgroundColor = getComplementaryRGB(data[0], data[1], 255 - data[2])
-
-    output = document.getElementById('comp_color8');
-    output.style.backgroundColor = getComplementaryRGB(0, data[1], data[2])
-
-    output = document.getElementById('comp_color9');
-    output.style.backgroundColor = getComplementaryRGB(data[0], 0, data[2])
-
-    output = document.getElementById('comp_color10');
-    output.style.backgroundColor = getComplementaryRGB(data[0], data[1], 0)
-
-    output = document.getElementById('comp_color11');
-    output.style.backgroundColor = getComplementaryRGB(0, 0, data[2])
-
-    output = document.getElementById('comp_color12');
-    output.style.backgroundColor = getComplementaryRGB(data[0], 0, 0)
+    return [r, g, b]
 }
 
 function getRGB(data) {
-    let colString = 'rgb(' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[3] + ')'
+    let colString = 'rgb(' + data[0] + ',' + data[1] + ',' + data[2] + ')';
     return colString
 }
 
-function getComplementaryRGB(r, g, b) {
-    let colString = 'rgb(' + r + ',' + g + ',' + b + ',' + 1 + ')'
-    return colString
+function getFullSat(data) {
+    hsv_data = rgb_HSV(data);
+    full_sat_data = [hsv_data[0], 100, 100]
+    full_sat_rgb = hsv_RGB(full_sat_data);
+    return full_sat_rgb;
 }
 
 function getHex(num) {
@@ -200,20 +99,4 @@ function getHex(num) {
     }
 
     return hex;
-}
-
-//Convert from html-size canvas coordinates to internal pixel width
-function getCoords(canvas, event) {
-    let wth = canvas.getBoundingClientRect().width
-    let hgt = canvas.getBoundingClientRect().height
-
-    let left = parseInt(canvas.getBoundingClientRect().left);
-    let top = parseInt(canvas.getBoundingClientRect().top);
-
-    var canvasX = (parseInt(event.clientX) - left) * (canvas.width / wth);
-    var canvasY = (parseInt(event.clientY) - top) * (canvas.height / hgt);
-
-    console.log(canvas.height, hgt, canvas.height / hgt)
-
-    return [canvasX, canvasY]
 }

@@ -1,0 +1,186 @@
+@page {
+    margin-top: .25in;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 7.5in;
+}
+
+p {
+    font-family: 'Calibri';
+    font-size: 15.5px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-family: 'Calibri';
+    font-weight: 900;
+}
+
+.download_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 10%;
+}
+
+.download_area {
+    margin-top: 0;
+    height: max-content;
+}
+
+.break {
+    width: 100%;
+    height: 0;
+
+    border-top: 2px solid black;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.header_text {
+    margin: 0;
+}
+
+.resume_header {
+    font-family: 'Calibri';
+    font-weight: 500;
+
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.section_header {
+    font-family: 'Calibri';
+    font-weight: 100;
+
+    margin-bottom: 0;
+    margin-top: 0;
+
+    text-align: center;
+}
+
+.sub_header_split {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.sub_header {
+    font-family: 'Calibri';
+    font-weight: 100;
+
+    width: max-content;
+
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.bio {
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.grid_panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.contact_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: left;
+    column-gap: 10px;
+}
+
+.contact_line {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    min-width: max-content;
+}
+
+.contact_icon {
+    width: 20px;
+    /* #13a0ec filter */
+    /*
+    filter: invert(56%) sepia(40%) saturate(6865%) hue-rotate(175deg) brightness(104%) contrast(85%);
+    */
+}
+
+.contact_link {
+    font-family: 'Calibri';
+    font-size: 16px;
+    text-decoration: none;
+
+    padding-left: 5px;
+
+    color: black;
+}
+
+.jobs_list {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.jobs_list li::marker {
+    content: '✧ ';
+}
+
+.jobs_list li {
+    margin-bottom: 3px;
+}
+
+.bottom {
+    padding-bottom: 10px;
+}
+
+.skills_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    text-align: center;
+    justify-content: center;
+}
+
+.skills_list li {
+  display: inline-block; /* Essential for placing list items horizontally */
+  margin-right: 10px; /* Adjust spacing between items and separator */
+}
+
+.skills_list li:not(:last-child)::after { /* Selects all li elements except the last one, and adds content after them */
+  content: " ✧ "; /* The separator character */
+  margin-left: 5px; /* Adjust spacing between the item and the separator */
+}
+
+.resume_footer {
+    font-family: 'Calibri';
+    font-weight: 500;
+
+    margin: auto;
+    text-align: center;
+}
