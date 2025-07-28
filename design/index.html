@@ -9,13 +9,14 @@
 
     <link id="header_css" href="../resources/header_style.css" rel="stylesheet" type="text/css" />
     <script src="../resources/header_script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VKT25Q38Q1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKT25Q38Q1"></script>
 
     <link id="design_css" href="resources/design_style.css" rel="stylesheet" type="text/css" />
     <link href="resources/base_style.css" rel="stylesheet" type="text/css" />
 
     <script src="resources/designOps.js"></script>
     <script src="resources/colorOps.js"></script>
+    <script src="resources/pageInterfaceOps.js"></script>
     <script src="resources/canvasOps.js"></script>
 
     <script src="modern/modernCompassOps.js"></script>
@@ -292,13 +293,32 @@
                     <div class="color_output_div" id="current_color"></div>
                 </div>
 
-                <div class="rgb_hex_out">
+                <div class="color_types_out">
                     <h3 for="rgb_out" class="color_out_label">RGB: </h3>
-                    <input id="rgb_out" class="color_out">
+                    <div id="rgb_out">
+                        <label class="color_out_label" for="rgb_r">R:</label>
+                        <input type="number" id="rgb_r" min="0" max="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
+                        <label class="color_out_label" for="rgb_g">G:</label>
+                        <input type="number" id="rgb_g" min="0" max="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
+                        <label class="color_out_label" for="rgb_b">B:</label>
+                        <input type="number" id="rgb_b" min="0" max="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
+                    </div>
+
                     <h3 for="hsv_out" class="color_out_label">HSV: </h3>
-                    <input id="hsv_out" class="color_out">
+                    <div id="hsv_out">
+                        <label class="color_out_label" for="hsv_h">H:</label>
+                        <input type="number" id="hsv_h" min="0" max="255" />
+                        <label class="color_out_label" for="hsv_s">S:</label>
+                        <input type="number" id="hsv_s" min="0" max="255" />
+                        <label class="color_out_label" for="hsv_v">V:</label>
+                        <input type="number" id="hsv_v" min="0" max="255" />
+                    </div>
+
                     <h3 for="hex_out" class="color_out_label">Hex: </h3>
-                    <input id="hex_out" class="color_out">
+                    <div id="hex_out">
+                        <label class="color_out_label" for="hex_out">#</label>
+                        <input id="hex_out" class="color_out">
+                    </div>
                 </div>
 
                 <div class="comp_colors">

@@ -7,7 +7,6 @@ async function getAllRecipes() {
   titles = await await (await fetch(myUrl)).json();
   start = document.getElementById('controlBtns');
   for (i = 0; i < titles.length; i++) {
-    console.log(titles[i])
     start.innerHTML = start.innerHTML + recipeBtnHtml.replace('[id]', (i + 1) + "").replace('[title]', titles[i]['Title']);
   }
 }

@@ -156,7 +156,6 @@ function newEnemy() {
 function enemyturn() {
     // algorithm - either 1, -1, or 0
     let coinflip = Math.floor(Math.random() * xCenter);
-    console.log("turn: " + coinflip);
     enemyxdir = coinflip % 2 * (2 - coinflip % 4);
     coinflip = coinflip + 1;
     enemyydir = coinflip % 2 * (2 - coinflip % 4);
@@ -230,7 +229,6 @@ function enemyMotion() {
     enemypos.unshift([xpos, ypos]);
     enemypos.length = len;
 
-    console.log(enemypace);
     if (count > enemypace) {
         enemyturn();
     }

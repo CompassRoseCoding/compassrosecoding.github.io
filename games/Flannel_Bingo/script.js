@@ -14,7 +14,6 @@ function readCard() {
   order = localStorage.getItem("order").substring(1).split(",")
   selection = localStorage.getItem("selection").substring(1).split(",")
   localStorage.setItem("selection", "")
-  console.log(selection)
 
   table = document.getElementById("bingotable")
 

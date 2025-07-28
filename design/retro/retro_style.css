@@ -54,7 +54,7 @@ select {
     color: var(--matrix_green);
 }
 
-.rgb_hex_out label {
+.color_types_out label {
     font-family: "Courier";
     font-size: 3vw;
     color: var(--matrix_green);

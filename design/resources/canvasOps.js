@@ -1,6 +1,7 @@
 var shadeX = -1;
 var shadeY = -1;
 
+//initialize rainbow gradient 
 function initGradient() {
     const canvas = document.getElementById("gradient_canvas");
     const ctx = canvas.getContext("2d");
@@ -24,6 +25,7 @@ function initGradient() {
     }
 }
 
+//initialize shade gradient for saturation/value
 function initShade(data) {
     const canvas = document.getElementById("shade_canvas");
     const ctx = canvas.getContext("2d");
@@ -59,6 +61,7 @@ function initShade(data) {
     }
 }
 
+//set rainbow gradient stops
 function fillGradientCanvas(canvas, ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -83,6 +86,7 @@ function fillGradientCanvas(canvas, ctx) {
     ctx.fillRect(0, 0, wth, hgt);
 }
 
+//set the two-gradient overlap for the shade canvas
 function fillShadeCanvas(canvas, ctx, color) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -106,6 +110,7 @@ function fillShadeCanvas(canvas, ctx, color) {
     ctx.fillRect(0, 0, wth, hgt);
 }
 
+//create a small circle to highlight selected color
 function circle(ctx, canvas, centerX, centerY) {
     let hgt = canvas.getBoundingClientRect().height
 
@@ -123,62 +128,6 @@ function circle(ctx, canvas, centerX, centerY) {
     ctx.stroke();
 }
 
-function setOutputColor(data) {
-    let rgb = getRGB(data);
-    let hsv_data = rgb_HSV(data)
-
-    let output = document.getElementById('current_color');
-    output.style.backgroundColor = rgb;
-
-    output = document.getElementById('orig_color');
-    output.style.backgroundColor = getRGB(getFullSat(data));
-
-    output = document.getElementById('rgb_out');
-    output.value = data[0] + ', ' + data[1] + ', ' + data[2];
-
-    output = document.getElementById('hsv_out');
-    output.value = Math.round(hsv_data[0]) + '%, ' + Math.round(hsv_data[1]) + '%, ' + Math.round(hsv_data[2]) + '%';
-
-    output = document.getElementById('hex_out');
-    output.value = "#" + getHex(data[0]) + getHex(data[1]) + getHex(data[2]);
-
-    output = document.getElementById('comp_color1');
-    output.style.backgroundColor = getRGB([255 - data[0], 255 - data[1], 255 - data[2]]);
-
-    output = document.getElementById('comp_color2');
-    output.style.backgroundColor = getRGB([data[0], 255 - data[1], 255 - data[2]]);
-
-    output = document.getElementById('comp_color3');
-    output.style.backgroundColor = getRGB([255 - data[0], data[1], 255 - data[2]]);
-
-    output = document.getElementById('comp_color4');
-    output.style.backgroundColor = getRGB([255 - data[0], 255 - data[1], data[2]]);
-
-    output = document.getElementById('comp_color5');
-    output.style.backgroundColor = getRGB([255 - data[0], data[1], data[2]]);
-
-    output = document.getElementById('comp_color6');
-    output.style.backgroundColor = getRGB([data[0], 255 - data[1], data[2]]);
-
-    output = document.getElementById('comp_color7');
-    output.style.backgroundColor = getRGB([data[0], data[1], 255 - data[2]]);
-
-    output = document.getElementById('comp_color8');
-    output.style.backgroundColor = getRGB([0, data[1], data[2]]);
-
-    output = document.getElementById('comp_color9');
-    output.style.backgroundColor = getRGB([data[0], 0, data[2]]);
-
-    output = document.getElementById('comp_color10');
-    output.style.backgroundColor = getRGB([data[0], data[1], 0]);
-
-    output = document.getElementById('comp_color11');
-    output.style.backgroundColor = getRGB([0, 0, data[2]]);
-
-    output = document.getElementById('comp_color12');
-    output.style.backgroundColor = getRGB([data[0], 0, 0]);
-}
-
 //Convert from html-size canvas coordinates to internal pixel width
 function getCoords(canvas, event) {
     let wth = canvas.getBoundingClientRect().width
@@ -193,6 +142,48 @@ function getCoords(canvas, event) {
     return [canvasX, canvasY]
 }
 
-function findColor(data) {
+//find the specified color on the rainbow gradient canvas
+function findColorGradient(data) {
+    const canvas = document.getElementById("gradient_canvas");
+    const ctx = canvas.getContext("2d");
+    const wth = canvas.width;
+    const hgt = canvas.height;
 
+    const myImageData = ctx.getImageData(0, hgt / 2 - 1, wth, 1);
+    const numBytes = myImageData.data.length;
+
+    for (let i = 0; i < numBytes; i = i + 4) {
+        if (parseInt(myImageData.data[i]) == data[0] &&
+            parseInt(myImageData.data[i + 1]) == data[1] &&
+            parseInt(myImageData.data[i + 2]) == data[2]) {
+            fillGradientCanvas(canvas, ctx);
+            circle(ctx, canvas, i / 4, hgt / 2);
+            return;
+        }
+    }
+}
+
+//find the specified color on the two shade gradient canvas
+function findColorShade(base, data) {
+    const canvas = document.getElementById("shade_canvas");
+    const ctx = canvas.getContext("2d");
+
+    fillShadeCanvas(canvas, ctx, getRGB(base));
+
+    const wth = canvas.width;
+    const hgt = canvas.height;
+
+    const myImageData = ctx.getImageData(0, 0, wth, hgt);
+    const numBytes = myImageData.data.length;
+
+    for (let i = 0; i < numBytes; i = i + 4) {
+        if (parseInt(myImageData.data[i]) == data[0] &&
+            parseInt(myImageData.data[i + 1]) == data[1] &&
+            parseInt(myImageData.data[i + 2]) == data[2]) {
+            circle(ctx, canvas, (i / 4) % wth, (i / 4) / hgt);
+            return;
+        }
+    }
+
+    console.log('no match')
 }

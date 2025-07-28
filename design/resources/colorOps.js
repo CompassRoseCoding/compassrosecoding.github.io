@@ -40,7 +40,7 @@ function rgb_HSV(rgb) {
 
 
 //https://www.rapidtables.com/convert/color/rgb-to-hsv.html
-function hsv_RGB(hsv) {
+function hsv_rGB(hsv) {
     //s and v are multiplied by 100
     hsv[1] = hsv[1] / 100;
     hsv[2] = hsv[2] / 100;
@@ -87,11 +87,11 @@ function getRGB(data) {
 function getFullSat(data) {
     hsv_data = rgb_HSV(data);
     full_sat_data = [hsv_data[0], 100, 100]
-    full_sat_rgb = hsv_RGB(full_sat_data);
+    full_sat_rgb = hsv_rGB(full_sat_data);
     return full_sat_rgb;
 }
 
-function getHex(num) {
+function decimalToHex(num) {
     hex = num.toString(16)
 
     if (hex.length === 1) {
@@ -99,4 +99,8 @@ function getHex(num) {
     }
 
     return hex;
+}
+
+function hexToDecimal(num) {
+    return parseInt(num, 16);
 }

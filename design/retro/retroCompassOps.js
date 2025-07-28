@@ -1,7 +1,6 @@
 let matrix_green = '#00F73F'
 
 function retroCompass() {
-    console.log('retroCompass')
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);

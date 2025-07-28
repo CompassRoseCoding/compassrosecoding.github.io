@@ -70,8 +70,6 @@ function changePage() {
 
     destination = parseInt(document.getElementById('pageSelect').value);
     document.getElementById('content' + destination).style.display = 'block'
-
-    console.log('opt' + destination, 'opt' + (destination + 1), document.getElementById('opt' + (destination + 1)))
     
     prev = document.getElementById('prev')
     if (destination - 1 === 0) {

@@ -132,7 +132,6 @@ function gameTick(days) {
             context.drawImage(planets[i].img, findX(orb, currentPos) - size / 2, findY(orb, currentPos) - size / 2, size, size);
 
         } catch (error) {
-            console.log(planets[i].src)
             console.error(error);
         }
     }

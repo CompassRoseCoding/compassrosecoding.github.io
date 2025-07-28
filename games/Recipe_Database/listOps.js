@@ -47,12 +47,10 @@ function checkOff(id) {
 
   itemExists("list")
   localStorage.setItem("list", start.innerHTML)
-  console.log(chk)
 }
 
 //This allows me to make sure that any localStorage item exists before trying to call it
 function itemExists(item) {
-  console.log(localStorage.getItem("list"))
   if (!(item in localStorage) || localStorage.getItem(item) === null) {
     localStorage.setItem(item, "")
   }
@@ -66,7 +64,6 @@ function clearChecked() {
   }
   itemExists("list")
   localStorage.setItem("list", start.innerHTML)
-  console.log(start.innerHTML)
 }
 
 function clearAll() {
@@ -74,5 +71,4 @@ function clearAll() {
   start.innerHTML = "";
   itemExists("list")
   localStorage.setItem("list", "");
-  console.log(localStorage.getItem("list"))
 }
