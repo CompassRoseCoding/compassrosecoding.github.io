@@ -10,16 +10,16 @@ function rgb_HSV(rgb) {
 
     let hue = 0;
 
-    if (cMax == cMin) {
+    if (cMax === cMin) {
         hue = 0;
     }
-    else if (cMax == r) {
+    else if (cMax === r) {
         hue = 60 * (((g - b) / delta) % 6);
     }
-    else if (cMax == g) {
+    else if (cMax === g) {
         hue = 60 * (((b - r) / delta) + 2);
     }
-    else if (cMax == b) {
+    else if (cMax === b) {
         hue = 60 * (((r - g) / delta) + 4);
     }
 
@@ -40,7 +40,7 @@ function rgb_HSV(rgb) {
 
 
 //https://www.rapidtables.com/convert/color/rgb-to-hsv.html
-function hsv_rGB(hsv) {
+function hsv_RGB(hsv) {
     //s and v are multiplied by 100
     hsv[1] = hsv[1] / 100;
     hsv[2] = hsv[2] / 100;
@@ -79,19 +79,14 @@ function hsv_rGB(hsv) {
     return [r, g, b]
 }
 
+//quick function to make a string that allows RGB coloring of HTML objects out of data array
 function getRGB(data) {
     let colString = 'rgb(' + data[0] + ',' + data[1] + ',' + data[2] + ')';
     return colString
 }
 
-function getFullSat(data) {
-    hsv_data = rgb_HSV(data);
-    full_sat_data = [hsv_data[0], 100, 100]
-    full_sat_rgb = hsv_rGB(full_sat_data);
-    return full_sat_rgb;
-}
-
-function decimalToHex(num) {
+//converts decimal to hex
+function decimal_Hex(num) {
     hex = num.toString(16)
 
     if (hex.length === 1) {
@@ -101,6 +96,24 @@ function decimalToHex(num) {
     return hex;
 }
 
-function hexToDecimal(num) {
-    return parseInt(num, 16);
+//converts hex to decimal
+function hex_DecimalArr(num) {
+    num = num.slice(0, 6);
+    while (num.length < 6) {
+        num = num + 1;
+    }
+
+    let r = parseInt(num[0] + num[1], 16);
+    let g = parseInt(num[2] + num[3], 16);
+    let b = parseInt(num[4] + num[5], 16);
+
+    return [r, g, b]
+}
+
+//takes an RGB value, converts it to HSV, gets the full saturation/value of the color, converts back to RGB
+function getFullSat(data) {
+    hsv_data = rgb_HSV(data);
+    full_sat_data = [hsv_data[0], 100, 100]
+    full_sat_rgb = hsv_RGB(full_sat_data);
+    return full_sat_rgb;
 }

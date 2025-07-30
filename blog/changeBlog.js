@@ -101,7 +101,7 @@ function getTags() {
         return ''
     }
     
-    if (tags == null || tags == undefined || tags == '' || tags == ',') {
+    if (tags === null || tags === undefined || tags === '' || tags === ',') {
         return ''
     }
     else {

@@ -33,7 +33,7 @@ def stats():
 
 def onclick(trtl, x, y):
   global points, board
-  if trtl.val == "x":
+  if trtl.val === "x":
     points = points + 1
     print(f"Good job, you have {points} points :D !")
     change()
@@ -83,7 +83,7 @@ def change():
       randh = hex(rand)
       hso = str(randh).replace("0x", "#")
 
-      if count == 3:
+      if count === 3:
         boardsize = boardsize + 1
         if turtleSz[1] > 1:
           turtleSz = (turtleSz[0] - 1, turtleSz[1] - 1)
@@ -101,7 +101,7 @@ def change():
           y = (j * (turtleWidth + 10)) - ((boardsize - 1) * .5 *
                                           (turtleWidth + 10))
 
-          if i * boardsize + j == odd:
+          if i * boardsize + j === odd:
             newturtle(x, y, hso, 'x')
           else:
             newturtle(x, y, hs, 'o')

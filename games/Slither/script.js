@@ -121,14 +121,14 @@ function checkDistance(x1, y1, x2, y2) {
 function newCandy(count) {
     xpos = Math.floor(Math.random() * xCenter)
     ypos = Math.floor(Math.random() * yCenter)
-    if (count % 4 == 1) {
+    if (count % 4 === 1) {
         xpos = -xpos
     }
-    else if (count % 4 == 2) {
+    else if (count % 4 === 2) {
         xpos = -xpos
         ypos = -ypos
     }
-    else if (count % 4 == 3) {
+    else if (count % 4 === 3) {
         ypos = -ypos
     }
     cpos.unshift([xpos, ypos])
@@ -169,16 +169,16 @@ function move(e) {
         let xpos = pos[0][0]
         let ypos = pos[0][1]
 
-        if (e.keyCode == 37 && pos[0][0] > 0 - xCenter) {
+        if (e.keyCode === 37 && pos[0][0] > 0 - xCenter) {
             xpos = xpos - 5;
         }
-        if (e.keyCode == 38 && ypos > 0 - yCenter) {
+        if (e.keyCode === 38 && ypos > 0 - yCenter) {
             ypos = ypos - 5;
         }
-        if (e.keyCode == 39 && xpos < xCenter) {
+        if (e.keyCode === 39 && xpos < xCenter) {
             xpos = xpos + 5;
         }
-        if (e.keyCode == 40 && ypos < yCenter) {
+        if (e.keyCode === 40 && ypos < yCenter) {
             ypos = ypos + 5;
         }
 

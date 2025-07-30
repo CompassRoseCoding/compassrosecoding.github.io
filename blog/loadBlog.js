@@ -26,7 +26,7 @@ async function loadPosts() {
     for (let i = 0; i < response.length; i++) {
         pageNum = Math.floor(i / postsPer) + 1
         let currDiv = document.getElementById('content' + pageNum)
-        if (currDiv == undefined) {
+        if (currDiv === undefined) {
             currDiv = document.createElement('div')
             currDiv.id = 'content' + pageNum
             currDiv.classList.add('page_content')
@@ -64,7 +64,7 @@ function displaySelectedTags() {
         let tags = getTags()
         let tagDiv = document.getElementById('tag_div');
         tagDiv.innerHTML = ''
-        if (tags == '') {
+        if (tags === '') {
             tagDiv.style.visibility = "hidden"
             localStorage.setItem("tags", "");
             return;

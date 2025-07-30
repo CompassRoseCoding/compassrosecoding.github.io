@@ -8,7 +8,7 @@ window.onload = function () {
         for (let i = 0; i < 2; i++) {
             let field = document.getElementById(fields[i]);
 
-            if (field.value == '') {
+            if (field.value === '') {
                 field.style.border = "thick solid #bb2024";
                 field.placeholder = "required field"
                 console.log('invalid ' + fields[i] + " element.")

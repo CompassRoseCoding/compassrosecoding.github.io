@@ -28,7 +28,7 @@ twrite = turtle.Turtle()
 
 def align(i, x, y):
   global setup
-  if setup == True:
+  if setup === True:
     ship = ships[i]
     offset = shipOffset[i]
     if x > 0:
@@ -44,7 +44,7 @@ def align(i, x, y):
 
 def inBounds(i, ship, x, y):
   coef = shiplength[i] / 2 * 20
-  if shipori[i] == 'h':
+  if shipori[i] === 'h':
     if -100 <= x - coef and x + coef < 100 and -210 <= y <= -10:
       set[i] = True
       ship.color("green")
@@ -62,17 +62,17 @@ def inBounds(i, ship, x, y):
 
 def turn(i, x, y):
   global setup
-  if setup == True:
+  if setup === True:
     ship = ships[i]
 
     ship.right(90)
 
-    if shiplength[i] % 2 == 0:
+    if shiplength[i] % 2 === 0:
       offset = shipOffset[i]
       offset[0] = abs(offset[0] - 10)
       offset[1] = abs(offset[1] - 10)
 
-    if shipori[i] == "h":
+    if shipori[i] === "h":
       shipori[i] = "v"
     else:
       shipori[i] = "h"
@@ -82,7 +82,7 @@ def turn(i, x, y):
 
 def goto(i, x, y):
   global setup
-  if setup == True:
+  if setup === True:
     ships[i](x, y)
 
 
@@ -227,7 +227,7 @@ def battle():
     twrite.color("black")
     twrite.penup()
     for i in range(len(set)):
-      if set[i] == False:
+      if set[i] === False:
         twrite.goto(ships[i].xcor() - shiplength[i] / 2 * 20 + shiplength[i],
                     ships[i].ycor() - 5)
         twrite.write("OUT OF BOUNDS")
@@ -237,7 +237,7 @@ def battle():
     setup = False
     for i in range(len(ships)):
       ships[i].color("gray")
-      if shipori[i] == "h":
+      if shipori[i] === "h":
         temp = []
         for j in range(shiplength[i]):
           temp.append((ships[i].xcor() - shiplength[i] * 10 + 10 + j * 20,
@@ -254,7 +254,7 @@ def battle():
 # what happens when player clicks on square
 def checkship(x, y):
   global setup, doublecheck
-  if x > 100 or x < -100 or y < 10 or y > 210 or setup == True or (
+  if x > 100 or x < -100 or y < 10 or y > 210 or setup === True or (
       x, y) in doublecheck:
     return
 
@@ -272,7 +272,7 @@ def checkship(x, y):
     for i in range(len(enemyPositions)):
       try:
         enemyPositions[i].remove((x, y))
-        if len(enemyPositions[i]) == 0:
+        if len(enemyPositions[i]) === 0:
           print("You sunk my " + shipNames[i])
       except:
         print()
@@ -306,7 +306,7 @@ def gameplay():
       for i in range(len(positions)):
         try:
           positions[i].remove((h, v))
-          if len(positions[i]) == 0:
+          if len(positions[i]) === 0:
             print("Your " + shipNames[i] + " was sunk!")
         except:
           print()

@@ -2,7 +2,7 @@ var options = "red,orange,yellow,green,blue,black or purple,brown,white,blue and
 
 function loadCard() {
   init();
-  if (localStorage.getItem("order") == null || localStorage.getItem("order").includes("undefined")) {
+  if (localStorage.getItem("order") === null || localStorage.getItem("order").includes("undefined")) {
     newCard()
   }
   else {

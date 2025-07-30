@@ -11,6 +11,8 @@ function initGradient() {
     let data = ctx.getImageData(5, 5, 1, 1).data;
     initShade(data)
 
+
+
     canvas.onclick = function (event) {
         coords = getCoords(canvas, event)
 
@@ -43,6 +45,9 @@ function initShade(data) {
     data = ctx.getImageData(5, 5, 1, 1).data;
 
     setOutputColor(data)
+    setOutputRGB(data)
+    setOutputHSV(data)
+    setOutputHEX(data)
 
     canvas.onclick = function (event) {
         coords = getCoords(canvas, event)
@@ -58,6 +63,9 @@ function initShade(data) {
         data = ctx.getImageData(x, y, 1, 1).data;
 
         setOutputColor(data)
+        setOutputRGB(data)
+        setOutputHSV(data)
+        setOutputHEX(data)
     }
 }
 
@@ -104,6 +112,7 @@ function fillShadeCanvas(canvas, ctx, color) {
     //gradient for brightness
     const grad2 = ctx.createLinearGradient(0, 10, 0, hgt - 5);
     grad2.addColorStop(0, 'rgb(0,0,0,0)');
+    grad2.addColorStop(.9, 'rgb(25,25,25,1)');
     grad2.addColorStop(1, 'rgb(0,0,0,1)');
 
     ctx.fillStyle = grad2;
@@ -153,9 +162,9 @@ function findColorGradient(data) {
     const numBytes = myImageData.data.length;
 
     for (let i = 0; i < numBytes; i = i + 4) {
-        if (parseInt(myImageData.data[i]) == data[0] &&
-            parseInt(myImageData.data[i + 1]) == data[1] &&
-            parseInt(myImageData.data[i + 2]) == data[2]) {
+        if (parseInt(myImageData.data[i]) === parseInt(data[0]) &&
+            parseInt(myImageData.data[i + 1]) === parseInt(data[1]) &&
+            parseInt(myImageData.data[i + 2]) === parseInt(data[2])) {
             fillGradientCanvas(canvas, ctx);
             circle(ctx, canvas, i / 4, hgt / 2);
             return;
@@ -177,13 +186,42 @@ function findColorShade(base, data) {
     const numBytes = myImageData.data.length;
 
     for (let i = 0; i < numBytes; i = i + 4) {
-        if (parseInt(myImageData.data[i]) == data[0] &&
-            parseInt(myImageData.data[i + 1]) == data[1] &&
-            parseInt(myImageData.data[i + 2]) == data[2]) {
+        if (parseInt(myImageData.data[i]) === parseInt(data[0]) &&
+            parseInt(myImageData.data[i + 1]) === parseInt(data[1]) &&
+            parseInt(myImageData.data[i + 2]) === parseInt(data[2])) {
             circle(ctx, canvas, (i / 4) % wth, (i / 4) / hgt);
             return;
         }
     }
 
+    for (let i = 0; i < numBytes; i = i + 4) {
+        if (
+            parseInt(myImageData.data[i]) < (parseInt(data[0]) + 10) &&
+            parseInt(myImageData.data[i]) > (parseInt(data[0]) - 10) &&
+            parseInt(myImageData.data[i + 1]) < (parseInt(data[1]) + 10) &&
+            parseInt(myImageData.data[i + 1]) > (parseInt(data[1]) - 10) &&
+            parseInt(myImageData.data[i + 2]) < (parseInt(data[2]) + 10) &&
+            parseInt(myImageData.data[i + 2]) > (parseInt(data[2]) - 10)
+        ) {
+            console.log('backup')
+            //console.log(
+            //    parseInt(myImageData.data[i]), (parseInt(data[0])),
+            //    parseInt(myImageData.data[i + 1]), (parseInt(data[1])),
+            //    parseInt(myImageData.data[i + 2]), (parseInt(data[2]))
+            //);
+            circle(ctx, canvas, (i / 4) % wth, (i / 4) / hgt);
+            return;
+        }
+    }
+
+    if (parseInt(data[0]) < 50 &&
+        parseInt(data[1]) < 50 &&
+        parseInt(data[2]) < 50) {
+        console.log('black')
+        circle(ctx, canvas, 10, hgt - 10);
+        return;
+    }
+
+    //console.log(data)
     console.log('no match')
 }

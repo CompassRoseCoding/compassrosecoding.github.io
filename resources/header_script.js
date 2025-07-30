@@ -23,7 +23,7 @@ function dropDown() {
     tabs = document.getElementById("tabs_div")
     arrow = document.getElementById("menu_span")
 
-    if (tabs.style.display == "flex") {
+    if (tabs.style.display === "flex") {
         arrow.style.transform = "rotate(0deg)"
         tabs.style.display = "none"
     }

@@ -36,7 +36,7 @@ function checkOff(id) {
   var chkBox = document.getElementById(id.replace('_div', ''))
   var start = document.getElementById("list-content");
   chk.remove();
-  if (chkBox.checked == false) {
+  if (chkBox.checked === false) {
     chk.setAttribute("name","unchecked")
     start.prepend(chk)
   }

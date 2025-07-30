@@ -95,9 +95,9 @@ def encode(mparam):
     for letter in mparam:
         value = value + " " + alph[letter.upper()]
     for symbol in value:
-        if symbol == ".":
+        if symbol === ".":
             dot()
-        elif symbol == "-":
+        elif symbol === "-":
             dash()
         else:
             space()
@@ -122,25 +122,25 @@ def quiz():
         letter = alist[rand][0]
         encode(letter)
         inpt = input("What was that letter?")
-        while input == "repeat":
+        while input === "repeat":
             encode(letter)
             inpt = input("What was that letter?")
-        if inpt.upper() == letter:
+        if inpt.upper() === letter:
             print('Good job :)')
-        elif inpt == "quit":
+        elif inpt === "quit":
             break
         else:
             print("The answer was " + letter + ". Better luck next time!")
 
 
 # UI deck
-if response.lower() == "encode":
+if response.lower() === "encode":
     message = input(f"What do you want to {response}?\n")
     print(encode(message))
-elif response.lower() == "decode":
+elif response.lower() === "decode":
     message = input(f"What do you want to {response}?\n")
     print(decode(message).replace("_", "-"))
-elif response.lower() == "quiz":
+elif response.lower() === "quiz":
     quiz()
 else:
     message = input(f"What do you want to {response}?\n")

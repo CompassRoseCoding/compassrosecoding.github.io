@@ -297,27 +297,27 @@
                     <h3 for="rgb_out" class="color_out_label">RGB: </h3>
                     <div id="rgb_out">
                         <label class="color_out_label" for="rgb_r">R:</label>
-                        <input type="number" id="rgb_r" min="0" max="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
+                        <input type="number" id="rgb_r" min="0" max="255" value="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
                         <label class="color_out_label" for="rgb_g">G:</label>
-                        <input type="number" id="rgb_g" min="0" max="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
+                        <input type="number" id="rgb_g" min="0" max="255" value="0" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
                         <label class="color_out_label" for="rgb_b">B:</label>
-                        <input type="number" id="rgb_b" min="0" max="255" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
+                        <input type="number" id="rgb_b" min="0" max="255" value="0" onkeydown="getRGBInput()"  onchange="getRGBInput()"/>
                     </div>
 
                     <h3 for="hsv_out" class="color_out_label">HSV: </h3>
                     <div id="hsv_out">
                         <label class="color_out_label" for="hsv_h">H:</label>
-                        <input type="number" id="hsv_h" min="0" max="255" />
+                        <input type="number" id="hsv_h" min="0" max="360" value="0" onkeydown="getHSVInput()"  onchange="getHSVInput()"/>
                         <label class="color_out_label" for="hsv_s">S:</label>
-                        <input type="number" id="hsv_s" min="0" max="255" />
+                        <input type="number" id="hsv_s" min="0" max="100" value="100" onkeydown="getHSVInput()"  onchange="getHSVInput()"/>
                         <label class="color_out_label" for="hsv_v">V:</label>
-                        <input type="number" id="hsv_v" min="0" max="255" />
+                        <input type="number" id="hsv_v" min="0" max="100" value="100" onkeydown="getHSVInput()"  onchange="getHSVInput()"/>
                     </div>
 
                     <h3 for="hex_out" class="color_out_label">Hex: </h3>
                     <div id="hex_out">
                         <label class="color_out_label" for="hex_out">#</label>
-                        <input id="hex_out" class="color_out">
+                        <input type='text' id="hex_box" onkeydown="getHEXInput()"  onchange="getHEXInput()"/>
                     </div>
                 </div>
 

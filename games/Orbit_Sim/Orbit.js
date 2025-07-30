@@ -175,7 +175,7 @@ function findY(radius, angle) {
 
 //Calculates the orbiter position along it's preset trajectory
 function drawOrbiter(days) {
-        if (days % 5 == 0 && gameon) {
+        if (days % 5 === 0 && gameon) {
             planets[6].orbitRad = planets[6].orbitRad + 1 / 300;
         }
         else if (!gameon) {

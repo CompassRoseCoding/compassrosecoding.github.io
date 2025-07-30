@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Editor</title>
+    <link rel="icon" href="../resources/images/compass_icon.png">
+
+    <link rel="stylesheet" href="editor_style.css" />
+
+    <link crossorigin="anonymous" integrity="sha384-7kltdnODhBho8GSWnwD9l9rilXkpuia4Anp4TKHPOrp8/MS/+083g4it4MYED/hc"
+        href="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.snow.min.css" rel="stylesheet" />
+    <script crossorigin="anonymous" integrity="sha384-MDio1/ps0nK1tabxUqZ+1w2NM9faPltR1mDqXcNleeuiSi0KBXqIsWofIp4r5A0+"
+        src="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/scrapooo/quill-resize-module@1.0.2/dist/quill-resize-module.js"></script>
+
+    <script src="editor_script.js"></script>
+</head>
+
+<body>
+    <div class="side_by_side">
+        <a class="current page_btn" href="../Editor">Editor</a>
+        <a class="page_btn" href="../">Blog</a>
+    </div>
+
+    <div class="center_obj">
+        <select required class="posts_select" id="posts_select">
+            <option value="" selected="selected">Create New Post</option>
+        </select>
+    </div>
+
+    <div class="side_by_side">
+        <div class="right_container">
+            <div id="toolbar-container">
+                <select class="ql-font"></select>
+                <select class="ql-size"></select>
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+                <select class="ql-color"></select>
+                <button class="ql-script" value="sub"></button>
+                <button class="ql-script" value="super"></button>
+                <button class="ql-blockquote"></button>
+                <button class="ql-code-block"></button>
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+                <button class="ql-indent" value="-1"></button>
+                <button class="ql-indent" value="+1"></button>
+                <select class="ql-align"></select>
+                <button class="ql-link"></button>
+                <button class="ql-image"></button>
+                <button class="ql-video"></button>
+            </div>
+            <div id="editor">
+            </div>
+        </div>
+
+
+        <div class="left_container">
+            <input type="text" class="left_input" id="title_input" placeholder="Title" />
+
+            <input type="text" class="left_input" id="author_input" placeholder="Author" />
+
+            <input type="date" id="published_input" class="left_input" />
+
+            <textarea id="tags_input" class="left_input" placeholder="tag1, tag2"></textarea>
+
+            <button id='save_btn' class="left_input" onclick="exportContent()">Publish</button>
+        </div>
+
+
+</body>
+
+</html>
+
+<script>
+    Quill.register('modules/imageResize', QuillResizeModule);
+
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+            imageResize: {
+                displaySize: true
+            },
+            toolbar: '#toolbar-container',
+        }
+    });
+
+    document.getElementById('save_btn').onclick = function () {
+        //TODO: send blog post 
+    }
+</script>
