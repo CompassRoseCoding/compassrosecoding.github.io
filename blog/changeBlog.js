@@ -1,4 +1,5 @@
-const blogURL = "https://u315eql0b6.execute-api.us-east-2.amazonaws.com/blog/posts";
+//const blogURL = "https://u315eql0b6.execute-api.us-east-2.amazonaws.com/blog/posts";
+const blogURL = "https://u315eql0b6.execute-api.us-east-2.amazonaws.com/blog/scratch_blog";
 
 var requestOptions = {
     method: 'GET',
@@ -8,12 +9,17 @@ var requestOptions = {
     },
 };
 
+//TODO: fix search function 
+
+//tags = getTags()
+// search = document.getElementById('search_bar').value
+// const response = await fetch(blogURL + "?labels=" + tags + "&search=" + search, requestOptions)
+// const json = await response.json()
+// return json;
+
 //send a specified request and return json response
 async function sendRequest() {
-    tags = getTags()
-
-    search = document.getElementById('search_bar').value
-    const response = await fetch(blogURL + "?labels=" + tags + "&search=" + search, requestOptions)
+    const response = await fetch(blogURL, requestOptions)
     const json = await response.json()
     return json;
 }

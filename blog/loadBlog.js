@@ -8,13 +8,13 @@ async function loadPosts() {
     scroll(0, 0)
     displaySelectedTags();
 
-    content = document.getElementById("blog_content")
+    let content = document.getElementById("blog_content")
 
-    loading = document.createElement("h2")
+    let loading = document.createElement("h2")
     loading.innerHTML = 'Loading Blog'
     content.appendChild(loading)
 
-    postsPer = document.getElementById('postPerPage').value;
+    let postsPer = document.getElementById('postPerPage').value;
 
     response = await sendRequest()
     content.innerHTML = '';

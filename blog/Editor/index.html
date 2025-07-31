@@ -15,17 +15,20 @@
         src="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/scrapooo/quill-resize-module@1.0.2/dist/quill-resize-module.js"></script>
 
-    <script src="editor_script.js"></script>
+    <script src="getFunctions.js"></script>
+    <script src="postFunctions.js"></script>
+    <script src="../loadBlog.js"></script>
+    <script src="../changeBlog.js"></script>
 </head>
 
-<body>
+<body onload="editorInit()">
     <div class="side_by_side">
-        <a class="current page_btn" href="../Editor">Editor</a>
+        <a class="current page_btn" href="../editor">Editor</a>
         <a class="page_btn" href="../">Blog</a>
     </div>
 
     <div class="center_obj">
-        <select required class="posts_select" id="posts_select">
+        <select required class="posts_select" id="posts_select" onchange="selectPost()">
             <option value="" selected="selected">Create New Post</option>
         </select>
     </div>
@@ -80,6 +83,11 @@
 
     var quill = new Quill('#editor', {
         theme: 'snow',
+        history: {
+            delay: 1000, // Changes within 1000ms are merged
+            maxStack: 100, // Maximum size of the undo/redo stack
+            userOnly: false // Tracks programmatic changes as well as user input
+        },
         modules: {
             imageResize: {
                 displaySize: true
@@ -89,6 +97,6 @@
     });
 
     document.getElementById('save_btn').onclick = function () {
-        //TODO: send blog post 
+        publish();
     }
 </script>

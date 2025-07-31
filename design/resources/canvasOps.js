@@ -46,7 +46,7 @@ function initShade(data) {
 
     setOutputColor(data)
     setOutputRGB(data)
-    setOutputHSV(data)
+    setOutputHSL(data)
     setOutputHEX(data)
 
     canvas.onclick = function (event) {
@@ -64,7 +64,7 @@ function initShade(data) {
 
         setOutputColor(data)
         setOutputRGB(data)
-        setOutputHSV(data)
+        setOutputHSL(data)
         setOutputHEX(data)
     }
 }
@@ -203,12 +203,6 @@ function findColorShade(base, data) {
             parseInt(myImageData.data[i + 2]) < (parseInt(data[2]) + 10) &&
             parseInt(myImageData.data[i + 2]) > (parseInt(data[2]) - 10)
         ) {
-            console.log('backup')
-            //console.log(
-            //    parseInt(myImageData.data[i]), (parseInt(data[0])),
-            //    parseInt(myImageData.data[i + 1]), (parseInt(data[1])),
-            //    parseInt(myImageData.data[i + 2]), (parseInt(data[2]))
-            //);
             circle(ctx, canvas, (i / 4) % wth, (i / 4) / hgt);
             return;
         }

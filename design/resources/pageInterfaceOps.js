@@ -1,11 +1,14 @@
 //set all the outputs for the color picker
 function setOutputColor(data) {
+    let hsl_data = rgb_HSL(data)
+
     //set the color panels
     let output = document.getElementById('current_color');
     output.style.backgroundColor = getRGB(data);
 
+    //fully saturated color
     output = document.getElementById('orig_color');
-    output.style.backgroundColor = getRGB(getFullSat(data));
+    output.style.backgroundColor = getHSL([hsl_data[0], 100, 50]);
 
     //set the little complimentary color squares
     output = document.getElementById('comp_color1');
@@ -48,27 +51,27 @@ function setOutputColor(data) {
 //set RGB drop downs
 function setOutputRGB(data) {
     output = document.getElementById('rgb_r');
-    output.value = data[0]
+    output.value = Math.round(data[0])
 
     output = document.getElementById('rgb_g');
-    output.value = data[1]
+    output.value = Math.round(data[1])
 
     output = document.getElementById('rgb_b');
-    output.value = data[2]
+    output.value = Math.round(data[2])
 }
 
-//set HSV drop downs
-function setOutputHSV(data) {
-    let hsv_data = rgb_HSV(data)
+//set HSL drop downs
+function setOutputHSL(data) {
+    let hsl_data = rgb_HSL(data)
 
-    output = document.getElementById('hsv_h');
-    output.value = Math.round(hsv_data[0]);
+    output = document.getElementById('hsl_h');
+    output.value = Math.round(hsl_data[0]);
 
-    output = document.getElementById('hsv_s');
-    output.value = Math.round(hsv_data[1]);
+    output = document.getElementById('hsl_s');
+    output.value = Math.round(hsl_data[1]);
 
-    output = document.getElementById('hsv_v');
-    output.value = Math.round(hsv_data[2]);
+    output = document.getElementById('hsl_l');
+    output.value = Math.round(hsl_data[2]);
 }
 
 //set HEX output
@@ -104,36 +107,38 @@ function getRGBInput() {
     let b = document.getElementById("rgb_b").value;
 
     let rgb = [r, g, b];
+    let hsl = rgb_HSL(rgb);
     let fullSat = getFullSat(rgb);
 
     setOutputColor(rgb);
-    setOutputHSV(rgb);
+    setOutputHSL(rgb);
     setOutputHEX(rgb);
 
     findColorGradient(fullSat);
     findColorShade(fullSat, rgb);
 }
 
-//get the color input from the HSV manual input
-function getHSVInput() {
-    checkSpecMinMax("hsv_h", 360)
-    let h = document.getElementById("hsv_h").value;
+//get the color input from the HSL manual input
+function getHSLInput() {
+    checkSpecMinMax("hsl_h", 360)
+    let h = document.getElementById("hsl_h").value;
 
-    checkSpecMinMax("hsv_s", 100)
-    let s = document.getElementById("hsv_s").value;
+    checkSpecMinMax("hsl_s", 100)
+    let s = document.getElementById("hsl_s").value;
 
-    checkSpecMinMax("hsv_v", 100)
-    let v = document.getElementById("hsv_v").value;
+    checkSpecMinMax("hsl_l", 100)
+    let v = document.getElementById("hsl_l").value;
 
-    let rgb_ver = hsv_RGB([h, s, v]);
-    let fullSat = hsv_RGB([h, 100, 100]);
+    let rgb = hsl_RGB([h, s, v]);
+    console.log(rgb)
+    let fullSat = getFullSat(rgb);
 
-    setOutputColor(rgb_ver);
-    setOutputRGB(rgb_ver);
-    setOutputHEX(rgb_ver);
+    setOutputColor(rgb);
+    setOutputRGB(rgb);
+    setOutputHEX(rgb);
 
     findColorGradient(fullSat);
-    findColorShade(fullSat, rgb_ver);
+    findColorShade(fullSat, rgb);
 }
 
 //get the color input from the HEX manual input
@@ -145,7 +150,7 @@ function getHEXInput() {
 
     setOutputColor(rgb);
     setOutputRGB(rgb);
-    setOutputHSV(rgb);
+    setOutputHSL(rgb);
 
     findColorGradient(fullSat);
     findColorShade(fullSat, rgb);
