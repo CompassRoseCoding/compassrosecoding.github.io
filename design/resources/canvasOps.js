@@ -11,8 +11,6 @@ function initGradient() {
     let data = ctx.getImageData(5, 5, 1, 1).data;
     initShade(data)
 
-
-
     canvas.onclick = function (event) {
         coords = getCoords(canvas, event)
 
@@ -36,7 +34,7 @@ function initShade(data) {
 
     fillShadeCanvas(canvas, ctx, color);
     if (shadeX === -1) {
-        circle(ctx, canvas, 5, 5)
+        //circle(ctx, canvas, 5, 5)
     }
     else {
         circle(ctx, canvas, shadeX, shadeY)
@@ -102,18 +100,19 @@ function fillShadeCanvas(canvas, ctx, color) {
     const hgt = canvas.height;
 
     //gradient for saturation
-    const grad1 = ctx.createLinearGradient(10, 0, wth, 0)
-    grad1.addColorStop(0, color);
-    grad1.addColorStop(1, '#ffffff');
-
-    ctx.fillStyle = grad1;
-    ctx.fillRect(0, 0, wth, hgt);
+    const grad1 = ctx.createLinearGradient(0, 0, wth, 0)
+    grad1.addColorStop(.02, color);
+    grad1.addColorStop(.98, '#ffffff');
 
     //gradient for brightness
     const grad2 = ctx.createLinearGradient(0, 10, 0, hgt - 5);
-    grad2.addColorStop(0, 'rgb(0,0,0,0)');
-    grad2.addColorStop(.9, 'rgb(25,25,25,1)');
-    grad2.addColorStop(1, 'rgb(0,0,0,1)');
+    grad2.addColorStop(.02, 'rgb(0,0,0,0)');
+    grad2.addColorStop(.95, 'rgb(35,35,35,1)');
+    grad2.addColorStop(.98, 'rgb(0,0,0,1)');
+
+    //fill the canvas with both gradients
+    ctx.fillStyle = grad1;
+    ctx.fillRect(0, 0, wth, hgt);
 
     ctx.fillStyle = grad2;
     ctx.fillRect(0, 0, wth, hgt);

@@ -56,7 +56,8 @@ h4 {
     font-family: 'Calibri';
     font-weight: 500;
 
-    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
 }
 

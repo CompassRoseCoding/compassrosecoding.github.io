@@ -34,29 +34,34 @@ function rgb_HSL(rgb) {
 
 //https://www.rapidtables.com/convert/color/hsl-to-rgb.html
 function hsl_RGB(hsl) {
-    hsl = [hsl[0], hsl[1] / 100, hsl[2] / 100]
-    let c = (1 - Math.abs(2 * hsl[2] - 1)) * hsl[1];
-    let x = c * (1 - Math.abs((hsl[0] / 60) % 2 - 1)) / 100;
-    let m = hsl[2] - c / 2;
+    let h = hsl[0];
+    let s = hsl[1] / 100;
+    let l = hsl[2] / 100;
+
+    let c = (1 - Math.abs(2 * l - 1)) * s;
+    let x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+    let m = l - (c / 2);
+
+    //console.log(c, x, m)
 
     let rgb = [];
 
-    if (0 <= hsl[0] && hsl[0] < 60) {
+    if (0 <= h && h < 60) {
         rgb = [c, x, 0]
     } 
-    else if (60 <= hsl[0] && hsl[0] < 120) {
+    else if (60 <= h && h < 120) {
         rgb = [x, c, 0]
     } 
-    else if (120 <= hsl[0] && hsl[0] < 180) {
+    else if (120 <= h && h < 180) {
         rgb = [0, c, x]
     } 
-    else if (180 <= hsl[0] && hsl[0] < 240) {
+    else if (180 <= h && h < 240) {
         rgb = [0, x, c]
     } 
-    else if (240 <= hsl[0] && hsl[0] < 300) {
+    else if (240 <= h && h < 300) {
         rgb = [x, 0, c]
     } 
-    else if (300 <= hsl[0] && hsl[0] < 360) {
+    else if (300 <= h && h < 360) {
         rgb = [c, 0, x]
     } 
 
@@ -159,7 +164,7 @@ function getHSL(data) {
 function decimal_Hex(num) {
     num = Math.round(num)
     hex = num.toString(16)
-    console.log(hex)
+    //console.log(hex)
 
     if (hex.length === 1) {
         hex = '0' + hex

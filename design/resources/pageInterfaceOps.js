@@ -121,16 +121,16 @@ function getRGBInput() {
 //get the color input from the HSL manual input
 function getHSLInput() {
     checkSpecMinMax("hsl_h", 360)
-    let h = document.getElementById("hsl_h").value;
+    let h = parseFloat(document.getElementById("hsl_h").value);
 
     checkSpecMinMax("hsl_s", 100)
-    let s = document.getElementById("hsl_s").value;
+    let s = parseFloat(document.getElementById("hsl_s").value);
 
     checkSpecMinMax("hsl_l", 100)
-    let v = document.getElementById("hsl_l").value;
+    let v = parseFloat(document.getElementById("hsl_l").value);
 
     let rgb = hsl_RGB([h, s, v]);
-    console.log(rgb)
+    //console.log(rgb)
     let fullSat = getFullSat(rgb);
 
     setOutputColor(rgb);

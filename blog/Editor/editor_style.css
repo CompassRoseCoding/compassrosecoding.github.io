@@ -1,3 +1,96 @@
+input {
+    border: 1px solid gray;
+}
+
+.login_modal {
+    width: 30vw;
+    height: 30vh;
+
+    border: 2px solid black;
+
+    margin-top: 5vh;
+    margin-left: 35vw;
+    margin-right: 35vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login_header {
+    width: 15vw;
+    height: 20px;
+
+    margin: 0;
+    text-align: center;
+
+    background-color: white;
+}
+
+.login_input {
+    width: 15vw;
+    height: 20px;
+}
+
+.preview_modal {
+    display: none;
+
+    background-color: white;
+    border: 1px black solid;
+
+    width: 80vw;
+    height: 95vh;
+
+    position: absolute;
+    top: 2vh;
+    left: 10vw;
+
+    z-index: 1;
+}
+
+.preview_area {
+    border: 1px black solid;
+
+    overflow-y: scroll;
+
+    width: 80vw;
+    height: 90vh;
+
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+}
+
+.preview_area .ql-align-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.preview_area p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.preview_area img {}
+
+
+.preview_btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 80vw;
+    height: 5vh;
+}
+
+.editor_modal {
+    display: none;
+}
+
 .current {
     color: lightblue;
 }
@@ -42,6 +135,13 @@
     width: 98%;
 }
 
+.tags_display {
+    width: 3in - 5px;
+    height: 100px;
+
+    border-bottom: 1px solid gray;
+}
+
 .right_container {
     width: 8.5in;
     height: 50vh;
@@ -56,4 +156,3 @@
     flex-direction: column;
     row-gap: 10px;
 }
-

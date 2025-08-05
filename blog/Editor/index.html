@@ -9,94 +9,93 @@
 
     <link rel="stylesheet" href="editor_style.css" />
 
-    <link crossorigin="anonymous" integrity="sha384-7kltdnODhBho8GSWnwD9l9rilXkpuia4Anp4TKHPOrp8/MS/+083g4it4MYED/hc"
-        href="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.snow.min.css" rel="stylesheet" />
-    <script crossorigin="anonymous" integrity="sha384-MDio1/ps0nK1tabxUqZ+1w2NM9faPltR1mDqXcNleeuiSi0KBXqIsWofIp4r5A0+"
-        src="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/scrapooo/quill-resize-module@1.0.2/dist/quill-resize-module.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
 
-    <script src="getFunctions.js"></script>
+    <script src="getDeleteFunctions.js"></script>
     <script src="postFunctions.js"></script>
-    <script src="../loadBlog.js"></script>
-    <script src="../changeBlog.js"></script>
+    <script src="pageFunctions.js"></script>
 </head>
 
-<body onload="editorInit()">
-    <div class="side_by_side">
-        <a class="current page_btn" href="../editor">Editor</a>
-        <a class="page_btn" href="../">Blog</a>
+<body>
+    <div class="login_modal" id="login_modal">
+        <h3 class="login_header">Login</h3>
+        <input type="text" class="login_input" id="username_input" placeholder="username" />
+        <input type="password" class="login_input" id="password_input" placeholder="password" />
+        <button id='login_btn' class="login_header" onclick="login()">Login</button>
     </div>
 
-    <div class="center_obj">
-        <select required class="posts_select" id="posts_select" onchange="selectPost()">
-            <option value="" selected="selected">Create New Post</option>
-        </select>
+    <div class="preview_modal" id="preview_modal">
+        <div class="preview_area" id="preview_area">
+
+        </div>
+        <div class="preview_btns">
+            <button class="cancel_button" onclick="closePreview()">Cancel</button>
+            <button class="draft_button" onclick="postBlog('<draft>')">Save as Draft</button>
+            <button class="publish_button" onclick="postBlog('')">Publish</button>
+        </div>
     </div>
 
-    <div class="side_by_side">
-        <div class="right_container">
-            <div id="toolbar-container">
-                <select class="ql-font"></select>
-                <select class="ql-size"></select>
-                <button class="ql-bold"></button>
-                <button class="ql-italic"></button>
-                <button class="ql-underline"></button>
-                <button class="ql-strike"></button>
-                <select class="ql-color"></select>
-                <button class="ql-script" value="sub"></button>
-                <button class="ql-script" value="super"></button>
-                <button class="ql-blockquote"></button>
-                <button class="ql-code-block"></button>
-                <button class="ql-list" value="ordered"></button>
-                <button class="ql-list" value="bullet"></button>
-                <button class="ql-indent" value="-1"></button>
-                <button class="ql-indent" value="+1"></button>
-                <select class="ql-align"></select>
-                <button class="ql-link"></button>
-                <button class="ql-image"></button>
-                <button class="ql-video"></button>
+    <div class="editor_modal" id="editor_modal">
+        <div class="side_by_side">
+            <a class="current page_btn" href="../editor">Editor</a>
+            <a class="page_btn" href="../blog">Blog</a>
+        </div>
+
+        <div class="center_obj">
+            <select required class="posts_select" id="posts_select" onchange="selectPost()">
+            </select>
+        </div>
+
+        <div class="side_by_side">
+            <div class="right_container">
+                <div id="toolbar-container">
+                    <select class="ql-font"></select>
+                    <select class="ql-size"></select>
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                    <button class="ql-underline"></button>
+                    <button class="ql-strike"></button>
+                    <select class="ql-color"></select>
+                    <button class="ql-script" value="sub"></button>
+                    <button class="ql-script" value="super"></button>
+                    <button class="ql-blockquote"></button>
+                    <button class="ql-code-block"></button>
+                    <button class="ql-list" value="ordered"></button>
+                    <button class="ql-list" value="bullet"></button>
+                    <button class="ql-indent" value="-1"></button>
+                    <button class="ql-indent" value="+1"></button>
+                    <select class="ql-align"></select>
+                    <button class="ql-link"></button>
+                    <button class="ql-image"></button>
+                    <button class="ql-video"></button>
+                </div>
+                <div id="editor">
+                </div>
             </div>
-            <div id="editor">
+
+
+            <div class="left_container">
+                <input type="text" class="left_input" id="title_input" placeholder="Title" />
+
+                <input type="text" class="left_input" id="author_input" placeholder="Author" />
+
+                <input type="date" id="published_input" class="left_input" />
+
+                <p id="tags_list" hidden></p>
+                <div id="tags_display" class="tags_display" contenteditable="false"></div>
+                <input id="tags_input" class="left_input" placeholder="Tags" />
+
+                <button id='save_btn' class="left_input" onclick="openPreview()">Publish</button>
+
+                <button id='delete_btn' class="left_input" onclick="deletePost()">Delete Post</button>
             </div>
         </div>
 
-
-        <div class="left_container">
-            <input type="text" class="left_input" id="title_input" placeholder="Title" />
-
-            <input type="text" class="left_input" id="author_input" placeholder="Author" />
-
-            <input type="date" id="published_input" class="left_input" />
-
-            <textarea id="tags_input" class="left_input" placeholder="tag1, tag2"></textarea>
-
-            <button id='save_btn' class="left_input" onclick="exportContent()">Publish</button>
-        </div>
-
-
+        <!-- Sourced from https://github.com/mudoo/quill-resize-module?tab=readme-ov-file -->
+        <link href="https://cdn.jsdelivr.net/npm/quill-resize-module@2.0.3/dist/resize.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/quill-resize-module@2.0.3/dist/resize.js"></script>
+        <script src="editor.js"></script>
 </body>
 
 </html>
-
-<script>
-    Quill.register('modules/imageResize', QuillResizeModule);
-
-    var quill = new Quill('#editor', {
-        theme: 'snow',
-        history: {
-            delay: 1000, // Changes within 1000ms are merged
-            maxStack: 100, // Maximum size of the undo/redo stack
-            userOnly: false // Tracks programmatic changes as well as user input
-        },
-        modules: {
-            imageResize: {
-                displaySize: true
-            },
-            toolbar: '#toolbar-container',
-        }
-    });
-
-    document.getElementById('save_btn').onclick = function () {
-        publish();
-    }
-</script>
