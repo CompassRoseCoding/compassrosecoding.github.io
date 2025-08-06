@@ -25,10 +25,11 @@ async function editorInit() {
 
     resetTimer();
 
+    //sets the logout timer to two hours
     inactiveTimeout = setTimeout(() => {
         localStorage.setItem('compassrosecoding_token', '')
         window.location.reload();
-    }, 24 * 900000);
+    }, 1000 * 60 * 60 * 2);
 }
 
 //sets the logout timer- 15 mins of no activity auto logs you out.
@@ -37,7 +38,7 @@ function resetTimer() {
     inactiveTimeout = setTimeout(() => {
         localStorage.setItem('compassrosecoding_token', '')
         window.location.reload();
-    }, 900000);
+    }, 1000 * 60 * 15);
 }
 
 //populates appropriate fields with data from titles

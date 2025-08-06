@@ -33,6 +33,11 @@ input {
     height: 20px;
 }
 
+.error_message {
+    color: red;
+    display: none;
+}
+
 .preview_modal {
     display: none;
 
@@ -59,8 +64,6 @@ input {
 
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
-}
-
 }
 
 .preview_area .ql-align-center {

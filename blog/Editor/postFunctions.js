@@ -1,4 +1,4 @@
-var loginUrl = "https://iyhb6iv4p7z5vpnfxky2yocqxu0dwpsc.lambda-url.us-east-2.on.aws/";
+var loginUrl = "https://t6gz4jxvn3.execute-api.us-east-2.amazonaws.com/login";
 
 var postOptions = {
     method: 'POST',
@@ -20,11 +20,16 @@ async function login() {
     postOptions['body'] = JSON.stringify(data);
 
     let response = await postRequest(loginUrl, postOptions);
-    let token = response['token'];
-    localStorage.setItem('compassrosecoding_token', token)
-    localStorage.setItem('blogUrl', response['url']);
+    if (response !== 0) {
+        let token = response['token'];
+        localStorage.setItem('compassrosecoding_token', token)
+        localStorage.setItem('blogUrl', response['url']);
 
-    editorInit();
+        editorInit();
+    }
+    else {
+        document.getElementById('error_message').style.display = 'block'
+    }
 }
 
 //publishes new post or edited post
@@ -86,6 +91,6 @@ async function postRequest(blogUrl, postOptions) {
         return result;
     } catch (error) {
         console.error(error.message);
-        return error;
+        return 0;
     }
 }
