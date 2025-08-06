@@ -20,7 +20,7 @@ async function login() {
     postOptions['body'] = JSON.stringify(data);
 
     let response = await postRequest(loginUrl, postOptions);
-    if (response !== 0) {
+    if (response !== 0 && !response.includes("invalid")) {
         let token = response['token'];
         localStorage.setItem('compassrosecoding_token', token)
         localStorage.setItem('blogUrl', response['url']);
