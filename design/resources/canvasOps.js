@@ -34,7 +34,7 @@ function initShade(data) {
 
     fillShadeCanvas(canvas, ctx, color);
     if (shadeX === -1) {
-        //circle(ctx, canvas, 5, 5)
+        circle(ctx, canvas, 5, 5)
     }
     else {
         circle(ctx, canvas, shadeX, shadeY)
