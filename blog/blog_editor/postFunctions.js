@@ -13,6 +13,8 @@ async function login() {
     let user = document.getElementById('username_input').value;
     let pass = document.getElementById("password_input").value;
 
+    localStorage.clear();
+
     data = {};
     data["username"] = user;
     data["password"] = pass;
@@ -35,35 +37,17 @@ async function login() {
 
 //publishes new post or edited post
 async function postBlog(status) {
-    closePreview();
-
-    let pub = '';
-
-    if (status === '<draft>') {
-        pub = 'DRAFT'
-    }
-    else {
-        pub = document.getElementById('published_input').value;
-
-        if (!document.getElementById('published_input').value) {
-            const date = new Date();
-            pub = date.getFullYear() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2)
-        }
-    }
-
     let select = document.getElementById("posts_select");
 
     data = {};
     data["id"] = select.value;
-    data["published"] = pub;
-    data["author"] = document.getElementById('author_input').value;
-    data["title"] = document.getElementById('title_input').value;
-    data["tags"] = document.getElementById('tags_list').innerHTML;
-    data["body"] = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    data["body"] = document.getElementById('preview_area').outerHTML.replaceAll('id="preview_area"', 'id="' + select.value + '"');
 
     data["token"] = localStorage.getItem('compassrosecoding_token');
 
     postOptions['body'] = JSON.stringify(data)
+
+    closePreview();
 
     if (select.value != "") {
         let text = "Are you sure you want to overwrite the current version of this blog post?";
@@ -87,7 +71,6 @@ async function postRequest(blogUrl, postOptions) {
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
-
         const result = await response.json();
         return result;
     } catch (error) {

@@ -41,140 +41,14 @@ function resetTimer() {
     }, 1000 * 60 * 15);
 }
 
-//populates appropriate fields with data from titles
-function selectPost() {
-    let select = document.getElementById("posts_select");
-
-    if (select.value !== "") {
-        let data = localStorage.getItem('post_' + select.value);
-
-        data = JSON.parse(data)
-
-        document.getElementById('author_input').value = data["Author"];
-        document.getElementById('title_input').value = data["Title"];
-        document.getElementById('published_input').value = data["Published"];
-        document.getElementsByClassName('ql-editor')[0].innerHTML = data["Body"];
-
-        let tagsList = document.getElementById('tags_list')
-        let tagDiv = document.getElementById('tags_display')
-
-        document.getElementById('tags_list').innerText = ""
-        console.log(data["Tags"]);
-        let tagsArr = data["Tags"].split('#');
-        tagDiv.innerHTML = '';
-        for (let i = 0; i < tagsArr.length; i++) {
-            if (tagsArr[i].length > 0) {
-                tagsList.innerText = tagsList.innerText + '#' + tagsArr[i]
-
-                let btn = tagButton('#' + tagsArr[i]);
-                tagDiv.appendChild(btn)
-            }
-        }
-    }
-    else {
-        clearPage();
-    }
-}
-
 //clears all input fields
 function clearPage() {
-    document.getElementById('author_input').value = "";
-    document.getElementById('title_input').value = "";
-    document.getElementById('published_input').value = "";
-    document.getElementById('tags_input').value = "";
-
-    document.getElementById('tags_list').innerText = ""
-    document.getElementById('tags_display').innerHTML = ""
+    document.getElementById('author_input').value = '';
+    document.getElementById('title_input').value = '';
+    document.getElementById('published_input').value = '';
+    document.getElementsByClassName('ql-editor')[0].innerHTML = '';
+    document.getElementById('tags_display').innerHTML = '';
     document.getElementById('tags_input').value = ""
-
-    document.getElementsByClassName('ql-editor')[0].innerHTML = "";
-    document.getElementById('posts_select').innerHTML = "";
-}
-
-//create an opt to represent the blank fields
-function createNewOpt() {
-    let select = document.getElementById("posts_select");
-
-    opt = document.createElement("option");
-    opt.innerText = "Create New Post";
-    opt.value = "";
-    select.appendChild(opt);
-}
-
-//create an opt to represent the blog post
-function createOpt(id, title, date) {
-    let select = document.getElementById("posts_select");
-
-    let opt = document.createElement("option");
-    opt.innerText = title + ", " + date;
-    opt.value = id;
-
-    select.appendChild(opt);
-}
-
-//adds a tag to the post
-async function addTag() {
-    let tagsList = document.getElementById('tags_list')
-    let tagDiv = document.getElementById('tags_display')
-    let newTag = document.getElementById('tags_input')
-
-    let tagText = '#' + newTag.value
-
-    if (!tagsList.innerText.includes(tagText)) {
-        tagsList.innerText = tagsList.innerText + tagText
-
-        let tag = tagButton(tagText)
-        tagDiv.appendChild(tag)
-    }
-    newTag.value = '';
-}
-
-//create a button for a tag
-function tagButton(tagText) {
-    let tag = document.createElement("button");
-    tag.innerText = tagText + ' ☒';
-    tag.id = tagText;
-    tag.addEventListener('click', function (e) {
-        removeTag(this)
-    });
-    return tag
-}
-
-//removes a filter tag from the system
-function removeTag(tag) {
-    let tagsList = document.getElementById('tags_list')
-
-    tagsList.innerText = tagsList.innerText.replace(tag.id, '')
-
-    let remov = document.getElementById(tag.id);
-    remov.remove()
-}
-
-//draws a post on a given div 
-function drawPreview() {
-    let parentDiv = document.getElementById('preview_area')
-    try {
-        newH = document.createElement("h2");
-        newH.innerText = document.getElementById('title_input').value;
-        parentDiv.appendChild(newH)
-
-        let dateH = document.createElement('h3')
-        updated = new Date(document.getElementById('published_input').value);
-        dateH.innerText = updated.toDateString();
-        parentDiv.appendChild(dateH);
-
-        let auth = document.createElement('h3');
-        auth.innerText = document.getElementById('author_input').value;
-        parentDiv.appendChild(auth);
-
-        bodyDiv = document.createElement("div");
-        bodyDiv.classList.add("entry_body");
-        bodyDiv.innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
-        parentDiv.appendChild(bodyDiv);
-    }
-    catch (error) {
-        return;
-    }
 }
 
 async function openPreview() {
@@ -187,4 +61,44 @@ async function openPreview() {
 async function closePreview() {
     let preview_modal = document.getElementById('preview_modal');
     preview_modal.style.display = 'none';
+    document.getElementById('preview_area').innerHTML = '';
+}
+
+//draws a post on a given div 
+function drawPreview() {
+    let parentDiv = document.getElementById('preview_area')
+
+    let postDiv = document.createElement("div");
+    postDiv.id = document.getElementById('posts_select').value
+
+    newH = document.createElement("h2");
+    newH.classList.add("title");
+    newH.innerText = document.getElementById('title_input').value;
+    parentDiv.appendChild(newH)
+
+    let dateH = document.createElement('h3')
+    dateH.classList.add("published");
+    if (!document.getElementById('published_input').value) {
+        dateH.innerText = 'DRAFT';
+    }
+    else {
+        dateH.innerText = document.getElementById('published_input').value;
+    }
+
+    parentDiv.appendChild(dateH);
+
+    let auth = document.createElement('h3');
+    auth.classList.add("author");
+    auth.innerText = document.getElementById('author_input').value;
+    parentDiv.appendChild(auth);
+
+    let bodyDiv = document.createElement("div");
+    bodyDiv.classList.add("body");
+    bodyDiv.innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    parentDiv.appendChild(bodyDiv);
+
+    let tagsDiv = document.createElement("div");
+    tagsDiv.classList.add("tags");
+    tagsDiv.innerHTML = document.getElementById('tags_display').innerHTML
+    parentDiv.appendChild(tagsDiv);
 }

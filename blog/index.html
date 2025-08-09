@@ -47,35 +47,41 @@
         </div>
     </div>
 
-    <div class="body_content flex_column_center">
-        <div class="search_and_tag_div">
-            <div class="tag_div" id="tag_div"></div>
-            <div class="search_div flex_column_center">
-                <input class="search_bar" id="search_bar" type="text" placeholder="Search..">
-                <button class="search_button">🔎</button>
-            </div>
+    <!-- 
+    <div class="">
+        <div class="search_div right_div">
+            <input class="search_bar" id="search_bar" type="text" placeholder="Search..">
+            <button class="search_button">Search</button>
         </div>
-        <div class="blog_content" id="blog_content">
+        
+    </div>
+    -->
 
-        </div>
-        <div class="pagination_div">
-            <span id="pagination"></span>
+    <div class="selected_tags_div center_div" id="selected_tags_div"></div>
 
-        </div>
+    <div class="window_content">
+        <div class="blog_content" id="blog_content"></div>
+        <div class="tags_content" id="tags_content"></div>
+    </div>
 
-        <div class="page_select_div">
-            <button onclick="prevPage()" class="search_button">⫷</button>
-            <select id="pageSelect" onchange="changePage()" class="bottom_drop_down">
+    <!-- 
+    <div class="center_div">
+        <div class="page_select_div center_div">
+            <button onclick="prevPage()" class="small_btn">⫷</button>
+            <select id="pageSelect" onchange="changePage()" class="small_btn">
             </select>
-            <button onclick="nextPage()" class="search_button">⫸</button>
+            <button onclick="nextPage()" class="small_btn">⫸</button>
         </div>
+    </div>
 
-        <select id="postPerPage" onchange="loadPosts()" class="bottom_drop_down">
+    <div class="center_div">
+        <select id="postPerPage" onchange="loadPosts()" class="small_btn">
             <option value="10" id="opt1"> 10 Posts Per Page</option>
             <option value="25" id="opt1"> 25 Posts Per Page</option>
             <option value="50" id="opt1"> 50 Posts Per Page</option>
         </select>
     </div>
+    -->
 </body>
 
 </html>

@@ -77,3 +77,11 @@
 .small_btn {
     width: max-content;
 }
+
+.ql-resize-style-right {
+    float: right;
+}
+
+.ql-resize-style-left {
+    float: left;
+}

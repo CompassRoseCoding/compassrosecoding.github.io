@@ -6,17 +6,6 @@ var deleteOptions = {
     },
 };
 
-//make opts out of list of titles
-async function getTitles(response) {
-    createNewOpt();
-    for (var key in response) {
-        if (key !== 'tagsBar') {
-            createOpt(response[key]['ID'], response[key]['Title'], response[key]['Published'])
-            localStorage.setItem('post_' + key, JSON.stringify(response[key]))
-        }
-    }
-}
-
 //send a get request and return json response
 async function getRequest() {
     let blogUrl = localStorage.getItem('blogUrl');
@@ -28,6 +17,7 @@ async function getRequest() {
 //deletes a post and reloads post list
 async function deletePost() {
     data = {}
+    console.log(document.getElementById("posts_select").value)
     data["id"] = document.getElementById("posts_select").value;
     data["token"] = localStorage.getItem('compassrosecoding_token');
 

@@ -1,4 +1,3 @@
-//const blogURL = "https://u315eql0b6.execute-api.us-east-2.amazonaws.com/blog/posts";
 const blogURL = "https://u315eql0b6.execute-api.us-east-2.amazonaws.com/blog/scratch_blog";
 
 var requestOptions = {
@@ -9,14 +8,6 @@ var requestOptions = {
     },
 };
 
-//TODO: fix search function 
-
-//tags = getTags()
-// search = document.getElementById('search_bar').value
-// const response = await fetch(blogURL + "?labels=" + tags + "&search=" + search, requestOptions)
-// const json = await response.json()
-// return json;
-
 //send a specified request and return json response
 async function sendRequest() {
     const response = await fetch(blogURL, requestOptions)
@@ -26,16 +17,23 @@ async function sendRequest() {
 
 //adds a filter tag to the system
 async function filterTag(tag) {
-    let tags = getTags()
-    localStorage.setItem("tags", tags + tag.innerText + ",")
+    let tags = localStorage.getItem("tags");
+    let tagText = tag.innerText;
 
-    loadPosts()
+    if (!tags.includes(tagText)) {
+        localStorage.setItem("tags", tags + tagText);
+        loadPosts();
+    }
 }
 
 //removes a filter tag from the system
 function unfilterTag(tag) {
-    let tags = getTags();
-    tags = tags.replace(tag.id + ',', '');
+    let tags = localStorage.getItem("tags")
+    let tagText = tag.id;
+
+    console.log(tags, tagText)
+
+    tags = tags.replace('#' + tagText, '');
 
     localStorage.setItem("tags", tags);
     loadPosts()
@@ -97,20 +95,4 @@ function changePage() {
     }
 
     scroll(0, 0)
-}
-
-function getTags() {
-    try {
-        tags = localStorage.getItem("tags")
-    }
-    catch (error) {
-        return ''
-    }
-    
-    if (tags === null || tags === undefined || tags === '' || tags === ',') {
-        return ''
-    }
-    else {
-        return tags
-    }
 }

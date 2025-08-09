@@ -7,8 +7,6 @@ async function blogInit() {
     localStorage.clear()
     localStorage.setItem("tags", "");
 
-    init();
-
     loadPosts();
 }
 
@@ -39,7 +37,7 @@ async function loadPosts() {
 
     for (let i = 0; i < response['tags'].length; i++) {
         let row = document.createElement("div");
-        row.innerHTML = response['tags'][i][0];
+        row.innerHTML = response['tags'][i][0]
         tagsDiv.appendChild(row)
 
         row = document.createElement("text");
@@ -47,10 +45,7 @@ async function loadPosts() {
         tagsDiv.appendChild(row);
     }
 
-    let sideBtns = document.getElementsByTagName('button');
-    for (let i = 0; i < sideBtns.length; i++) {
-        sideBtns[i].innerText = sideBtns[i].innerText.replace(' ☒', '')
-    }
+    let sideBtns = document.getElementsByTagName()
 }
 
 /** 

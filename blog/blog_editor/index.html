@@ -15,26 +15,29 @@
     <script src="getDeleteFunctions.js"></script>
     <script src="postFunctions.js"></script>
     <script src="pageFunctions.js"></script>
+    <script src="htmlFunctions.js"></script>
 </head>
 
 <body>
     <div class="login_modal" id="login_modal">
         <h3 class="login_header">Login</h3>
         <input type="text" class="login_input" id="username_input" placeholder="username" />
-        <input type="password" class="login_input" id="password_input" placeholder="password"/>
+        <input type="password" class="login_input" id="password_input" placeholder="password" />
         <button id='login_btn' class="login_header" onclick="login()">Login</button>
         <text id='error_message' class="error_message">Invalid usename or password</button>
     </div>
 
     <div class="preview_modal" id="preview_modal">
         <div class="preview_area" id="preview_area">
-
         </div>
         <div class="preview_btns">
             <button class="cancel_button" onclick="closePreview()">Cancel</button>
             <button class="draft_button" onclick="postBlog('<draft>')">Save as Draft</button>
             <button class="publish_button" onclick="postBlog('')">Publish</button>
         </div>
+    </div>
+
+    <div hidden id="processing_modal">
     </div>
 
     <div class="editor_modal" id="editor_modal">
@@ -83,7 +86,6 @@
 
                 <input type="date" id="published_input" class="left_input" />
 
-                <p id="tags_list" hidden></p>
                 <div id="tags_display" class="tags_display" contenteditable="false"></div>
                 <input id="tags_input" class="left_input" placeholder="Tags" />
 
@@ -96,7 +98,43 @@
         <!-- Sourced from https://github.com/mudoo/quill-resize-module?tab=readme-ov-file -->
         <link href="https://cdn.jsdelivr.net/npm/quill-resize-module@2.0.3/dist/resize.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/quill-resize-module@2.0.3/dist/resize.js"></script>
-        <script src="editor.js"></script>
+        <script>
+            var quill = new Quill('#editor', {
+                theme: 'snow',
+                history: {
+                    delay: 1000, // Changes within 1000ms are merged
+                    maxStack: 100, // Maximum size of the undo/redo stack
+                    userOnly: false // Tracks programmatic changes as well as user input
+                },
+                modules: {
+                    resize: {
+                        // set embed tags to capture resize
+                        embedTags: ["VIDEO", "IFRAME"],
+                        // custom toolbar
+                        tools: [
+                            "left",
+                            "center",
+                            "right",
+                            "full",
+                            "edit",
+                            {
+                                text: "Alt",
+                                verify(activeEle) {
+                                    return activeEle && activeEle.tagName === "IMG";
+                                },
+                                handler(evt, button, activeEle) {
+                                    let alt = activeEle.alt || "";
+                                    alt = window.prompt("Alt for image", alt);
+                                    if (alt == null) return;
+                                    activeEle.setAttribute("alt", alt);
+                                },
+                            },
+                        ],
+                    },
+                    toolbar: '#toolbar-container',
+                }
+            });
+        </script>
 </body>
 
 </html>
