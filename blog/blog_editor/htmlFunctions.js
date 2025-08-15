@@ -13,13 +13,14 @@ function createOpt(id, title, date) {
 function selectPost() {
     let select = document.getElementById("posts_select");
 
-    if (select.value !== "") {
+    if (select.value !== "TEMP_ID") {
         let process = document.getElementById(select.value);
 
         document.getElementById('author_input').value = process.getElementsByClassName('author')[0].innerText;
         document.getElementById('title_input').value = process.getElementsByClassName('title')[0].innerText;
+        document.getElementById('subtitle_input').value = process.getElementsByClassName('subtitle')[0].innerText;
         document.getElementById('published_input').value = process.getElementsByClassName('published')[0].innerText;
-        document.getElementsByClassName('ql-editor')[0].innerHTML = process.getElementsByClassName('body')[0].innerHTML;
+        document.getElementById('editor').getElementsByClassName('ql-editor')[0].innerHTML = process.getElementsByClassName('body')[0].innerHTML;
         document.getElementById('tags_display').innerHTML = process.getElementsByClassName('tags')[0].innerHTML;
     }
     else {
@@ -33,11 +34,9 @@ async function getTitles(response) {
 
     let process = document.getElementById('processing_modal');
     process.innerHTML = response['html'];
-    let responseArr = process.getElementsByClassName('preview_area')
+    let responseArr = process.getElementsByClassName('post_div')
 
     for (let item of responseArr) {
-        console.log(process)
-
         let id = item.id;
         let title = item.getElementsByClassName('title')[0].innerText;
         let published = item.getElementsByClassName('published')[0].innerText;
@@ -62,16 +61,17 @@ async function addTag() {
 //create a button for a tag
 function tagButton(tagText) {
     let tag = document.createElement("button");
-    tag.innerText = tagText + ' ☒';
+    tag.innerText = tagText;
     tag.id = tagText;
-    tag.addEventListener('click', function (e) {
-        removeTag(this)
-    });
+    tag.classList.add('tagButton')
+    tag.onclick = function (event) {
+        filterTag(tag)
+    }
     return tag
 }
 
 //removes a filter tag from the system
-function removeTag(tag) {
-    let remov = document.getElementById(tag.id);
-    remov.remove()
-}
+var filterTag = function(param) {
+    console.log(param)
+    param.remove()
+};

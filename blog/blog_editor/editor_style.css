@@ -2,6 +2,11 @@ input {
     border: 1px solid gray;
 }
 
+p {
+    margin-top: 0;
+    margin-bottom: 10px !important;
+}
+
 .login_modal {
     width: 30vw;
     height: 30vh;
@@ -54,7 +59,7 @@ input {
     z-index: 1;
 }
 
-.preview_area {
+.post_div {
     border: 1px black solid;
 
     overflow-y: scroll;
@@ -65,20 +70,6 @@ input {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
-
-.preview_area .ql-align-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.preview_area p {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.preview_area img {}
-
 
 .preview_btns {
     display: flex;
@@ -92,10 +83,6 @@ input {
 
 .editor_modal {
     display: none;
-}
-
-.current {
-    color: lightblue;
 }
 
 .page_btn {
@@ -147,7 +134,7 @@ input {
 
 .right_container {
     width: 8.5in;
-    height: 50vh;
+    height: 80vh;
 }
 
 .left_container {
@@ -168,82 +155,7 @@ input {
     margin-bottom: 10px;
 }
 
-.preview_area .current {
-    color: lightblue;
-}
-
-.preview_area .window_content {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
-
-.preview_area .selected_tags_div {
-    display: none;
-}
-
-.preview_area .tags_content {
-    width: 15vw;
-    height: max-content;
-
-    margin-top: 30px;
-
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    column-gap: 20px;
-
-    border: 1px black solid;
-}
-
-.preview_area .tag_button {
-    height: 25px;
-
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.preview_area .blog_content {
-    width: 80vw;
-}
-
-.preview_area .page_btn {
-    text-decoration: none;
-    text-align: center;
-
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    width: 3in;
-}
-
-.preview_area .ql-align-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.preview_area .center_div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.preview_area .right_div {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-}
-
-.preview_area .small_btn {
-    width: max-content;
-}
-
-.preview_area .ql-resize-style-right {
-    float: right;
-}
-
-.preview_area .ql-resize-style-left {
-    float: left;
+.ql-code-block-container {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 10px;
 }

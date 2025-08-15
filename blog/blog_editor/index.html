@@ -8,6 +8,11 @@
     <link rel="icon" href="../resources/images/compass_icon.png">
 
     <link rel="stylesheet" href="editor_style.css" />
+    <link rel="stylesheet" href="../post_style.css" />
+
+    <link rel="stylesheet" href="custom_highlight.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
@@ -16,6 +21,7 @@
     <script src="postFunctions.js"></script>
     <script src="pageFunctions.js"></script>
     <script src="htmlFunctions.js"></script>
+
 </head>
 
 <body>
@@ -28,7 +34,7 @@
     </div>
 
     <div class="preview_modal" id="preview_modal">
-        <div class="preview_area" id="preview_area">
+        <div class="post_div" id="post_div">
         </div>
         <div class="preview_btns">
             <button class="cancel_button" onclick="closePreview()">Cancel</button>
@@ -81,23 +87,21 @@
 
             <div class="left_container">
                 <input type="text" class="left_input" id="title_input" placeholder="Title" />
-
+                <input type="text" class="left_input" id="subtitle_input" placeholder="Subtitle" />
                 <input type="text" class="left_input" id="author_input" placeholder="Author" />
-
                 <input type="date" id="published_input" class="left_input" />
-
                 <div id="tags_display" class="tags_display" contenteditable="false"></div>
                 <input id="tags_input" class="left_input" placeholder="Tags" />
-
                 <button id='save_btn' class="left_input" onclick="openPreview()">Publish</button>
-
                 <button id='delete_btn' class="left_input" onclick="deletePost()">Delete Post</button>
             </div>
         </div>
 
         <!-- Sourced from https://github.com/mudoo/quill-resize-module?tab=readme-ov-file -->
+        <!-- (for some reason does not work well when in Head, NEEDS to be in body) -->
         <link href="https://cdn.jsdelivr.net/npm/quill-resize-module@2.0.3/dist/resize.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/quill-resize-module@2.0.3/dist/resize.js"></script>
+
         <script>
             var quill = new Quill('#editor', {
                 theme: 'snow',
@@ -131,6 +135,7 @@
                             },
                         ],
                     },
+                    syntax: true,
                     toolbar: '#toolbar-container',
                 }
             });

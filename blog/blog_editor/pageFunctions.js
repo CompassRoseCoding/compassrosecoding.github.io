@@ -45,8 +45,9 @@ function resetTimer() {
 function clearPage() {
     document.getElementById('author_input').value = '';
     document.getElementById('title_input').value = '';
+    document.getElementById('subtitle_input').value = '';
     document.getElementById('published_input').value = '';
-    document.getElementsByClassName('ql-editor')[0].innerHTML = '';
+            document.getElementById('editor').getElementsByClassName('ql-editor')[0].innerHTML = '';
     document.getElementById('tags_display').innerHTML = '';
     document.getElementById('tags_input').value = ""
 }
@@ -54,27 +55,32 @@ function clearPage() {
 async function openPreview() {
     let preview_modal = document.getElementById('preview_modal');
     preview_modal.style.display = 'block';
-    document.getElementById('preview_area').innerHTML = '';
+    document.getElementById('post_div').innerHTML = '';
     drawPreview()
 }
 
 async function closePreview() {
     let preview_modal = document.getElementById('preview_modal');
     preview_modal.style.display = 'none';
-    document.getElementById('preview_area').innerHTML = '';
+    document.getElementById('post_div').innerHTML = '';
 }
 
 //draws a post on a given div 
 function drawPreview() {
-    let parentDiv = document.getElementById('preview_area')
+    let parentDiv = document.getElementById('post_div')
 
     let postDiv = document.createElement("div");
     postDiv.id = document.getElementById('posts_select').value
 
-    newH = document.createElement("h2");
-    newH.classList.add("title");
-    newH.innerText = document.getElementById('title_input').value;
-    parentDiv.appendChild(newH)
+    let title = document.createElement("h2");
+    title.classList.add("title");
+    title.innerText = document.getElementById('title_input').value;
+    parentDiv.appendChild(title)
+
+    let subtitle = document.createElement("h3");
+    subtitle.classList.add("subtitle");
+    subtitle.innerText = document.getElementById('subtitle_input').value;
+    parentDiv.appendChild(subtitle)
 
     let dateH = document.createElement('h3')
     dateH.classList.add("published");
@@ -94,11 +100,16 @@ function drawPreview() {
 
     let bodyDiv = document.createElement("div");
     bodyDiv.classList.add("body");
-    bodyDiv.innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    let body = document.getElementById('editor').getElementsByClassName('ql-editor')[0];
+    let selects = body.getElementsByClassName('ql-ui');
+    for (let i = 0; i < selects.length; i++) {
+        selects[i].remove()
+    }
+    bodyDiv.innerHTML = body.innerHTML;
     parentDiv.appendChild(bodyDiv);
 
     let tagsDiv = document.createElement("div");
     tagsDiv.classList.add("tags");
-    tagsDiv.innerHTML = document.getElementById('tags_display').innerHTML
+    tagsDiv.innerHTML = document.getElementById('tags_display').innerHTML.replaceAll('">', '" onclick="filterTag(this)">');
     parentDiv.appendChild(tagsDiv);
 }

@@ -22,7 +22,6 @@ async function login() {
     postOptions['body'] = JSON.stringify(data);
 
     let response = await postRequest(loginUrl, postOptions);
-    console.log(response)
     if (response !== 0 && 'token' in response) {
         let token = response['token'];
         localStorage.setItem('compassrosecoding_token', token)
@@ -41,7 +40,7 @@ async function postBlog(status) {
 
     data = {};
     data["id"] = select.value;
-    data["body"] = document.getElementById('preview_area').outerHTML.replaceAll('id="preview_area"', 'id="' + select.value + '"');
+    data["body"] = document.getElementById('post_div').outerHTML.replaceAll('id="post_div"', 'id="' + select.value + '"');
 
     data["token"] = localStorage.getItem('compassrosecoding_token');
 

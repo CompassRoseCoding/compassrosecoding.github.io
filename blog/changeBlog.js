@@ -16,27 +16,21 @@ async function sendRequest() {
 }
 
 //adds a filter tag to the system
-async function filterTag(tag) {
-    let tags = localStorage.getItem("tags");
-    let tagText = tag.innerText;
+const filterTag = function (param) {
+    let filters = document.getElementById('selected_tags_div');
 
-    if (!tags.includes(tagText)) {
-        localStorage.setItem("tags", tags + tagText);
-        loadPosts();
+    if (!filters.innerHTML.includes(param.innerText)) {
+        let clone = param.cloneNode(true);
+        filters.appendChild(clone)
+        clone.outerHTML = clone.outerHTML.replace('filter', 'unfilter').replace('tagButton', 'filterButton');
+        filterBlog();
     }
-}
+};
 
 //removes a filter tag from the system
-function unfilterTag(tag) {
-    let tags = localStorage.getItem("tags")
-    let tagText = tag.id;
-
-    console.log(tags, tagText)
-
-    tags = tags.replace('#' + tagText, '');
-
-    localStorage.setItem("tags", tags);
-    loadPosts()
+const unfilterTag = function (param) {
+    param.remove();
+    filterBlog();
 }
 
 //gives the same effect to hitting enter as hitting the submit button
@@ -48,51 +42,28 @@ function handle(e) {
 }
 
 function prevPage() {
-    let currPg = document.getElementById('pageSelect').value
+    let pgSelect = document.getElementById('pageSelect')
 
-    if (currPg - 1 >= 0 && document.getElementById('prev').classList.contains('valid_arrow')) {
-        document.getElementById('pageSelect').value = currPg - 1
-        changePage();
+    if (pgSelect.value > 1) {
+        pgSelect.value = pgSelect.value - 1;
+        filterBlog();
     }
 }
 
 function nextPage() {
-    let currPg = document.getElementById('pageSelect').value;
-    let nextPg = parseInt(currPg) + 1
-    
-    if (document.getElementById('opt' + nextPg) !== null && document.getElementById('next').classList.contains('valid_arrow')) {
-        document.getElementById('pageSelect').value = nextPg
-        changePage();
+    let pgSelect = document.getElementById('pageSelect')
+
+    if (document.getElementById('pg' + (parseInt(pgSelect.value) + 1))) {
+        pgSelect.value = (parseInt(pgSelect.value) + 1);
+        console.log(pgSelect.value)
+        filterBlog();
     }
 }
 
-function changePage() {
-    pages = document.getElementsByClassName('page_content')
-    for (let i = 0; i < pages.length; i++) {
-        pages[i].style.display = 'none'
-    }
-
-    destination = parseInt(document.getElementById('pageSelect').value);
-    document.getElementById('content' + destination).style.display = 'block'
-    
-    prev = document.getElementById('prev')
-    if (destination - 1 === 0) {
-        prev.classList.add('invalid_arrow')
-        prev.classList.remove('valid_arrow')
-    }
-    else {
-        prev.classList.remove('invalid_arrow')
-        prev.classList.add('valid_arrow')
-    }
-    next = document.getElementById('next')
-    if (document.getElementById('opt' + (destination + 1)) === null) {
-        next.classList.remove('valid_arrow')
-        next.classList.add('invalid_arrow')
-    }
-    else {
-        next.classList.remove('invalid_arrow')
-        next.classList.add('valid_arrow')
-    }
-
-    scroll(0, 0)
+function createPgOption(pgNum) {
+    let pgBtn = document.createElement("option");
+    pgBtn.innerText = pgNum;
+    pgBtn.value = pgNum;
+    pgBtn.id = 'pg' + pgNum;
+    return pgBtn;
 }
