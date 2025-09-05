@@ -44,8 +44,8 @@ async function init() {
     halfcircleright(ctx, centerY, centerY * .75 - (.025 * centerY), orange, .05 * centerY)
     halfcircleright(ctx, centerY, centerY * .75 + (.025 * centerY), tcotta, .05 * centerY)
 
-    star(ctx, centerY, 22.5, centerY * .5, .1, gold, bronze)
-    star(ctx, centerY, 67.5, centerY * .5, .1, gold, bronze)
+    star(ctx, centerY, 22.5, centerY * .5, .2, gold, bronze)
+    star(ctx, centerY, 67.5, centerY * .5, .2, gold, bronze)
     star(ctx, centerY, 45, centerY * .75, .1, red, maroon)
 
     await animateStar(ctx, centerY, 0, centerY, .15, turq, dusk, 100)

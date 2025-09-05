@@ -19,7 +19,7 @@ function designInit() {
 */
 function switchOriginal() {
     document.getElementById('header_iframe').src = "../header/header.html";
-    init();
+    document.getElementById('design_css').href = "resources/design_style.css";
 }
 
 /**
@@ -49,7 +49,7 @@ function switchRetro() {
 */
 function switchImage() {
     document.getElementById('header_iframe').src = "../header/header.html";
-    init();
+    document.getElementById('design_css').href = "image/image_style.css";
 }
 
 /**

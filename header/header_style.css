@@ -1,10 +1,17 @@
-.header_height {
-    height: 15vw;
-    max-height: 150px;
+.header {
+    width: 100%;
+    overflow: hidden;
+
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+
+    background-image: url(../resources/images/canyon_contour.svg);
 }
 
-.header_text_size {
-    font-size: min(5vw, 30px);
+.header_background {
+    mask: linear-gradient(black, black, transparent);
+backdrop-filter: blur(8px);
 }
 
 .page_btn {
@@ -15,48 +22,26 @@
 
     margin-top: 0;
     margin-bottom: 0;
-}
 
-.header_top {
-    width: 100%;
-
-    position: relative;
-}
-
-.header_underlay {
-    position: absolute;
-    top: 0;
-
-    width: 100%;
-    overflow: hidden;
-
-    background-image: url(../resources/images/canyon_contour.svg);
-    mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
-}
-
-.header_overlay {
-    position: absolute;
-    top: 0;
-
-    width: 100%;
+    border-radius: 20px;
 }
 
 .compass_div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
-    max-width: max-content;
+    width: 100%;
 
     margin-left: auto;
     margin-right: auto;
 }
 
 .header_canvas {
-    width: auto;
-    height: 100%;
+    width: 20vw;
+    height: 20vw;
 
     margin-left: 20px;
     margin-right: 20px;
@@ -77,15 +62,6 @@
 }
 
 @media (max-width: 600px) {
-    .header {
-        width: 100%;
-        overflow: hidden;
-
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-    }
-
     .mobile_menu {
         display: flex;
         flex-direction: row;
@@ -121,28 +97,9 @@
     .header_text {
         display: none;
     }
-
-    .header_bg {
-        width: 100vw;
-        max-width: 100%;
-        overflow: hidden;
-
-        margin-top: 0;
-
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 28%);
-    }
 }
 
 @media (min-width: 600px) {
-    .header {
-        width: 100%;
-        overflow: hidden;
-
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-    }
-
     .mobile_menu {
         display: none;
     }
@@ -162,17 +119,5 @@
 
         width: max-content;
         max-width: 60vw;
-    }
-
-    .header_bg {
-        width: 100vw;
-        max-width: 100%;
-        overflow: hidden;
-
-        margin-top: 0;
-
-        filter: invert(71%) sepia(1%) saturate(0%) hue-rotate(159deg) brightness(97%) contrast(91%);
-
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 28%);
     }
 }
