@@ -3,6 +3,34 @@
     src: url('Flannel_bingo/fredericka-the-great/FrederickatheGreat-Regular.ttf');
 }
 
+html {
+    margin-left: 0;
+    margin-right: 0;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.header_iframe {
+    width: 100%;
+    height: 25vw;
+    max-height: 200px;
+
+    border: none;
+
+    overflow: hidden;
+}
+
 .links_div {
     width: 100%;
     height: 4vw;

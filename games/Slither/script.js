@@ -37,11 +37,21 @@ var gameon = true;
  */
 window.onload = init;
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function init() {
     newEnemy();
     update();
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function update() {
     context.clearRect(0, 0, canvas2.height, canvas2.width);
     for (let i = 0; i < pos.length; i++) {
@@ -95,6 +105,11 @@ function update() {
 }
 
 // our snake eats an apple and gets longer
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function eatApple(index) {
     cpos.splice(index, 1);
     pos.push(pos[pos.length - 1]);
@@ -102,12 +117,22 @@ function eatApple(index) {
 
 
 // enemy snake eats an apple and gets longer
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function enemyApple(index) {
     cpos.splice(index, 1);
     enemypos.push(enemypos[enemypos.length - 1]);
 }
 
 // is the snake close enough to eat the apple?
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function checkDistance(x1, y1, x2, y2) {
     xdiff = x1 - x2
     ydiff = y1 - y2
@@ -118,6 +143,11 @@ function checkDistance(x1, y1, x2, y2) {
 }
 
 // adds a new candy apple to the screen
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function newCandy(count) {
     xpos = Math.floor(Math.random() * xCenter)
     ypos = Math.floor(Math.random() * yCenter)
@@ -136,6 +166,11 @@ function newCandy(count) {
 }
 
 // draws the circles
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function draw(x, y, r, color) {
     context.beginPath();
     context.arc(x, y, r, 0, 2 * Math.PI, false);
@@ -145,6 +180,11 @@ function draw(x, y, r, color) {
 }
 
 // create new enemy snake 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function newEnemy() {
     //randomly initializes the enemy snake position
     enemypos = [[Math.floor(Math.random() * xCenter * 2) - xCenter, Math.floor(Math.random() * yCenter * 2) - yCenter]];
@@ -153,6 +193,11 @@ function newEnemy() {
 
 // ai for enemy snake; essentially it goes straight for a given distance then randomly turns
 // this decides the distance and which direction it turns
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function enemyturn() {
     // algorithm - either 1, -1, or 0
     let coinflip = Math.floor(Math.random() * xCenter);
@@ -164,6 +209,11 @@ function enemyturn() {
 
 ////// Arrow keys //////
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function move(e) {
     if (gameon) {
         let xpos = pos[0][0]
@@ -195,6 +245,11 @@ function move(e) {
 document.onkeydown = move;
 
 //controls the red snake AI
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function enemyMotion() {
     let xpos = enemypos[0][0]
     let ypos = enemypos[0][1]

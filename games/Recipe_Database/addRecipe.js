@@ -9,6 +9,11 @@ var postOptions = {
     },
 };
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function postRecipe() {
     var modal = document.getElementById("addModal");
     modal.style.display = "none";

@@ -13,27 +13,23 @@ const bg_gray = '#EAEAEA'
 
 // windows tracker
 window.dataLayer = window.dataLayer || [];
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 
 gtag('config', 'G-VKT25Q38Q1');
 
-// opens and closes the menu
-function dropDown() {
-    tabs = document.getElementById("tabs_div")
-    arrow = document.getElementById("menu_span")
-
-    if (tabs.style.display === "flex") {
-        arrow.style.transform = "rotate(0deg)"
-        tabs.style.display = "none"
-    }
-    else {
-        arrow.style.transform = "rotate(90deg)"
-        tabs.style.display = "flex"
-    }
-}
 
 // draw the compass on load
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 async function init() {
     const canvas = document.getElementById("header_canvas");
     const ctx = canvas.getContext("2d");
@@ -55,8 +51,32 @@ async function init() {
     await animateStar(ctx, centerY, 0, centerY, .15, turq, dusk, 100)
 }
 
+// opens and closes the menu
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
+function dropDown() {
+    tabs = document.getElementById("tabs_div")
+    arrow = document.getElementById("menu_span")
+
+    if (tabs.style.display === "flex") {
+        arrow.style.transform = "rotate(0deg)"
+        tabs.style.display = "none"
+    }
+    else {
+        arrow.style.transform = "rotate(90deg)"
+        tabs.style.display = "flex"
+    }
+}
 
 // create a star shape with time delay
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 async function animateStar(ctx, origin, offsetAngle, pointLength, cornerFrac, col1, col2, wait) {
     for (let i = 0; i < 4; i++) {
         ctx.beginPath();
@@ -108,6 +128,11 @@ async function animateStar(ctx, origin, offsetAngle, pointLength, cornerFrac, co
 
 
 // create a star shape without time delay
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function star(ctx, origin, offsetAngle, pointLength, cornerFrac, col1, col2) {
     for (let i = 0; i < 4; i++) {
         ctx.beginPath();
@@ -147,6 +172,11 @@ function star(ctx, origin, offsetAngle, pointLength, cornerFrac, col1, col2) {
 
 
 // create a half circle - two tone
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function halfcircleleft(ctx, center, radius, color, width) {
     ctx.beginPath();
     ctx.lineWidth = width;
@@ -157,6 +187,11 @@ function halfcircleleft(ctx, center, radius, color, width) {
 
 
 // create a half circle - two tone
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function halfcircleright(ctx, center, radius, color, width) {
     ctx.beginPath();
     ctx.lineWidth = width;

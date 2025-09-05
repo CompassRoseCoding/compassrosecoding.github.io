@@ -1,3 +1,128 @@
+:root {
+    --white: #ffffff;
+    --gold: hsl(30, 50%, 35%);
+    --bronze: #998133;
+    --red: #c02a19;
+    --maroon: #772e25;
+    --turq: #51c8ff;
+    --dusk: #13a0ec;
+    --orange: #bf8040;
+    --tcotta: #86592d;
+    --bg_gray: #8c8c8c;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header_canvas {
+    width: 15vw;
+    height: 15vw;
+
+    margin: 20px;
+}
+
+img,
+image,
+.image_only_div {
+    display: none;
+}
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.header {
+    width: 100%;
+    height: 23vw;
+    overflow: hidden;
+
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+
+    background-color: black;
+}
+
+.tabs_div {
+    width: 100%;
+    height: 4vw;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    background-color: white;
+}
+
+.page_btn {
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    font-size: 3vw;
+    color: black;
+    text-decoration: none;
+}
+
+.header_underlay {
+    margin-top: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.header_bg {
+    display: none;
+}
+
+.header_overlay {
+    position: absolute;
+    top: calc(5vw + 5px);
+
+    width: 98%;
+}
+
+.compass_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    max-width: max-content;
+    height: max-content;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header_text, .page_header {
+    font-size: 4vw;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    font-weight: 100;
+
+    align-self: center;
+
+    width: max-content;
+    max-width: 60vw;
+
+    color: white;
+}
+
+.page_header {
+    color: var(--turq)
+}
+
+
+.landscape {
+    max-width: 80vw;
+    margin: auto;
+}
+
+.portrait {
+    max-width: 50vw;
+    margin: auto;
+}
+
 p, label, h3 {
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
@@ -48,4 +173,161 @@ select {
 
 .image_only_div_div {
     display: none;
+}
+
+
+.header_height {
+    height: 15vw;
+    max-height: 150px;
+}
+
+.header_text_size {
+    font-size: min(5vw, 30px);
+}
+
+.page_btn {
+    background: white;
+    color: var(--tcotta);
+    text-decoration: none;
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.header_top {
+    width: 100%;
+
+    position: relative;
+}
+
+.header_underlay {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    overflow: hidden;
+
+    background-image: url(../resources/images/canyon_contour.svg);
+    mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
+}
+
+.header_overlay {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+}
+
+.compass_div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    max-width: max-content;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page_header {
+    color: var(--tcotta);
+
+    align-self: center;
+
+    width: max-content;
+    max-width: 60vw;
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .header {
+        width: 100%;
+        overflow: hidden;
+
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    .mobile_menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu_span {
+        color: var(--tcotta);
+        text-decoration: none;
+    }
+
+    .menu_btn {
+        background: white;
+        color: var(--tcotta);
+        text-decoration: none;
+
+        max-width: max-content;
+
+        border: none;
+    }
+
+    .tabs_div {
+        display: none;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header_text {
+        display: none;
+    }
+
+    .header_bg {
+        width: 100vw;
+        max-width: 100%;
+        overflow: hidden;
+
+        margin-top: 0;
+
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 28%);
+    }
+}
+
+@media (min-width: 600px) {
+    .mobile_menu {
+        display: none;
+    }
+
+    .tabs_div {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .header_text {
+        align-self: center;
+
+        width: max-content;
+        max-width: 60vw;
+    }
+
+    .header_bg {
+        width: 100vw;
+        max-width: 100%;
+        overflow: hidden;
+
+        margin-top: 0;
+
+        filter: invert(71%) sepia(1%) saturate(0%) hue-rotate(159deg) brightness(97%) contrast(91%);
+
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 28%);
+    }
 }

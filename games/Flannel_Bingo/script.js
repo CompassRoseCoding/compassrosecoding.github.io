@@ -1,5 +1,10 @@
 var options = "red,orange,yellow,green,blue,black or purple,brown,white,blue and green,black and red,orange and blue,red and green,rainbow,red and yellow,red and brown,blue and brown,green and yellow,white and red,blue and white,black and white,only one color,any three colors,green and black,green and yellow,any four colors,non plaid pattern"
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function loadCard() {
   init();
   if (localStorage.getItem("order") === null || localStorage.getItem("order").includes("undefined")) {
@@ -10,6 +15,11 @@ function loadCard() {
   }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function readCard() {
   order = localStorage.getItem("order").substring(1).split(",")
   selection = localStorage.getItem("selection").substring(1).split(",")
@@ -30,6 +40,11 @@ function readCard() {
   check()
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function newCard() {
   localStorage.setItem("order", "")
   localStorage.setItem("selection", "")
@@ -44,6 +59,11 @@ function newCard() {
 
 
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function newTr(localOptions) {
   tr = document.createElement("tr")
   for (i = 0; i < 5; i++) {
@@ -56,6 +76,11 @@ function newTr(localOptions) {
   return tr
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function centerTr(localOptions) {
   tr = document.createElement("tr")
   for (i = 0; i < 2; i++) {
@@ -80,6 +105,11 @@ function centerTr(localOptions) {
   tr.className = "bingoRow"
   return tr
 }
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function randomizeFlannel(localOptions) {
   idx = Math.floor(Math.random() * localOptions.length)
   val = localOptions[idx]
@@ -87,6 +117,11 @@ function randomizeFlannel(localOptions) {
   return val
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function newBtn(label, classes) {
   btn = document.createElement("button")
   btn.innerHTML = label
@@ -99,17 +134,32 @@ function newBtn(label, classes) {
   return btn
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function clickReg(btn) {
   btn.className = "btn selBtn"
   btn.onclick = clickSel.bind(btn, btn)
   check()
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function clickSel(btn) {
   btn.className = "btn regBtn"
   btn.onclick = clickReg.bind(btn, btn)
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function clearCard() {
   localStorage.clear();
 

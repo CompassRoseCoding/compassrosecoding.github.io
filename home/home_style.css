@@ -2,6 +2,34 @@ p {
     font-family: 'Resamitz';
 }
 
+html {
+    margin-left: 0;
+    margin-right: 0;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.header_iframe {
+    width: 100%;
+    height: 25vw;
+    max-height: 200px;
+
+    border: none;
+
+    overflow: hidden;
+}
+
 .body_content {
     width: 85%;
 
@@ -47,7 +75,7 @@ p {
 }
 
 .pad_email_form {
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -61,4 +89,3 @@ p {
     font-family: 'Prida36';
     font-size: 30px;
 }
-

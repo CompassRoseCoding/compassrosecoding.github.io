@@ -75,6 +75,11 @@ bgImg.src = "assets/starBG.jpg";
 var radChanges = 0;
 var gameon = true;
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function turnIn() {
     if (radChanges < 10 ) {
         planets[6].orbitRad = planets[6].orbitRad - 1 / 50;
@@ -82,6 +87,11 @@ function turnIn() {
     }
 };
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function turnOut() {
     if (radChanges < 10 ) {
         planets[6].orbitRad = planets[6].orbitRad + 1 / 50;
@@ -89,6 +99,11 @@ function turnOut() {
     }
 };
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function initOrb() {
     init();
 
@@ -107,15 +122,30 @@ function initOrb() {
 }
 
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function orbSim() {
     let days = 0;
     //Timer for updating the canvas every 1ms
-    setInterval(function () {
+    setInterval(/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
+function () {
         gameTick(days)
         days = days + 1
     }, 1);
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function gameTick(days) {
     context.clearRect(0, 0, canvas.height, canvas.width); //Clearing the canvas
     context.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
@@ -165,15 +195,30 @@ function gameTick(days) {
     drawRotated(6, planets[6].currentx, planets[6].currenty, planets[6].size * canvas.width, days);
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function findX(radius, angle) {
     return xCenter + (radius * Math.cos(angle * Math.PI / 180) * .75)
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function findY(radius, angle) {
     return yCenter + (radius * Math.sin(angle * Math.PI / 180) * .75)
 }
 
 //Calculates the orbiter position along it's preset trajectory
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function drawOrbiter(days) {
         if (days % 5 === 0 && gameon) {
             planets[6].orbitRad = planets[6].orbitRad + 1 / 300;
@@ -189,7 +234,17 @@ function drawOrbiter(days) {
         planets[6].currenty = planets[6].gravCenter[1] + (orb * Math.sin(currentPos * Math.PI / 180) * .75);
 }
 
-//Psyche needs its own draw function because I need to make sure the lit side stays facing the sun
+//Psyche needs its own draw /**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
+function because I need to make sure the lit side stays facing the sun
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function drawPsyche(days) {
     let i = 5;
     //Current position in degrees
@@ -207,6 +262,11 @@ function drawPsyche(days) {
     drawRotated(i, planets[i].currentx, planets[i].currenty, size, days);
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function drawRotated(i, xcor, ycor, size, days) {
     //math: rad is how much the object should be rotated
     var rad = (days * planets[i].delta % 360) * Math.PI / 180;
@@ -222,6 +282,11 @@ function drawRotated(i, xcor, ycor, size, days) {
     context.translate(0 - xcor, 0 - ycor);
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function findDistance(x1, y1, x2, y2) {
     return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
 } 

@@ -1,5 +1,10 @@
 const chkTemplate = "<div name=\"unchecked\ id=\"[div_id]\"><input type=\"checkbox\" id=\"[chk_id]\" onclick=\"checkOff('[div_id]')\"><label for=\"[chk_id]\">[chk_txt]</label></div>"
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 async function viewList() {
     itemExists("list")
     list = localStorage.getItem("list");
@@ -22,6 +27,11 @@ async function viewList() {
     await openModal('listModal');
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function addToGroceryList() {
     var ingredients = document.getElementById("ingredientsText").innerText.split('\n');
     itemExists("list")
@@ -31,6 +41,11 @@ function addToGroceryList() {
 }
 
 //Check the items off the list: move them to the bottom just in case you need to refer to them. 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function checkOff(id) {
     var chk = document.getElementById(id)
     var chkBox = document.getElementById(id.replace('_div', ''))
@@ -50,12 +65,22 @@ function checkOff(id) {
 }
 
 //This allows me to make sure that any localStorage item exists before trying to call it
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function itemExists(item) {
     if (!(item in localStorage) || localStorage.getItem(item) === null) {
         localStorage.setItem(item, "")
     }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function clearChecked() {
     var checks = document.getElementsByName("checked_box");
     var start = document.getElementById("list-content");
@@ -66,6 +91,11 @@ function clearChecked() {
     localStorage.setItem("list", start.innerHTML)
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function clearAll() {
     var start = document.getElementById("list-content");
     start.innerHTML = "";

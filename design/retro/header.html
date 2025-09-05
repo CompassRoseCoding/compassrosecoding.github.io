@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link href="retro_style.css" rel="stylesheet" type="text/css" />
+    <link href="../resources/root_style.css" rel="stylesheet" type="text/css" />
+
+    <script src="../resources/designOps.js"></script>
+</head>
+
+<body onload="retroCompass()">
+    <div class="header" id="header">
+        <div class="mobile_menu">
+            <button class="menu_btn" onclick="dropDown()">Menu </button>
+            <button class="menu_span menu_btn" id="menu_span" onclick="dropDown()">></button>
+        </div>
+        <div class="tabs_div" id="tabs_div">
+            <a class="page_btn" target="_top" href="../../home">Home</a>
+            <a class="page_btn" target="_top" href="../../resume">Resume</a>
+            <a class="page_btn" target="_top" href="../../design">Design</a>
+            <a class="page_btn" target="_top" href="../../games">Games</a>
+            <a class="page_btn" target="_top" href="../../blog">Blog</a>
+        </div>
+        <div class="compass_div">
+            <h1 class="header_text" y="50">Compass Rose Coding</h1>
+            <canvas class="header_canvas" id="retro_header_canvas" height="500" width="500"></canvas>
+            <h1 class="page_header">Home</h1>
+        </div>
+    </div>
+</body>

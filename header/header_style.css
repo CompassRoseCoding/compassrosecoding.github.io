@@ -1,65 +1,10 @@
-/* universal colors */
-:root {
-    --white: #ffffff;
-    --gold: hsl(30, 50%, 35%);
-    --bronze: #998133;
-    --red: #c02a19;
-    --maroon: #772e25;
-    --turq: #51c8ff;
-    --dusk: #13a0ec;
-    --orange: #bf8040;
-    --tcotta: #86592d;
-    --bg_gray: #8c8c8c;
-}
-
-/* universal fonts */
-@font-face {
-    font-family: 'Resamitz';
-    src: url('fonts/Resamitz.otf');
-}
-
-@font-face {
-    font-family: 'Prida01';
-    src: url('fonts/Prida01.otf');
-}
-
-@font-face {
-    font-family: 'Prida02';
-    src: url('fonts/Prida02Calt.otf');
-}
-
-@font-face {
-    font-family: 'Prida36';
-    src: url('fonts/Prida36.ttf');
-}
-
-@font-face {
-    font-family: 'Prida61';
-    src: url('fonts/Prida61.otf');
-}
-
-@font-face {
-    font-family: 'Prida65';
-    src: url('fonts/Prida65.otf');
-}
-
-body {
-    margin-left: 0;
-    margin-right: 0;
-
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
 .header_height {
     height: 15vw;
     max-height: 150px;
 }
 
 .header_text_size {
-    font-size: min(10vw, 5vh);
+    font-size: min(5vw, 30px);
 }
 
 .page_btn {
@@ -85,7 +30,7 @@ body {
     width: 100%;
     overflow: hidden;
 
-    background-image: url(./images/canyon_contour.svg);
+    background-image: url(../resources/images/canyon_contour.svg);
     mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
 }
 

@@ -1,64 +1,61 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Compass Rose Coding | Flannel Bingo</title>
-  <link rel="icon" href="../../resources/images/compass_icon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Compass Rose Coding | Flannel Bingo</title>
+    <link rel="icon" href="../../resources/images/compass_icon.png">
 
-  <link href="../../resources/header_style.css" rel="stylesheet" type="text/css" />
-  <script src="../../resources/header_script.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <script type="text/javascript" src="script.js"></script>
-  <script type="text/javascript" src="check.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="check.js"></script>
 
 </head>
 
 
 <body onload="loadCard()">
-  <!-- general header for all pages with animated compass -->
-  <div class="header" id="header">
-    <div class="mobile_menu">
-      <button class="menu_btn header_text_size" onclick="dropDown()">Menu </button>
-      <button class="menu_span menu_btn header_text_size" id="menu_span" onclick="dropDown()">⫸</button>
-    </div>
-    <div class="tabs_div" id="tabs_div">
-      <a class="current page_btn header_text_size" href="../../home">Home</a>
-      <a class="current page_btn header_text_size" href="../../resume">Resume</a>
-      <a class="current page_btn header_text_size" href="../../design">Design</a>
-      <a class="current page_btn header_text_size" href="../../games">Games</a>
-      <a class="current page_btn header_text_size" href="../../blog">Blog</a>
-    </div>
-    <div class="header_top header_height">
-      <div class="header_underlay header_height">
-      </div>
-      <div class="header_overlay header_height">
-        <div class="compass_div header_height">
-          <h1 class="header_text">Compass Rose Coding</h1>
-          <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
-          <h1 class="page_header header_text_size">Games</h1>
+    <!-- general header for all pages with animated compass -->
+    <div class="header" id="header">
+        <div class="mobile_menu">
+            <button class="menu_btn header_text_size" onclick="dropDown()">Menu </button>
+            <button class="menu_span menu_btn header_text_size" id="menu_span" onclick="dropDown()">⫸</button>
         </div>
-      </div>
+        <div class="tabs_div" id="tabs_div">
+            <a class="current page_btn header_text_size" href="../../home">Home</a>
+            <a class="current page_btn header_text_size" href="../../resume">Resume</a>
+            <a class="current page_btn header_text_size" href="../../design">Design</a>
+            <a class="current page_btn header_text_size" href="../../games">Games</a>
+            <a class="current page_btn header_text_size" href="../../blog">Blog</a>
+        </div>
+        <div class="header_top header_height">
+            <div class="header_underlay header_height">
+            </div>
+            <div class="header_overlay header_height">
+                <div class="compass_div header_height">
+                    <h1 class="header_text">Compass Rose Coding</h1>
+                    <canvas class="header_canvas" id="header_canvas" height="500" width="500"></canvas>
+                    <h1 class="page_header header_text_size">Games</h1>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 
-  <div id="container">
-    <div class="flannel_text">
-      <h1>How many colors of flannel shirt can you see?</h1>
-    </div>
-    <div id="content">
-      <table id="bingotable">
-        <tr>
-          <th class="bingoHeader">B</th>
-          <th class="bingoHeader">I</th>
-          <th class="bingoHeader">N</th>
-          <th class="bingoHeader">G</th>
-          <th class="bingoHeader">O</th>
-        </tr>
-      </table>
-    </div>
+    <div id="container">
+        <div class="flannel_text">
+            <h1>How many colors of flannel shirt can you see?</h1>
+        </div>
+        <div id="content">
+            <table id="bingotable">
+                <tr>
+                    <th class="bingoHeader">B</th>
+                    <th class="bingoHeader">I</th>
+                    <th class="bingoHeader">N</th>
+                    <th class="bingoHeader">G</th>
+                    <th class="bingoHeader">O</th>
+                </tr>
+            </table>
+        </div>
 </body>
 
 </html>

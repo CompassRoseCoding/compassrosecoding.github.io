@@ -81,10 +81,6 @@ p {
     height: 5vh;
 }
 
-.editor_modal {
-    display: none;
-}
-
 .page_btn {
     text-decoration: none;
     text-align: center;

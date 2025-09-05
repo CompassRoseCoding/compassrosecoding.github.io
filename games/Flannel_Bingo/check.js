@@ -1,3 +1,8 @@
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function check() {
   checkH()
   checkV()
@@ -6,6 +11,11 @@ function check() {
   updateSelection()
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function updateSelection() {
   btns = document.getElementsByClassName("btn")
   localStorage.setItem("selection", "")
@@ -14,6 +24,11 @@ function updateSelection() {
   }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function checkH() {
   btns = document.getElementsByClassName("btn")
   for (i = 0; i < 5; i++) {
@@ -33,6 +48,11 @@ function checkH() {
   }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function checkV() {
   btns = document.getElementsByClassName("btn")
   for (i = 0; i < 5; i++) {
@@ -52,6 +72,11 @@ function checkV() {
   }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function checkD1() {
   btns = document.getElementsByClassName("btn")
   row = true;
@@ -68,6 +93,11 @@ function checkD1() {
   }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 function checkD2() {
   btns = document.getElementsByClassName("btn")
   row = true;
@@ -84,6 +114,11 @@ function checkD2() {
   }
 }
 
+/**
+ * EXAMPLE_ME
+ * @param
+ * @returns
+*/
 async function resetWindow() {
   await new Promise(r => setTimeout(r, 500));
   if (confirm("You've won! New card?")) {
