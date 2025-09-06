@@ -155,8 +155,12 @@ async function deletePost() {
  * @param none
  * @returns none
 */
-async function postBlog() {
+async function postBlog(draft) {
     let select = document.getElementById("posts_select");
+
+    if (draft.length > 0) {
+        document.getElementById('post_div').getElementsByClassName('published')[0].value = "DRAFT"
+    }
 
     data = {
         'token': localStorage.getItem('compassrosecoding_token'),
@@ -223,49 +227,18 @@ function createOpt(id, title, date) {
 function drawPreview() {
     let parentDiv = document.getElementById('post_div')
 
-    let postDiv = document.createElement("div");
-    postDiv.id = document.getElementById('posts_select').value
-
-    let title = document.createElement("h2");
-    title.classList.add("title");
-    title.innerText = document.getElementById('title_input').value;
-    parentDiv.appendChild(title)
-
-    let subtitle = document.createElement("h3");
-    subtitle.classList.add("subtitle");
-    subtitle.innerText = document.getElementById('subtitle_input').value;
-    parentDiv.appendChild(subtitle)
-
-    let dateH = document.createElement('h3')
-    dateH.classList.add("published");
-    if (!document.getElementById('published_input').value) {
-        dateH.innerText = 'DRAFT';
-    }
-    else {
-        dateH.innerText = document.getElementById('published_input').value;
+    let dateH = document.getElementById('published_input').value
+    
+    if (dateH === '') {
+        dateH = new Date().toLocaleDateString('en-US');
     }
 
-    parentDiv.appendChild(dateH);
-
-    let auth = document.createElement('h3');
-    auth.classList.add("author");
-    auth.innerText = document.getElementById('author_input').value;
-    parentDiv.appendChild(auth);
-
-    let bodyDiv = document.createElement("div");
-    bodyDiv.classList.add("body");
     let body = document.getElementById('editor').getElementsByClassName('ql-editor')[0];
-    let selects = body.getElementsByClassName('ql-ui');
-    for (let i = 0; i < selects.length; i++) {
-        selects[i].remove()
-    }
-    bodyDiv.innerHTML = body.innerHTML;
-    parentDiv.appendChild(bodyDiv);
 
-    let tagsDiv = document.createElement("div");
-    tagsDiv.classList.add("tags");
-    tagsDiv.innerHTML = document.getElementById('tags_display').innerHTML.replaceAll('">', '" onclick="filterTag(this)">');
-    parentDiv.appendChild(tagsDiv);
+    let tags = document.getElementById('tags_display').innerHTML.replaceAll('">', '" onclick="filterTag(this)">');
+
+    let htmlText = `<summary class="title">${document.getElementById('title_input').value}</summary><h3 class="subtitle">${document.getElementById('subtitle_input').value}</h3><h3 class="published">${dateH}</h3><h3 class="author">${document.getElementById('author_input').value}</h3><div class="body">${body.innerHTML}</div><div class="tags">${tags}</div>`
+    parentDiv.innerHTML = htmlText;
 }
 
 

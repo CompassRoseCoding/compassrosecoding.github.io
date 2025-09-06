@@ -7,6 +7,10 @@ p {
     margin-bottom: 10px !important;
 }
 
+image, img {
+    z-index: 100;
+}
+
 .login_modal {
     width: 30vw;
     height: 30vh;
@@ -60,8 +64,6 @@ p {
 }
 
 .post_div {
-    border: 1px black solid;
-
     overflow-y: scroll;
 
     width: 80vw;
@@ -69,6 +71,11 @@ p {
 
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
+}
+
+summary, h3, .body, .tags {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .preview_btns {
@@ -151,7 +158,27 @@ p {
     margin-bottom: 10px;
 }
 
+.ql-ui {
+    float: left;
+}
+
+.ql-code-block {
+    width: 95%;
+
+    z-index: 5;
+
+    background-color: rgba(255, 255, 255, 1) !important;
+}
+
 .ql-code-block-container {
     font-family: 'Courier New', Courier, monospace;
+
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    width: 80%;
+    height: min-content;
+
+    background-color: rgba(0, 0, 0, 0) !important;
 }
