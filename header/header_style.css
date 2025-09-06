@@ -5,15 +5,34 @@
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+}
 
+.header_background {
+    mask: linear-gradient(black, black, transparent);
+    backdrop-filter: opacity(10%);
     background-image: url(../resources/images/canyon_contour.svg);
+    z-index: -1;
+
+    min-height: 200px;
+}
+
+.header_foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
 }
 
 .page_btn {
-    background: white;
     font-family: "Prida36";
+    font-size: 25px;
+    background: white;
+
+    background: transparent;
     color: var(--tcotta);
     text-decoration: none;
+    text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
 
     margin-top: 0;
     margin-bottom: 0;
@@ -46,9 +65,9 @@
 
 .page_header {
     color: var(--red);
+    text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
 
     font-family: 'Prida65';
-    font-size: 4vw;
 
     align-self: center;
 
@@ -68,20 +87,30 @@
         align-items: center;
     }
 
+    .page_header {
+        font-size: 40px;
+    }
+
     .menu_span {
+        background: transparent;
         color: var(--tcotta);
         text-decoration: none;
+        text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
     }
 
     .menu_btn {
-        background: white;
         font-family: "Prida36";
+        font-size: 25px;
+
+        background: transparent;
         color: var(--tcotta);
         text-decoration: none;
+        text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
 
         max-width: max-content;
 
         border: none;
+        border-radius: 15px;
     }
 
     .tabs_div {
@@ -112,11 +141,17 @@
 
     .header_text {
         font-family: 'Prida65';
-        font-size: 4vw;
+        font-size: max(4vw, 25px);
+
+        text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
 
         align-self: center;
 
         width: max-content;
         max-width: 60vw;
+    }
+
+    .page_header {
+        font-size: max(4vw, 25px);
     }
 }
