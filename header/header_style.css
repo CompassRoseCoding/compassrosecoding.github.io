@@ -9,11 +9,6 @@
     background-image: url(../resources/images/canyon_contour.svg);
 }
 
-.header_background {
-    mask: linear-gradient(black, black, transparent);
-backdrop-filter: blur(8px);
-}
-
 .page_btn {
     background: white;
     font-family: "Prida36";
@@ -42,6 +37,8 @@ backdrop-filter: blur(8px);
 .header_canvas {
     width: 20vw;
     height: 20vw;
+    max-height: 175px;
+    max-width: 175px;
 
     margin-left: 20px;
     margin-right: 20px;
@@ -51,6 +48,7 @@ backdrop-filter: blur(8px);
     color: var(--red);
 
     font-family: 'Prida65';
+    font-size: 4vw;
 
     align-self: center;
 
@@ -114,6 +112,7 @@ backdrop-filter: blur(8px);
 
     .header_text {
         font-family: 'Prida65';
+        font-size: 4vw;
 
         align-self: center;
 
