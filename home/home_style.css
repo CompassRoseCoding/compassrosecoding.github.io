@@ -11,9 +11,7 @@ html {
 }
 
 body {
-    margin-left: 0;
-    margin-right: 0;
-
+    margin: 0;
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
@@ -52,6 +50,45 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.email_form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.input_label {
+    font-family: 'Prida01';
+    font-size: 20px;
+}
+
+.input_text {
+    min-height: 30px;
+    border-radius: 10px;
+
+}
+
+.input_area {
+    min-height: 60px;
+    border-radius: 10px;
+}
+
+.pad_email_form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit_email {
+    background: white;
+    color: var(--tcotta);
+    width: max-content;
+    height: 35px;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-family: 'Prida36';
+    font-size: 30px;
+}
+
 
 .email_form {
     display: grid;

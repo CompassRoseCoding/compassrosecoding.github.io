@@ -136,17 +136,6 @@ body {
     width: max-content;
 }
 
-.post_div .tags {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    width: 75vw;
-
-    margin-bottom: 30px;
-}
-
 .search_highlight {
     background-color: yellow;
 }
@@ -326,14 +315,20 @@ body {
     margin-right: 20px;
 }
 
+.post_div {
+    width: calc(100vw - 250px);
+    max-width: calc(100vw - 250px);
+}
+
 .post_div .title, 
 .post_div .subtitle,
 .post_div .published, 
 .post_div .author,
 .post_div .body, 
-.post_div .tags {
-    width: max-content;
-    max-width: 85vw;
+.post_div .tags,
+.post_div p {
+    width: calc(100vw - 250px);
+    max-width: calc(100vw - 250px);
 }
 
 .post_div .tags {
@@ -411,16 +406,15 @@ body {
 
 .ql-code-block {
     max-width: 95%;
-    width: max-content;
+    width: calc(100vw - 250px);
+    max-width: calc(100vw - 250px);
 }
 
 .ql-code-block-container {
     font-family: 'Courier New', Courier, monospace;
 
-    margin-bottom: 10px;
-    margin-left: 10px;
     margin-right: 10px;
 
-    width: max-content;
-    max-width: 95vw;
+    width: calc(100vw - 250px);
+    max-width: calc(100vw - 250px);
 }

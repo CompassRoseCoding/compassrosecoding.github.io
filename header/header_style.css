@@ -1,3 +1,7 @@
+body, html {
+    margin: 0;
+}
+
 .header {
     width: 100%;
     overflow: hidden;
@@ -27,10 +31,11 @@
 .page_btn {
     font-family: "Prida36";
     font-size: 25px;
-    background: white;
 
-    background: transparent;
+    height: 23px;
+
     color: var(--tcotta);
+    background: white;
     text-decoration: none;
     text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
 
