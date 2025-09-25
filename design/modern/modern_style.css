@@ -1,22 +1,11 @@
 :root {
-    --white: #ffffff;
-    --gold: hsl(30, 50%, 35%);
-    --bronze: #998133;
-    --red: #c02a19;
-    --maroon: #772e25;
-    --turq: #51c8ff;
-    --dusk: #13a0ec;
-    --orange: #bf8040;
     --tcotta: #86592d;
-    --bg_gray: #8c8c8c;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .header_canvas {
-    width: 15vw;
     height: 15vw;
-
-    margin: 20px;
+    max-height: 130px;
+    margin: 10px;
 }
 
 img,
@@ -26,8 +15,7 @@ image,
 }
 
 body {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
 
     width: 100%;
     max-width: 100%;
@@ -37,7 +25,6 @@ body {
 
 .header {
     width: 100%;
-    height: 23vw;
     overflow: hidden;
 
     margin-left: 0;
@@ -49,8 +36,8 @@ body {
 
 .tabs_div {
     width: 100%;
-    height: 4vw;
-    
+    font-size: min(4vw, 25px);
+
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -58,7 +45,7 @@ body {
     background-color: white;
 }
 
-.page_btn {
+.header_tab {
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
     font-size: 3vw;
     color: black;
@@ -95,7 +82,8 @@ body {
     margin-right: auto;
 }
 
-.header_text, .page_header {
+.header_text,
+.page_header {
     font-size: 4vw;
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
     font-weight: 100;
@@ -108,11 +96,6 @@ body {
     color: white;
 }
 
-.page_header {
-    color: var(--turq)
-}
-
-
 .landscape {
     max-width: 80vw;
     margin: auto;
@@ -123,7 +106,9 @@ body {
     margin: auto;
 }
 
-p, label, h3 {
+p,
+label,
+h3 {
     font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 }
 
@@ -131,7 +116,7 @@ select {
     background: white;
     border: solid 2px black;
     border-radius: 10px;
-    
+
     max-width: 80vw;
 }
 
@@ -148,7 +133,7 @@ select {
 .style_button_bar {
     width: 100%;
     height: 4vw;
-    
+
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -185,7 +170,7 @@ select {
     font-size: min(5vw, 30px);
 }
 
-.page_btn {
+.header_tab {
     background: white;
     color: var(--tcotta);
     text-decoration: none;
@@ -207,7 +192,7 @@ select {
     width: 100%;
     overflow: hidden;
 
-    background-image: url(../resources/images/canyon_contour.svg);
+    background-image: url(../header/images/canyon_contour.svg);
     mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);
 }
 
@@ -229,18 +214,6 @@ select {
 
     margin-left: auto;
     margin-right: auto;
-}
-
-.page_header {
-    color: var(--tcotta);
-
-    align-self: center;
-
-    width: max-content;
-    max-width: 60vw;
-
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 @media (max-width: 600px) {
@@ -267,8 +240,8 @@ select {
     }
 
     .menu_btn {
-        background: white;
         color: var(--tcotta);
+        background-color: transparent;
         text-decoration: none;
 
         max-width: max-content;
@@ -310,6 +283,18 @@ select {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .page_header {
+        color: var(--tcotta);
+
+        align-self: center;
+
+        width: max-content;
+        max-width: 60vw;
+
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .header_text {

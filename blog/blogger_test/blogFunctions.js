@@ -16,7 +16,9 @@ var requestOptions = {
  * @param none
  * @returns none
  */
-async function blogInit() {
+async function init() {
+    resizeHeader();
+    markCurrent();
     //TODO: top seven tags
     scroll(0, 0);
 

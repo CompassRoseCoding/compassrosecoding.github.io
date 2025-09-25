@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="editor_style.css" />
-    <link rel="stylesheet" href="../../resources/header_style.css" />
+    <link rel="stylesheet" href="../../header/header_style.css" />
     
     <link rel="stylesheet" href="../post_style.css" />
 
@@ -18,7 +18,7 @@
     <script src="editorFunctions.js"></script>
 </head>
 
-<body onload="editorInit()">
+<body onload="init()">
     <div class="preview_modal" id="preview_modal">
         <details class="post_div" id="post_div" open>
         </details>
@@ -34,8 +34,8 @@
 
     <div class="editor_modal" id="editor_modal">
         <div class="side_by_side">
-            <a class="current page_btn" href="../blog_editor">Editor</a>
-            <a class="page_btn" href="../blog">Blog</a>
+            <a class="current header_tab" href="../blog_editor">Editor</a>
+            <a class="header_tab" href="../blog">Blog</a>
         </div>
 
         <div class="center_obj">

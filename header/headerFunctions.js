@@ -6,13 +6,14 @@ const maroon = '#772e25'
 const turq = '#51c8ff'
 const dusk = '#13a0ec'
 const orange = '#d18f4d'
-const tcotta = '#774f28'
 const gold = '#deae00';
 const bronze = '#725900'
 const bg_gray = '#EAEAEA'
+const tcotta = '#86592d';
 
 // windows tracker
 window.dataLayer = window.dataLayer || [];
+
 /**
  * EXAMPLE_ME
  * @param
@@ -24,13 +25,41 @@ gtag('js', new Date());
 gtag('config', 'G-VKT25Q38Q1');
 
 
-// draw the compass on load
-/**
- * EXAMPLE_ME
- * @param
- * @returns
-*/
-async function init() {
+function resizeHeader() {
+    document.getElementById("header_iframe").contentWindow.document.body.onclick = function () {
+        if (window.innerWidth > 600) {
+            console.log('too wide')
+            return
+        }
+        let iframe = document.getElementById("header_iframe");
+        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+        let tabs = innerDoc.getElementById("tabs_div")
+        let arrow = innerDoc.getElementById("menu_span")
+
+        if (tabs.style.display === "flex") {
+            arrow.style.transform = "rotate(0deg)"
+            tabs.style.display = "none"
+            iframe.style.height = 27 + 'vw'
+        }
+        else {
+            arrow.style.transform = "rotate(90deg)"
+            tabs.style.display = "flex"
+            iframe.style.height = 55 + 'vw'
+        }
+    }
+}
+
+
+function markCurrent(page) {
+    let iframe = document.getElementById('header_iframe');
+    let iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    let head_tab = iframeDocument.getElementById('header_' + page);
+    head_tab.outerHTML = head_tab.outerHTML.replace('header_tab', 'current')
+}
+
+
+async function drawCompass() {
     const canvas = document.getElementById("header_canvas");
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -49,26 +78,6 @@ async function init() {
     star(ctx, centerY, 45, centerY * .75, .1, red, maroon)
 
     await animateStar(ctx, centerY, 0, centerY, .15, turq, dusk, 100)
-}
-
-// opens and closes the menu
-/**
- * EXAMPLE_ME
- * @param
- * @returns
-*/
-function dropDown() {
-    tabs = document.getElementById("tabs_div")
-    arrow = document.getElementById("menu_span")
-
-    if (tabs.style.display === "flex") {
-        arrow.style.transform = "rotate(0deg)"
-        tabs.style.display = "none"
-    }
-    else {
-        arrow.style.transform = "rotate(90deg)"
-        tabs.style.display = "flex"
-    }
 }
 
 // create a star shape with time delay
@@ -97,7 +106,7 @@ async function animateStar(ctx, origin, offsetAngle, pointLength, cornerFrac, co
         ctx.lineTo(origin, origin)
         ctx.stroke()
 
-        await new Promise(resolve => setTimeout(resolve, wait)).then(() => { console.log('wait'); });
+        await new Promise(resolve => setTimeout(resolve, wait))//.then(() => { console.log('wait'); });
 
         const grad = ctx.createLinearGradient(origin, origin, xPt, yPt);
         grad.addColorStop(0, col1);
@@ -106,7 +115,7 @@ async function animateStar(ctx, origin, offsetAngle, pointLength, cornerFrac, co
         ctx.fillStyle = grad;
         ctx.fill();
 
-        await new Promise(resolve => setTimeout(resolve, wait)).then(() => { console.log('wait'); });
+        await new Promise(resolve => setTimeout(resolve, wait))//.then(() => { console.log('wait'); });
 
         ctx.beginPath()
         ctx.fillStyle = col2;
@@ -122,7 +131,7 @@ async function animateStar(ctx, origin, offsetAngle, pointLength, cornerFrac, co
         ctx.strokeStyle = col2;
         ctx.fill()
 
-        await new Promise(resolve => setTimeout(resolve, wait / 2)).then(() => { console.log('wait'); });
+        await new Promise(resolve => setTimeout(resolve, wait / 2))//.then(() => { console.log('wait'); });
     }
 }
 

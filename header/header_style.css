@@ -1,4 +1,51 @@
-body, html {
+/* universal colors */
+:root {
+    --white: #ffffff;
+    --gold: hsl(30, 50%, 35%);
+    --bronze: #998133;
+    --red: #c02a19;
+    --maroon: #772e25;
+    --turq: #51c8ff;
+    --dusk: #13a0ec;
+    --orange: #bf8040;
+    --tcotta: #86592d;
+    --bg_gray: #8c8c8c;
+    --matrix_green: #00F73F;
+}
+
+/* universal fonts */
+@font-face {
+    font-family: 'Resamitz';
+    src: url('fonts/Resamitz.otf');
+}
+
+@font-face {
+    font-family: 'Prida01';
+    src: url('fonts/Prida01.otf');
+}
+
+@font-face {
+    font-family: 'Prida02';
+    src: url('fonts/Prida02Calt.otf');
+}
+
+@font-face {
+    font-family: 'Prida36';
+    src: url('fonts/Prida36.ttf');
+}
+
+@font-face {
+    font-family: 'Prida61';
+    src: url('fonts/Prida61.otf');
+}
+
+@font-face {
+    font-family: 'Prida65';
+    src: url('fonts/Prida65.otf');
+}
+
+body,
+html {
     margin: 0;
 }
 
@@ -14,7 +61,7 @@ body, html {
 .header_background {
     mask: linear-gradient(black, black, transparent);
     backdrop-filter: opacity(10%);
-    background-image: url(../resources/images/canyon_contour.svg);
+    background-image: url(../header/images/canyon_contour.svg);
     z-index: -1;
 
     min-height: 200px;
@@ -28,7 +75,7 @@ body, html {
     width: 100%;
 }
 
-.page_btn {
+.header_tab {
     font-family: "Prida36";
     font-size: 25px;
 
@@ -37,7 +84,22 @@ body, html {
     color: var(--tcotta);
     background: white;
     text-decoration: none;
-    text-shadow: -2px -2px 2px white, 2px -2px 2px white, -2px 2px 2px white, 2px 2px 2px white;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    border-radius: 20px;
+}
+
+.current {
+    font-family: "Prida36";
+    font-size: 25px;
+
+    height: 23px;
+
+    color: var(--tcotta);
+    background: white;
+    text-decoration: none;
 
     margin-top: 0;
     margin-bottom: 0;
@@ -84,6 +146,17 @@ body, html {
 }
 
 @media (max-width: 600px) {
+    .header_iframe {
+        width: 100%;
+        height: 27vw;
+        max-height: 400px;
+        min-height: 100px;
+
+        border: none;
+
+        overflow: hidden;
+    }
+
     .mobile_menu {
         display: flex;
         flex-direction: row;
@@ -132,6 +205,16 @@ body, html {
 }
 
 @media (min-width: 600px) {
+    .header_iframe {
+        width: 100%;
+        height: 27vw;
+        max-height: 200px;
+
+        border: none;
+
+        overflow: hidden;
+    }
+
     .mobile_menu {
         display: none;
     }

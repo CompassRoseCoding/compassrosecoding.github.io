@@ -5,29 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
 
-    <link href="../header/header_style.css" rel="stylesheet" type="text/css" />
-    <link href="../resources/root_style.css" rel="stylesheet" type="text/css" />
-
-    <script src="../header/headerOps.js"></script>
+    <script src="headerFunctions.js"></script>
+    <link href="header_style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- general header for all pages with animated compass -->
 
-<body onload="init()">
+<body onload="drawCompass()">
     <div class="header" id="header">
         <div class="header_background">
         </div>
         <div class="header_foreground">
             <div class="mobile_menu">
-                <button class="menu_btn" onclick="dropDown()">Menu </button>
-                <button class="menu_span menu_btn" id="menu_span" onclick="dropDown()">⫸</button>
+                <button class="menu_btn">Menu </button>
+                <button class="menu_span menu_btn" id="menu_span">⫸</button>
             </div>
             <div class="tabs_div" id="tabs_div">
-                <a class="page_btn" target="_top" href="../home">Home</a>
-                <a class="page_btn" target="_top" href="../resume">Resume</a>
-                <a class="page_btn" target="_top" href="../design">Design</a>
-                <a class="page_btn" target="_top" href="../games">Games</a>
-                <a class="page_btn" target="_top" href="../blog">Blog</a>
+                <a class="header_tab" id="header_home" target="_top" href="../home">Home</a>
+                <a class="header_tab" id="header_resume" target="_top" href="../resume">Resume</a>
+                <a class="header_tab" id="header_design" target="_top" href="../design">Design</a>
+                <a class="header_tab" id="header_games" target="_top" href="../games">Games</a>
+                <a class="header_tab" id="header_blog" target="_top" href="../blog">Blog</a>
             </div>
             <div class="compass_div">
                 <h1 class="header_text">Compass Rose Coding</h1>

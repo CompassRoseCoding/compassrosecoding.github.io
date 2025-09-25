@@ -13,17 +13,17 @@
 
 @font-face {
     font-family: 'Resamitz';
-    src: url('../resources/fonts/Resamitz.otf');
+    src: url('../header/fonts/Resamitz.otf');
 }
 
 @font-face {
     font-family: 'Prida01';
-    src: url('../resources/fonts/Prida01.otf');
+    src: url('../header/fonts/Prida01.otf');
 }
 
 @font-face {
     font-family: 'Prida65';
-    src: url('../resources/fonts/Prida65.otf');
+    src: url('../header/fonts/Prida65.otf');
 }
 
 canvas {

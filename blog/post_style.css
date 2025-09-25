@@ -1,16 +1,3 @@
-:root {
-    --white: #ffffff;
-    --gold: hsl(30, 50%, 35%);
-    --bronze: #998133;
-    --red: #c02a19;
-    --maroon: #772e25;
-    --turq: #51c8ff;
-    --dusk: #13a0ec;
-    --orange: #bf8040;
-    --tcotta: #86592d;
-    --bg_gray: #8c8c8c;
-}
-
 p {
     font-family: 'Arial';
 }

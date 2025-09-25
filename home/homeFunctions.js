@@ -1,15 +1,14 @@
-window.onload = /**
- * EXAMPLE_ME
- * @param
- * @returns
-*/
-function () {
-    document.getElementById('contact_form').addEventListener('submit', /**
- * EXAMPLE_ME
- * @param
- * @returns
-*/
-function (event) {
+async function init() {
+    markCurrent('home');
+    resizeHeader();
+
+    emailjs.init({
+        publicKey: "usP-4IAeMqYT9p1jc6v3n",
+    });
+}
+
+window.onload = function () {
+    document.getElementById('contact_form').addEventListener('submit', function (event) {
 
         event.preventDefault();
 

@@ -19,7 +19,9 @@ var restOptions = {
  * @param none
  * @returns none
 */
-async function editorInit() {
+async function init() {
+    resizeHeader();
+    markCurrent();
     //authenticate token
     data = {
         'token': localStorage.getItem('compassrosecoding_token'),

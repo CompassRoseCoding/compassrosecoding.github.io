@@ -43,6 +43,8 @@ window.onload = init;
  * @returns
 */
 function init() {
+    resizeHeader();
+    markCurrent();
     newEnemy();
     update();
 }

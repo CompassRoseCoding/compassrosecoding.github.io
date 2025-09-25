@@ -16,7 +16,9 @@ var requestOptions = {
  * @param none
  * @returns none
  */
-async function blogInit() {
+async function init() {
+    resizeHeader();
+    markCurrent('blog');
     loadPosts();
 
     let search = document.getElementById('search_bar');

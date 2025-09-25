@@ -1,14 +1,15 @@
 const matrix_green = '#00F73F'
-const turq = '#51c8ff'
-const tcotta = '#86592d';
-
-
+const des_cotta = '#86592d';
+const des_turq = '#51c8ff'
+const des_dusk = '#13a0ec'
 /**
  * EXAMPLE_ME
  * @param none
  * @returns none
 */
-function designInit() {
+function init() {
+    resizeHeader();
+    markCurrent('design');
     initGradient();
 }
 
@@ -19,7 +20,7 @@ function designInit() {
 */
 function switchOriginal() {
     document.getElementById('header_iframe').src = "../header/header.html";
-    document.getElementById('design_css').href = "resources/design_style.css";
+    document.getElementById('design_css').href = "header/design_style.css";
 }
 
 /**
@@ -792,7 +793,7 @@ function modernCompass() {
 
     modernStar(ctx, centerY, 45, centerY * .75, .1, .02 * centerY, "white", "black")
 
-    modernStar(ctx, centerY, 0, centerY, .15, .02 * centerY, turq, "black")
+    modernStar(ctx, centerY, 0, centerY, .15, .02 * centerY, des_dusk, des_turq)
 }
 
 /**
@@ -841,7 +842,7 @@ function modernStar(ctx, origin, offsetAngle, pointLength, cornerFrac, lineWidth
  * @returns none
 */
 function modernCircle(ctx, center, radius, width) {
-    ctx.strokeStyle = tcotta;
+    ctx.strokeStyle = des_cotta;
     ctx.lineWidth = width;
 
     ctx.beginPath();
