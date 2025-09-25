@@ -7,17 +7,15 @@
     <title>Compass Rose Coding | Home</title>
     <link rel="icon" href="../header/images/compass_icon.png">
 
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKT25Q38Q1"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script src="../header/headerFunctions.js"></script>
     <link href="../header/header_style.css" rel="stylesheet" type="text/css" />
 
     <script src="homeFunctions.js"></script>
     <link href="home_style.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body onload="init()">
@@ -54,25 +52,23 @@
             questions you can ask yourself and several tools to help you pick styles and color schemes.
         </p>
         <div class="button_bar">
-            <button class="submit_email" id="goto_design" onclick="window.location.href='/design'">Open Design
+            <button class="design_button" id="goto_design" onclick="window.location.href='/design'">Design
                 Page</button>
         </div>
 
         <div class="email_div">
             <h1 class="section_header center_header">Have a question? Send an email today!</h1>
-            <form id="contact_form" class="content">
+            <form id="contact_form" class="contact_form">
                 <div class="email_form">
                     <label class="input_label">Name:</label>
                     <input type="text" name="user_name" id="user_name" class="input_text">
                     <label class="input_label">Email:</label>
                     <input type="email" name="user_email" id="user_email" class="input_text">
                     <label class="input_label">Message:</label>
-                    <textarea name="message" class="input_area" id="input_area"></textarea>
-                    <div class="g-recaptcha pad_email_form" data-sitekey="6LdtETAqAAAAACdALJBPsGRLFbrBNoxUojXQK6AH">
+                    <textarea name="user_message" class="input_area" id="user_message"></textarea>
+                    <div class="g-recaptcha pad_email_form" data-sitekey="6LepLdUrAAAAALQonN5MWoRvy5-LsmV5Sz9c9CUr">
                     </div>
-                    <div class="button_bar">
-                        <input type="submit" value="Send" class="submit_email">
-                    </div>
+                    <input type="submit" value="Send" class="submit_email pad_email_form">
                 </div>
             </form>
         </div>

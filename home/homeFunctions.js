@@ -3,16 +3,13 @@ async function init() {
     resizeHeader();
 
     emailjs.init({
-        publicKey: "usP-4IAeMqYT9p1jc6v3n",
+        publicKey: "4IAeMqYT9p1jc6v3n",
     });
-}
 
-window.onload = function () {
     document.getElementById('contact_form').addEventListener('submit', function (event) {
-
         event.preventDefault();
 
-        let fields = ['user_name', 'user_email']
+        let fields = ['user_name', 'user_email', 'user_message']
     
         for (let i = 0; i < 2; i++) {
             let field = document.getElementById(fields[i]);
@@ -25,7 +22,7 @@ window.onload = function () {
             }
         }
 
-        emailjs.sendForm('service_facjbxg', 'template_poy4uku', this)
+        emailjs.sendForm('service_r4k2lfw', 'template_mh4ndrv', this)
             .then(() => {
                 console.log('send SUCCESS!');
                 alert("Email Sent!")
